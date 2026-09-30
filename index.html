@@ -1,0 +1,3482 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="StyloCaps - Gorras con estilo, calidad y diseño."
+    >
+
+    <title>STYLOCAPS | Gorras con estilo</title>
+
+
+    <style>
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f5f5;
+
+            color: #111;
+
+            overflow-x: hidden;
+        }
+
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+
+        button {
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            width: 100%;
+
+            background: rgba(10, 10, 10, 0.96);
+
+            backdrop-filter: blur(10px);
+
+            color: white;
+
+            padding: 18px 6%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            box-shadow:
+                0 5px 25px rgba(0,0,0,.15);
+        }
+
+
+        .logo {
+            font-size: 25px;
+
+            font-weight: 900;
+
+            letter-spacing: 4px;
+
+            white-space: nowrap;
+        }
+
+
+        nav {
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+        }
+
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: .2s;
+        }
+
+
+        nav a:hover {
+            opacity: .6;
+        }
+
+
+        .cart-button {
+            border: none;
+
+            background: white;
+
+            color: #111;
+
+            padding: 11px 17px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            transition: .2s;
+        }
+
+
+        .cart-button:hover {
+            transform: translateY(-2px);
+
+            background: #ddd;
+        }
+
+
+        #cartCount {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 22px;
+
+            height: 22px;
+
+            margin-left: 5px;
+
+            background: #e63946;
+
+            color: white;
+
+            border-radius: 50%;
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            min-height: 650px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.68),
+                    rgba(0,0,0,.68)
+                ),
+                url("Imagenes/beisbolera.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        .hero-content {
+            color: white;
+
+            max-width: 850px;
+
+            padding: 30px;
+
+            animation:
+                aparecer .8s ease;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        .hero-small {
+
+            font-size: 14px;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 20px;
+
+            font-weight: bold;
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(
+                45px,
+                8vw,
+                90px
+            );
+
+            line-height: 1;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero p {
+
+            font-size: 20px;
+
+            color: #ddd;
+
+            margin-bottom: 35px;
+        }
+
+
+        .hero-button {
+
+            display: inline-block;
+
+            background: white;
+
+            color: #111;
+
+            text-decoration: none;
+
+            padding: 16px 35px;
+
+            border-radius: 40px;
+
+            font-weight: 900;
+
+            transition: .25s;
+        }
+
+
+        .hero-button:hover {
+
+            transform:
+                translateY(-4px);
+
+            background: #ddd;
+
+        }
+
+
+        /* =====================================================
+           SECCIÓN
+        ===================================================== */
+
+        .section {
+
+            padding:
+                90px 6%;
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .section-title span {
+
+            font-size: 12px;
+
+            color: #777;
+
+            letter-spacing: 4px;
+
+            font-weight: bold;
+        }
+
+
+        .section-title h2 {
+
+            font-size: 45px;
+
+            margin-top: 10px;
+        }
+
+
+        /* =====================================================
+           BARRA DE BÚSQUEDA
+        ===================================================== */
+
+        .filters {
+
+            max-width: 900px;
+
+            margin:
+                0 auto 45px;
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr;
+
+            gap: 15px;
+        }
+
+
+        .filters input,
+        .filters select {
+
+            width: 100%;
+
+            padding: 15px 18px;
+
+            border: 1px solid #ddd;
+
+            background: white;
+
+            border-radius: 12px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+
+        .filters input:focus,
+        .filters select:focus {
+
+            border-color: #111;
+
+        }
+
+
+        /* =====================================================
+           PRODUCTOS
+        ===================================================== */
+
+        .products {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+        }
+
+
+        .product {
+
+            background: white;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0,0,0,.07);
+
+            transition:
+                .3s;
+
+            animation:
+                aparecer .6s ease;
+        }
+
+
+        .product:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                0 18px 40px
+                rgba(0,0,0,.14);
+        }
+
+
+        .product-image {
+
+            height: 350px;
+
+            background: #eee;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+
+        .product-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .4s;
+        }
+
+
+        .product:hover
+        .product-image img {
+
+            transform:
+                scale(1.06);
+        }
+
+
+        .badge {
+
+            position: absolute;
+
+            top: 15px;
+
+            left: 15px;
+
+            background: #111;
+
+            color: white;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            z-index: 2;
+        }
+
+
+        .product-info {
+
+            padding: 25px;
+        }
+
+
+        .product-info h3 {
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .price {
+
+            font-size: 27px;
+
+            font-weight: 900;
+
+            margin-bottom: 12px;
+        }
+
+
+        .description {
+
+            color: #666;
+
+            line-height: 1.5;
+
+            min-height: 48px;
+        }
+
+
+        .stock {
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+
+        .product-buttons {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+
+        .btn {
+
+            border: none;
+
+            padding: 13px;
+
+            border-radius: 9px;
+
+            font-weight: bold;
+
+            transition: .2s;
+        }
+
+
+        .btn-details {
+
+            background: #eee;
+
+            color: #111;
+        }
+
+
+        .btn-details:hover {
+
+            background: #ddd;
+        }
+
+
+        .btn-buy {
+
+            background: #111;
+
+            color: white;
+        }
+
+
+        .btn-buy:hover {
+
+            opacity: .8;
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .modal {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 3000;
+
+            background:
+                rgba(0,0,0,.78);
+
+            padding: 25px;
+
+            overflow-y: auto;
+        }
+
+
+        .modal.active {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        .modal-box {
+
+            width: 100%;
+
+            max-width: 950px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            position: relative;
+
+            max-height: 94vh;
+
+            overflow-y: auto;
+
+            animation:
+                aparecer .3s ease;
+        }
+
+
+        .close {
+
+            position: absolute;
+
+            right: 18px;
+
+            top: 10px;
+
+            border: none;
+
+            background: transparent;
+
+            font-size: 38px;
+
+            line-height: 1;
+
+            color: #111;
+
+            z-index: 10;
+        }
+
+
+        /* =====================================================
+           DETALLES
+        ===================================================== */
+
+        .details-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 35px;
+        }
+
+
+        .details-image {
+
+            height: 550px;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            background: #eee;
+        }
+
+
+        .details-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        .details-info {
+
+            padding: 20px 10px;
+        }
+
+
+        .details-info h2 {
+
+            font-size: 40px;
+
+            margin: 15px 0;
+        }
+
+
+        .details-description {
+
+            color: #666;
+
+            line-height: 1.6;
+
+            margin-bottom: 20px;
+        }
+
+
+        .product-data {
+
+            background: #f5f5f5;
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+        }
+
+
+        .field {
+
+            margin-bottom: 18px;
+        }
+
+
+        .field label {
+
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+        }
+
+
+        .field input,
+        .field select {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 9px;
+
+            background: white;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+
+        .field input:focus,
+        .field select:focus {
+
+            border-color: #111;
+        }
+
+
+        .big-button {
+
+            width: 100%;
+
+            background: #111;
+
+            color: white;
+
+            border: none;
+
+            padding: 16px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            font-size: 16px;
+        }
+
+
+        .big-button:hover {
+
+            opacity: .8;
+        }
+
+
+        /* =====================================================
+           CARRITO
+        ===================================================== */
+
+        .cart-box {
+
+            max-width: 780px;
+        }
+
+
+        .cart-box h2 {
+
+            margin-bottom: 25px;
+
+            font-size: 30px;
+        }
+
+
+        .cart-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 18px 0;
+
+            border-bottom:
+                1px solid #ddd;
+        }
+
+
+        .cart-item img {
+
+            width: 85px;
+
+            height: 85px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+        }
+
+
+        .cart-info {
+
+            flex: 1;
+        }
+
+
+        .cart-info h3 {
+
+            margin-bottom: 5px;
+        }
+
+
+        .cart-info p {
+
+            font-size: 13px;
+
+            color: #666;
+
+            margin: 3px 0;
+        }
+
+
+        .quantity {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        .quantity button {
+
+            width: 32px;
+
+            height: 32px;
+
+            border: none;
+
+            border-radius: 6px;
+
+            background: #111;
+
+            color: white;
+
+            font-size: 18px;
+        }
+
+
+        .delete {
+
+            border: none;
+
+            background: #e63946;
+
+            color: white;
+
+            padding: 9px;
+
+            border-radius: 7px;
+        }
+
+
+        .empty {
+
+            text-align: center;
+
+            padding: 40px;
+
+            color: #777;
+        }
+
+
+        .total {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            padding: 25px 0;
+
+            border-bottom:
+                1px solid #ddd;
+        }
+
+
+        /* =====================================================
+           DATOS CLIENTE
+        ===================================================== */
+
+        .customer {
+
+            margin-top: 25px;
+
+            background: #f5f5f5;
+
+            padding: 25px;
+
+            border-radius: 15px;
+        }
+
+
+        .customer h3 {
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =====================================================
+           ENTREGA
+        ===================================================== */
+
+        .delivery-info {
+
+            background: #fff;
+
+            border: 1px solid #ddd;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-top: 10px;
+
+            font-size: 13px;
+
+            color: #666;
+        }
+
+
+        /* =====================================================
+           BOTONES CARRITO
+        ===================================================== */
+
+        .cart-actions {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 2fr;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+
+        .empty-cart {
+
+            border: none;
+
+            background: #ddd;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+        }
+
+
+        .whatsapp {
+
+            border: none;
+
+            background: #25D366;
+
+            color: white;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            font-size: 15px;
+        }
+
+
+        .whatsapp:hover {
+
+            opacity: .85;
+        }
+
+
+        /* =====================================================
+           CONTACTO
+        ===================================================== */
+
+        .contact {
+
+            background: white;
+
+            text-align: center;
+
+            padding: 100px 20px;
+        }
+
+
+        .contact p {
+
+            color: #666;
+
+            margin-bottom: 25px;
+        }
+
+
+        .contact-button {
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: #25D366;
+
+            color: white;
+
+            padding: 15px 30px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+        }
+
+
+        .phone {
+
+            margin-top: 20px;
+
+            color: #111 !important;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #111;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 45px 20px;
+        }
+
+
+        footer .logo {
+
+            margin-bottom: 10px;
+        }
+
+
+        footer p {
+
+            color: #aaa;
+
+            margin: 6px;
+        }
+
+
+        /* =====================================================
+           WHATSAPP FLOTANTE
+        ===================================================== */
+
+        .floating-whatsapp {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            width: 62px;
+
+            height: 62px;
+
+            background: #25D366;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 50%;
+
+            text-decoration: none;
+
+            font-size: 29px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,.25);
+
+            z-index: 2500;
+
+            transition: .25s;
+        }
+
+
+        .floating-whatsapp:hover {
+
+            transform:
+                scale(1.1);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE TABLET
+        ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .products {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .details-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .details-image {
+
+                height: 400px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE CELULAR
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 18px;
+
+                padding: 18px 20px;
+
+            }
+
+
+            nav {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+
+            }
+
+
+            .hero {
+
+                min-height: 550px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 48px;
+
+            }
+
+
+            .section {
+
+                padding:
+                    65px 20px;
+
+            }
+
+
+            .section-title h2 {
+
+                font-size: 35px;
+
+            }
+
+
+            .filters {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .products {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .product-buttons {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .product-image {
+
+                height: 330px;
+
+            }
+
+
+            .modal {
+
+                padding: 12px;
+
+            }
+
+
+            .modal-box {
+
+                padding: 20px;
+
+            }
+
+
+            .details-info h2 {
+
+                font-size: 32px;
+
+            }
+
+
+            .cart-item {
+
+                flex-wrap: wrap;
+
+            }
+
+
+            .cart-actions {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .floating-whatsapp {
+
+                width: 55px;
+
+                height: 55px;
+
+                right: 18px;
+
+                bottom: 18px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header>
+
+        <div class="logo">
+            STYLOCAPS
+        </div>
+
+
+        <nav>
+
+            <a href="#inicio">
+                Inicio
+            </a>
+
+            <a href="#catalogo">
+                Catálogo
+            </a>
+
+            <a href="#contacto">
+                Contacto
+            </a>
+
+
+            <button
+                class="cart-button"
+                onclick="openCart()"
+            >
+
+                🛒 Carrito
+
+                <span id="cartCount">
+                    0
+                </span>
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <section
+        id="inicio"
+        class="hero"
+    >
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                STYLOCAPS
+            </div>
+
+            <h1>
+                Gorras con estilo.
+            </h1>
+
+            <p>
+                Diseños que hablan por ti.
+            </p>
+
+            <a
+                href="#catalogo"
+                class="hero-button"
+            >
+                VER CATÁLOGO
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CATALOGO
+    ===================================================== -->
+
+    <section
+        id="catalogo"
+        class="section"
+    >
+
+        <div class="section-title">
+
+            <span>
+                NUESTRA COLECCIÓN
+            </span>
+
+            <h2>
+                Elige tu estilo
+            </h2>
+
+        </div>
+
+
+        <!-- FILTROS -->
+
+        <div class="filters">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔎 Buscar una gorra..."
+                oninput="filterProducts()"
+            >
+
+
+            <select
+                id="priceFilter"
+                onchange="filterProducts()"
+            >
+
+                <option value="all">
+                    Todos los precios
+                </option>
+
+                <option value="50000">
+                    Hasta $50.000
+                </option>
+
+                <option value="60000">
+                    Hasta $60.000
+                </option>
+
+                <option value="70000">
+                    Hasta $70.000
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- PRODUCTOS -->
+
+        <div
+            class="products"
+            id="productsContainer"
+        >
+
+
+            <!-- PRODUCTO 1 -->
+
+            <article
+                class="product"
+                data-id="beisbolera"
+            >
+
+                <div class="product-image">
+
+                    <span class="badge">
+                        CALIDAD 1.1
+                    </span>
+
+                    <img
+                        src="Imagenes/beisbolera.jpg"
+                        alt="Gorra Beisbolera"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <h3>
+                        Beisbolera
+                    </h3>
+
+                    <div class="price">
+                        $70.000
+                    </div>
+
+                    <p class="description">
+                        Gorras cerradas con talla
+                        y buenos bordados.
+                        Calidad 1.1.
+                    </p>
+
+                    <p class="stock">
+                        📦 10 disponibles
+                    </p>
+
+
+                    <div class="product-buttons">
+
+                        <button
+                            class="btn btn-details"
+                            onclick="showProduct('beisbolera')"
+                        >
+                            Ver detalles
+                        </button>
+
+
+                        <button
+                            class="btn btn-buy"
+                            onclick="showProduct('beisbolera')"
+                        >
+                            🛒 Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCTO 2 -->
+
+            <article
+                class="product"
+                data-id="premium"
+            >
+
+                <div class="product-image">
+
+                    <span class="badge">
+                        PREMIUM
+                    </span>
+
+                    <img
+                        src="Imagenes/gorra2.jpg"
+                        alt="Gorra Premium"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <h3>
+                        Gorra Premium
+                    </h3>
+
+                    <div class="price">
+                        $55.000
+                    </div>
+
+                    <p class="description">
+                        Gorra moderna con excelente
+                        acabado y diseño.
+                    </p>
+
+                    <p class="stock">
+                        📦 Disponible
+                    </p>
+
+
+                    <div class="product-buttons">
+
+                        <button
+                            class="btn btn-details"
+                            onclick="showProduct('premium')"
+                        >
+                            Ver detalles
+                        </button>
+
+
+                        <button
+                            class="btn btn-buy"
+                            onclick="showProduct('premium')"
+                        >
+                            🛒 Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCTO 3 -->
+
+            <article
+                class="product"
+                data-id="urban"
+            >
+
+                <div class="product-image">
+
+                    <span class="badge">
+                        URBAN
+                    </span>
+
+                    <img
+                        src="Imagenes/gorra3.jpg"
+                        alt="Gorra Urban"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <h3>
+                        Gorra Urban
+                    </h3>
+
+                    <div class="price">
+                        $45.000
+                    </div>
+
+                    <p class="description">
+                        Diseño urbano para
+                        complementar tu estilo.
+                    </p>
+
+                    <p class="stock">
+                        📦 Disponible
+                    </p>
+
+
+                    <div class="product-buttons">
+
+                        <button
+                            class="btn btn-details"
+                            onclick="showProduct('urban')"
+                        >
+                            Ver detalles
+                        </button>
+
+
+                        <button
+                            class="btn btn-buy"
+                            onclick="showProduct('urban')"
+                        >
+                            🛒 Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MODAL PRODUCTO
+    ===================================================== -->
+
+    <div
+        id="productModal"
+        class="modal"
+    >
+
+        <div class="modal-box">
+
+            <button
+                class="close"
+                onclick="closeProduct()"
+            >
+                ×
+            </button>
+
+
+            <div class="details-grid">
+
+
+                <div class="details-image">
+
+                    <img
+                        id="modalImage"
+                        src=""
+                        alt="Producto"
+                    >
+
+                </div>
+
+
+                <div class="details-info">
+
+                    <span class="badge">
+                        STYLOCAPS
+                    </span>
+
+
+                    <h2 id="modalName">
+                        Producto
+                    </h2>
+
+
+                    <div
+                        class="price"
+                        id="modalPrice"
+                    >
+                        $0
+                    </div>
+
+
+                    <p
+                        class="details-description"
+                        id="modalDescription"
+                    >
+                    </p>
+
+
+                    <div
+                        class="product-data"
+                        id="modalData"
+                    >
+                    </div>
+
+
+                    <!-- COLOR -->
+
+                    <div class="field">
+
+                        <label>
+                            🎨 Color
+                        </label>
+
+                        <select id="modalColor">
+
+                            <option value="">
+                                Selecciona un color
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- TALLA -->
+
+                    <div class="field">
+
+                        <label>
+                            📏 Talla
+                        </label>
+
+                        <select id="modalSize">
+
+                            <option value="">
+                                Selecciona una talla
+                            </option>
+
+                            <option value="S">
+                                S
+                            </option>
+
+                            <option value="M">
+                                M
+                            </option>
+
+                            <option value="L">
+                                L
+                            </option>
+
+                            <option value="XL">
+                                XL
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CANTIDAD -->
+
+                    <div class="field">
+
+                        <label>
+                            🔢 Cantidad
+                        </label>
+
+                        <input
+                            type="number"
+                            id="modalQuantity"
+                            value="1"
+                            min="1"
+                            max="10"
+                        >
+
+                    </div>
+
+
+                    <button
+                        class="big-button"
+                        onclick="addToCart()"
+                    >
+                        🛒 AGREGAR AL CARRITO
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL CARRITO
+    ===================================================== -->
+
+    <div
+        id="cartModal"
+        class="modal"
+    >
+
+        <div class="modal-box cart-box">
+
+            <button
+                class="close"
+                onclick="closeCart()"
+            >
+                ×
+            </button>
+
+
+            <h2>
+                🛒 Mi carrito
+            </h2>
+
+
+            <div id="cartItems">
+            </div>
+
+
+            <div class="total">
+
+                <span>
+                    Total productos
+                </span>
+
+                <strong id="cartTotal">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <!-- DATOS CLIENTE -->
+
+            <div class="customer">
+
+                <h3>
+                    📋 Datos del pedido
+                </h3>
+
+
+                <div class="field">
+
+                    <label>
+                        Nombre completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Ej: Juan Pérez"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Teléfono
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="3001234567"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Ciudad
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerCity"
+                        placeholder="Bogotá"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Dirección
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerAddress"
+                        placeholder="Calle 123 # 45-67"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Tipo de entrega
+                    </label>
+
+                    <select id="deliveryType">
+
+                        <option value="">
+                            Selecciona una opción
+                        </option>
+
+                        <option value="Domicilio">
+                            🚚 Domicilio
+                        </option>
+
+                        <option value="Recoger en oficina">
+                            📦 Recoger en oficina
+                        </option>
+
+                        <option value="Entrega acordada">
+                            🤝 Entrega acordada
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Costo del domicilio
+                    </label>
+
+                    <input
+                        type="number"
+                        id="deliveryCost"
+                        value="0"
+                        min="0"
+                        placeholder="Ej: 10000"
+                    >
+
+                    <div class="delivery-info">
+
+                        Si escoges domicilio,
+                        escribe aquí el costo del envío.
+
+                        <br><br>
+
+                        Ejemplo:
+                        <strong>$10.000</strong>
+
+                        <br><br>
+
+                        Si recoges en oficina o acuerdas
+                        la entrega, puedes dejarlo en $0.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL FINAL -->
+
+            <div class="total">
+
+                <span>
+                    Total final
+                </span>
+
+                <strong id="finalTotal">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <!-- BOTONES -->
+
+            <div class="cart-actions">
+
+                <button
+                    class="empty-cart"
+                    onclick="emptyCart()"
+                >
+                    🗑️ Vaciar carrito
+                </button>
+
+
+                <button
+                    class="whatsapp"
+                    onclick="sendOrder()"
+                >
+                    📱 PEDIR POR WHATSAPP
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CONTACTO
+    ===================================================== -->
+
+    <section
+        id="contacto"
+        class="contact"
+    >
+
+        <div class="section-title">
+
+            <span>
+                ¿NECESITAS AYUDA?
+            </span>
+
+            <h2>
+                Hablemos
+            </h2>
+
+        </div>
+
+
+        <p>
+            Escríbenos por WhatsApp para consultar
+            disponibilidad, colores, tallas y entregas.
+        </p>
+
+
+        <a
+            class="contact-button"
+            href="https://wa.me/573001323639"
+            target="_blank"
+        >
+            📱 ESCRIBIR POR WHATSAPP
+        </a>
+
+
+        <p class="phone">
+            300 132 3639
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="logo">
+            STYLOCAPS
+        </div>
+
+        <p>
+            Gorras con estilo 🧢
+        </p>
+
+        <p>
+            Calidad • Diseño • Estilo
+        </p>
+
+        <p>
+            © 2026 StyloCaps
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         WHATSAPP FLOTANTE
+    ===================================================== -->
+
+    <a
+        class="floating-whatsapp"
+        href="https://wa.me/573001323639"
+        target="_blank"
+        title="Escríbenos por WhatsApp"
+    >
+        💬
+    </a>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           PRODUCTOS
+        ===================================================== */
+
+        const products = {
+
+            beisbolera: {
+
+                name: "Beisbolera",
+
+                price: 70000,
+
+                image:
+                    "Imagenes/beisbolera.jpg",
+
+                description:
+                    "Gorras cerradas con talla y buenos bordados. Calidad 1.1.",
+
+                colors: [
+                    "Azul",
+                    "Rojo",
+                    "Negro",
+                    "Amarillo"
+                ],
+
+                stock: 10
+            },
+
+
+            premium: {
+
+                name: "Gorra Premium",
+
+                price: 55000,
+
+                image:
+                    "Imagenes/gorra2.jpg",
+
+                description:
+                    "Gorra moderna con excelente acabado y diseño.",
+
+                colors: [
+                    "Negro",
+                    "Azul"
+                ],
+
+                stock: 10
+            },
+
+
+            urban: {
+
+                name: "Gorra Urban",
+
+                price: 45000,
+
+                image:
+                    "Imagenes/gorra3.jpg",
+
+                description:
+                    "Diseño urbano para complementar tu estilo.",
+
+                colors: [
+                    "Negro",
+                    "Rojo"
+                ],
+
+                stock: 10
+            }
+
+        };
+
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        let cart = [];
+
+        let selectedProduct = null;
+
+
+        /* =====================================================
+           FORMATO PRECIO
+        ===================================================== */
+
+        function money(number) {
+
+            return "$" +
+                Number(number)
+                    .toLocaleString("es-CO");
+
+        }
+
+
+        /* =====================================================
+           CARGAR CARRITO
+        ===================================================== */
+
+        function loadCart() {
+
+            const saved =
+                localStorage.getItem(
+                    "styloCapsCart"
+                );
+
+
+            if (saved) {
+
+                try {
+
+                    cart =
+                        JSON.parse(saved);
+
+                }
+
+                catch {
+
+                    cart = [];
+
+                }
+
+            }
+
+
+            updateCart();
+
+        }
+
+
+        /* =====================================================
+           GUARDAR CARRITO
+        ===================================================== */
+
+        function saveCart() {
+
+            localStorage.setItem(
+                "styloCapsCart",
+                JSON.stringify(cart)
+            );
+
+        }
+
+
+        /* =====================================================
+           MOSTRAR PRODUCTO
+        ===================================================== */
+
+        function showProduct(id) {
+
+            const product =
+                products[id];
+
+
+            if (!product) {
+
+                return;
+
+            }
+
+
+            selectedProduct =
+                id;
+
+
+            document.getElementById(
+                "modalImage"
+            ).src =
+                product.image;
+
+
+            document.getElementById(
+                "modalName"
+            ).textContent =
+                product.name;
+
+
+            document.getElementById(
+                "modalPrice"
+            ).textContent =
+                money(product.price);
+
+
+            document.getElementById(
+                "modalDescription"
+            ).textContent =
+                product.description;
+
+
+            document.getElementById(
+                "modalData"
+            ).innerHTML =
+
+                "📦 Stock: " +
+                product.stock +
+
+                "<br><br>" +
+
+                "🎨 Colores disponibles: " +
+                product.colors.join(", ");
+
+
+            const colorSelect =
+                document.getElementById(
+                    "modalColor"
+                );
+
+
+            colorSelect.innerHTML =
+
+                '<option value="">' +
+                'Selecciona un color' +
+                '</option>';
+
+
+            product.colors.forEach(
+                function(color) {
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+
+                    option.value =
+                        color;
+
+
+                    option.textContent =
+                        color;
+
+
+                    colorSelect.appendChild(
+                        option
+                    );
+
+                }
+            );
+
+
+            document.getElementById(
+                "modalSize"
+            ).value = "";
+
+
+            document.getElementById(
+                "modalQuantity"
+            ).value = 1;
+
+
+            document.getElementById(
+                "productModal"
+            ).classList.add(
+                "active"
+            );
+
+        }
+
+
+        /* =====================================================
+           CERRAR PRODUCTO
+        ===================================================== */
+
+        function closeProduct() {
+
+            document.getElementById(
+                "productModal"
+            ).classList.remove(
+                "active"
+            );
+
+        }
+
+
+        /* =====================================================
+           AGREGAR AL CARRITO
+        ===================================================== */
+
+        function addToCart() {
+
+            if (!selectedProduct) {
+
+                return;
+
+            }
+
+
+            const product =
+                products[
+                    selectedProduct
+                ];
+
+
+            const color =
+                document.getElementById(
+                    "modalColor"
+                ).value;
+
+
+            const size =
+                document.getElementById(
+                    "modalSize"
+                ).value;
+
+
+            const quantity =
+                parseInt(
+                    document.getElementById(
+                        "modalQuantity"
+                    ).value
+                );
+
+
+            if (!color) {
+
+                alert(
+                    "🎨 Selecciona un color."
+                );
+
+                return;
+
+            }
+
+
+            if (!size) {
+
+                alert(
+                    "📏 Selecciona una talla."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !quantity ||
+                quantity < 1
+            ) {
+
+                alert(
+                    "🔢 Selecciona una cantidad válida."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                quantity >
+                product.stock
+            ) {
+
+                alert(
+                    "📦 No hay suficiente stock."
+                );
+
+                return;
+
+            }
+
+
+            const existing =
+                cart.find(
+                    function(item) {
+
+                        return (
+
+                            item.id ===
+                            selectedProduct &&
+
+                            item.color ===
+                            color &&
+
+                            item.size ===
+                            size
+
+                        );
+
+                    }
+                );
+
+
+            if (existing) {
+
+                if (
+                    existing.quantity +
+                    quantity >
+                    product.stock
+                ) {
+
+                    alert(
+                        "📦 Superas el stock disponible."
+                    );
+
+                    return;
+
+                }
+
+
+                existing.quantity +=
+                    quantity;
+
+            }
+
+            else {
+
+                cart.push({
+
+                    id:
+                        selectedProduct,
+
+                    color:
+                        color,
+
+                    size:
+                        size,
+
+                    quantity:
+                        quantity
+
+                });
+
+            }
+
+
+            saveCart();
+
+            updateCart();
+
+            closeProduct();
+
+
+            alert(
+                "🧢 Producto agregado al carrito."
+            );
+
+        }
+
+
+        /* =====================================================
+           ACTUALIZAR CARRITO
+        ===================================================== */
+
+        function updateCart() {
+
+            const container =
+                document.getElementById(
+                    "cartItems"
+                );
+
+
+            const count =
+                document.getElementById(
+                    "cartCount"
+                );
+
+
+            const totalElement =
+                document.getElementById(
+                    "cartTotal"
+                );
+
+
+            const finalElement =
+                document.getElementById(
+                    "finalTotal"
+                );
+
+
+            container.innerHTML = "";
+
+
+            let total = 0;
+
+            let quantityTotal = 0;
+
+
+            if (
+                cart.length === 0
+            ) {
+
+                container.innerHTML = `
+
+                    <div class="empty">
+
+                        🛒
+
+                        <br><br>
+
+                        Tu carrito está vacío.
+
+                        <br>
+
+                        Agrega una gorra
+                        para comenzar.
+
+                    </div>
+
+                `;
+
+            }
+
+
+            cart.forEach(
+                function(item, index) {
+
+                    const product =
+                        products[item.id];
+
+
+                    const subtotal =
+                        product.price *
+                        item.quantity;
+
+
+                    total +=
+                        subtotal;
+
+
+                    quantityTotal +=
+                        item.quantity;
+
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    div.className =
+                        "cart-item";
+
+
+                    div.innerHTML = `
+
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                        >
+
+
+                        <div class="cart-info">
+
+                            <h3>
+                                ${product.name}
+                            </h3>
+
+                            <p>
+                                🎨 Color:
+                                ${item.color}
+                            </p>
+
+                            <p>
+                                📏 Talla:
+                                ${item.size}
+                            </p>
+
+                            <p>
+                                ${money(product.price)}
+                            </p>
+
+                        </div>
+
+
+                        <div class="quantity">
+
+                            <button
+                                onclick="
+                                changeQuantity(
+                                    ${index},
+                                    -1
+                                )
+                                "
+                            >
+                                −
+                            </button>
+
+
+                            <strong>
+                                ${item.quantity}
+                            </strong>
+
+
+                            <button
+                                onclick="
+                                changeQuantity(
+                                    ${index},
+                                    1
+                                )
+                                "
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            class="delete"
+                            onclick="
+                            removeItem(
+                                ${index}
+                            )
+                            "
+                        >
+                            🗑️
+                        </button>
+
+                    `;
+
+
+                    container.appendChild(
+                        div
+                    );
+
+                }
+            );
+
+
+            count.textContent =
+                quantityTotal;
+
+
+            totalElement.textContent =
+                money(total);
+
+
+            updateFinalTotal();
+
+        }
+
+
+        /* =====================================================
+           CAMBIAR CANTIDAD
+        ===================================================== */
+
+        function changeQuantity(
+            index,
+            change
+        ) {
+
+            const item =
+                cart[index];
+
+
+            if (!item) {
+
+                return;
+
+            }
+
+
+            const product =
+                products[item.id];
+
+
+            const newQuantity =
+                item.quantity +
+                change;
+
+
+            if (
+                newQuantity < 1
+            ) {
+
+                return;
+
+            }
+
+
+            if (
+                newQuantity >
+                product.stock
+            ) {
+
+                alert(
+                    "📦 No hay más unidades disponibles."
+                );
+
+                return;
+
+            }
+
+
+            item.quantity =
+                newQuantity;
+
+
+            saveCart();
+
+            updateCart();
+
+        }
+
+
+        /* =====================================================
+           ELIMINAR
+        ===================================================== */
+
+        function removeItem(index) {
+
+            cart.splice(
+                index,
+                1
+            );
+
+
+            saveCart();
+
+            updateCart();
+
+        }
+
+
+        /* =====================================================
+           VACIAR
+        ===================================================== */
+
+        function emptyCart() {
+
+            if (
+                cart.length === 0
+            ) {
+
+                return;
+
+            }
+
+
+            const confirmDelete =
+                confirm(
+                    "¿Seguro que quieres vaciar el carrito?"
+                );
+
+
+            if (
+                !confirmDelete
+            ) {
+
+                return;
+
+            }
+
+
+            cart = [];
+
+
+            saveCart();
+
+            updateCart();
+
+        }
+
+
+        /* =====================================================
+           ABRIR CARRITO
+        ===================================================== */
+
+        function openCart() {
+
+            updateCart();
+
+
+            document.getElementById(
+                "cartModal"
+            ).classList.add(
+                "active"
+            );
+
+        }
+
+
+        /* =====================================================
+           CERRAR CARRITO
+        ===================================================== */
+
+        function closeCart() {
+
+            document.getElementById(
+                "cartModal"
+            ).classList.remove(
+                "active"
+            );
+
+        }
+
+
+        /* =====================================================
+           ACTUALIZAR TOTAL FINAL
+        ===================================================== */
+
+        function updateFinalTotal() {
+
+            let total = 0;
+
+
+            cart.forEach(
+                function(item) {
+
+                    const product =
+                        products[item.id];
+
+
+                    total +=
+                        product.price *
+                        item.quantity;
+
+                }
+            );
+
+
+            const delivery =
+                parseInt(
+                    document.getElementById(
+                        "deliveryCost"
+                    ).value
+                ) || 0;
+
+
+            const final =
+                total +
+                delivery;
+
+
+            document.getElementById(
+                "finalTotal"
+            ).textContent =
+                money(final);
+
+        }
+
+
+        /* =====================================================
+           ACTUALIZAR DOMICILIO
+        ===================================================== */
+
+        document.getElementById(
+            "deliveryCost"
+        ).addEventListener(
+            "input",
+            updateFinalTotal
+        );
+
+
+        /* =====================================================
+           ENVIAR PEDIDO
+        ===================================================== */
+
+        function sendOrder() {
+
+            if (
+                cart.length === 0
+            ) {
+
+                alert(
+                    "🛒 Tu carrito está vacío."
+                );
+
+                return;
+
+            }
+
+
+            const name =
+                document.getElementById(
+                    "customerName"
+                ).value.trim();
+
+
+            const phone =
+                document.getElementById(
+                    "customerPhone"
+                ).value.trim();
+
+
+            const city =
+                document.getElementById(
+                    "customerCity"
+                ).value.trim();
+
+
+            const address =
+                document.getElementById(
+                    "customerAddress"
+                ).value.trim();
+
+
+            const deliveryType =
+                document.getElementById(
+                    "deliveryType"
+                ).value;
+
+
+            const deliveryCost =
+                parseInt(
+                    document.getElementById(
+                        "deliveryCost"
+                    ).value
+                ) || 0;
+
+
+            /* VALIDACIONES */
+
+            if (!name) {
+
+                alert(
+                    "👤 Escribe tu nombre."
+                );
+
+                return;
+
+            }
+
+
+            if (!phone) {
+
+                alert(
+                    "📱 Escribe tu teléfono."
+                );
+
+                return;
+
+            }
+
+
+            if (!city) {
+
+                alert(
+                    "📍 Escribe tu ciudad."
+                );
+
+                return;
+
+            }
+
+
+            if (!address) {
+
+                alert(
+                    "🏠 Escribe tu dirección."
+                );
+
+                return;
+
+            }
+
+
+            if (!deliveryType) {
+
+                alert(
+                    "🚚 Selecciona el tipo de entrega."
+                );
+
+                return;
+
+            }
+
+
+            /* NUMERO PEDIDO */
+
+            let orderNumber =
+                localStorage.getItem(
+                    "styloCapsOrderNumber"
+                );
+
+
+            if (!orderNumber) {
+
+                orderNumber = 1;
+
+            }
+
+            else {
+
+                orderNumber =
+                    parseInt(
+                        orderNumber
+                    ) + 1;
+
+            }
+
+
+            localStorage.setItem(
+                "styloCapsOrderNumber",
+                orderNumber
+            );
+
+
+            const formattedOrder =
+                String(
+                    orderNumber
+                ).padStart(
+                    5,
+                    "0"
+                );
+
+
+            /* CALCULAR */
+
+            let subtotal = 0;
+
+
+            let messageProducts =
+                "";
+
+
+            cart.forEach(
+                function(item) {
+
+                    const product =
+                        products[item.id];
+
+
+                    const productSubtotal =
+                        product.price *
+                        item.quantity;
+
+
+                    subtotal +=
+                        productSubtotal;
+
+
+                    messageProducts +=
+
+                        "🧢 *" +
+                        product.name +
+                        "*\n" +
+
+                        "🎨 Color: " +
+                        item.color +
+                        "\n" +
+
+                        "📏 Talla: " +
+                        item.size +
+                        "\n" +
+
+                        "🔢 Cantidad: " +
+                        item.quantity +
+                        "\n" +
+
+                        "💰 Subtotal: " +
+                        money(
+                            productSubtotal
+                        ) +
+
+                        "\n\n";
+
+                }
+            );
+
+
+            const finalTotal =
+                subtotal +
+                deliveryCost;
+
+
+            /* =================================================
+               MENSAJE WHATSAPP
+            ================================================= */
+
+            let message =
+
+                "Hola StyloCaps 👋\n\n" +
+
+                "🧢 *NUEVO PEDIDO*\n" +
+
+                "━━━━━━━━━━━━━━━━━━\n\n" +
+
+                "🔢 *Pedido:* #" +
+                formattedOrder +
+                "\n\n" +
+
+                "👤 *Cliente:* " +
+                name +
+                "\n" +
+
+                "📱 *Teléfono:* " +
+                phone +
+                "\n" +
+
+                "📍 *Ciudad:* " +
+                city +
+                "\n" +
+
+                "🏠 *Dirección:* " +
+                address +
+                "\n" +
+
+                "🚚 *Entrega:* " +
+                deliveryType +
+                "\n\n" +
+
+                "🛍️ *PRODUCTOS*\n" +
+
+                "━━━━━━━━━━━━━━━━━━\n\n" +
+
+                messageProducts +
+
+                "💰 *Subtotal:* " +
+                money(subtotal) +
+                "\n" +
+
+                "🚚 *Domicilio:* " +
+                money(deliveryCost) +
+                "\n\n" +
+
+                "💵 *TOTAL: " +
+                money(finalTotal) +
+                "*\n\n" +
+
+                "Quiero confirmar mi pedido. 🙌";
+
+
+            /* NUMERO STYLOCAPS */
+
+            const number =
+                "573001323639";
+
+
+            const whatsappURL =
+
+                "https://wa.me/" +
+
+                number +
+
+                "?text=" +
+
+                encodeURIComponent(
+                    message
+                );
+
+
+            /*
+                Usamos location.href
+                para evitar problemas
+                de bloqueo de ventanas.
+            */
+
+            window.location.href =
+                whatsappURL;
+
+        }
+
+
+        /* =====================================================
+           BUSCADOR
+        ===================================================== */
+
+        function filterProducts() {
+
+            const text =
+                document.getElementById(
+                    "search"
+                ).value
+                .toLowerCase()
+                .trim();
+
+
+            const maxPrice =
+                document.getElementById(
+                    "priceFilter"
+                ).value;
+
+
+            const cards =
+                document.querySelectorAll(
+                    ".product"
+                );
+
+
+            cards.forEach(
+                function(card) {
+
+                    const id =
+                        card.dataset.id;
+
+
+                    const product =
+                        products[id];
+
+
+                    const nameMatch =
+                        product.name
+                            .toLowerCase()
+                            .includes(text);
+
+
+                    let priceMatch =
+                        true;
+
+
+                    if (
+                        maxPrice !==
+                        "all"
+                    ) {
+
+                        priceMatch =
+                            product.price <=
+                            parseInt(
+                                maxPrice
+                            );
+
+                    }
+
+
+                    if (
+                        nameMatch &&
+                        priceMatch
+                    ) {
+
+                        card.style.display =
+                            "";
+
+                    }
+
+                    else {
+
+                        card.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           CERRAR MODALES HACIENDO CLICK AFUERA
+        ===================================================== */
+
+        window.addEventListener(
+            "click",
+            function(event) {
+
+                const productModal =
+                    document.getElementById(
+                        "productModal"
+                    );
+
+
+                const cartModal =
+                    document.getElementById(
+                        "cartModal"
+                    );
+
+
+                if (
+                    event.target ===
+                    productModal
+                ) {
+
+                    closeProduct();
+
+                }
+
+
+                if (
+                    event.target ===
+                    cartModal
+                ) {
+
+                    closeCart();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           ESCAPE
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key ===
+                    "Escape"
+                ) {
+
+                    closeProduct();
+
+                    closeCart();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           INICIAR
+        ===================================================== */
+
+        loadCart();
+
+
+    </script>
+
+</body>
+
+</html>

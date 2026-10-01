@@ -7,654 +7,378 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>StyloCaps | Gorras</title>
-
+<title>StyloCaps</title>
 
 <style>
-
-/* =========================
-   CONFIGURACIÓN GENERAL
-========================= */
 
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
+    font-family:Arial,sans-serif;
 }
 
 body{
-    font-family:Arial, sans-serif;
     background:#f5f5f5;
-    color:#222;
+    color:#111;
 }
 
-
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
     background:#111;
     color:white;
-    padding:18px 30px;
-
+    padding:18px 7%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-
-    position:sticky;
-    top:0;
-
-    z-index:100;
 }
 
-.logo{
+header h1{
     font-size:28px;
-    font-weight:bold;
 }
 
-nav{
-    display:flex;
-    align-items:center;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-}
-
-.cart-button{
-    background:#25D366;
+.carrito-btn{
+    background:white;
+    color:#111;
     border:none;
-    color:white;
-
     padding:10px 16px;
-
     border-radius:8px;
-
     cursor:pointer;
-
     font-weight:bold;
-
-    margin-left:15px;
 }
 
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
-    min-height:420px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
+    background:#111;
     color:white;
-
-    padding:30px;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,.65),
-        rgba(0,0,0,.65)
-    ),
-    url("beisbolera.jpg");
-
-    background-size:cover;
-    background-position:center;
+    text-align:center;
+    padding:70px 20px;
 }
 
-.hero h1{
-    font-size:50px;
+.hero h2{
+    font-size:42px;
     margin-bottom:15px;
 }
 
 .hero p{
-    font-size:20px;
-    margin-bottom:25px;
+    color:#ccc;
+    font-size:18px;
 }
 
+/* CATALOGO */
 
-/* =========================
-   BOTONES
-========================= */
-
-.btn{
-    display:inline-block;
-
-    background:#25D366;
-
-    color:white;
-
-    padding:14px 25px;
-
-    border-radius:8px;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-    border:none;
-
-    cursor:pointer;
+.catalogo{
+    padding:50px 7%;
 }
 
-
-/* =========================
-   SECCIONES
-========================= */
-
-.section{
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:50px 20px;
-}
-
-.section h2{
+.catalogo h2{
     text-align:center;
-
-    margin-bottom:30px;
-
-    font-size:32px;
+    margin-bottom:35px;
+    font-size:30px;
 }
-
-
-/* =========================
-   FILTROS
-========================= */
-
-.filtros{
-    display:flex;
-
-    gap:10px;
-
-    margin-bottom:30px;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-}
-
-.filtros input,
-.filtros select{
-
-    padding:12px;
-
-    border:1px solid #ccc;
-
-    border-radius:7px;
-
-    font-size:15px;
-}
-
-
-/* =========================
-   PRODUCTOS
-========================= */
 
 .productos{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(250px,1fr)
-    );
-
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:25px;
 }
 
 .producto{
-
     background:white;
-
-    border-radius:12px;
-
+    border-radius:15px;
     overflow:hidden;
-
-    box-shadow:
-    0 4px 15px
-    rgba(0,0,0,.1);
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
 }
 
 .producto img{
-
     width:100%;
-
     height:280px;
-
     object-fit:cover;
-
-    display:block;
 }
 
 .producto-info{
-
     padding:20px;
 }
 
-.producto h3{
-
+.producto-info h3{
     margin-bottom:10px;
 }
 
 .precio{
-
     font-size:22px;
-
     font-weight:bold;
-
-    margin:12px 0;
+    margin:10px 0;
 }
 
-.producto button{
+.descripcion{
+    color:#666;
+    margin-bottom:15px;
+    line-height:1.5;
+}
 
+.btn-producto{
     width:100%;
-
     padding:12px;
-
     background:#111;
-
     color:white;
-
     border:none;
-
-    border-radius:7px;
-
+    border-radius:8px;
     cursor:pointer;
+    font-weight:bold;
 }
 
-.producto button:hover{
-
-    background:#333;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-
-    background:#111;
-
-    color:white;
-
-    text-align:center;
-
-    padding:30px;
-}
-
-
-/* =========================
-   MODALES
-========================= */
+/* MODAL */
 
 .modal{
-
     display:none;
-
     position:fixed;
-
     inset:0;
-
-    background:
-    rgba(0,0,0,.7);
-
-    z-index:200;
-
-    align-items:center;
-
-    justify-content:center;
-
+    background:rgba(0,0,0,.7);
+    z-index:2000;
     padding:20px;
+    overflow:auto;
 }
 
 .modal-contenido{
-
     background:white;
-
-    width:100%;
-
-    max-width:600px;
-
-    max-height:92vh;
-
-    overflow-y:auto;
-
+    max-width:500px;
+    margin:50px auto;
     border-radius:15px;
-
     padding:25px;
-
     position:relative;
 }
 
 .cerrar{
-
     position:absolute;
-
     right:20px;
-
     top:15px;
-
-    font-size:30px;
-
+    font-size:28px;
     cursor:pointer;
-
-    z-index:5;
 }
 
+.modal-precio{
+    font-size:22px;
+    font-weight:bold;
+    margin:15px 0;
+}
 
-/* =========================
-   PRODUCTO MODAL
-========================= */
-
-.modal img{
-
-    width:100%;
-
-    max-height:350px;
-
-    object-fit:cover;
-
-    border-radius:10px;
-
+.campo{
     margin-bottom:15px;
 }
 
-
-/* =========================
-   CAMPOS
-========================= */
-
-.campo{
-
-    margin:15px 0;
-}
-
 .campo label{
-
     display:block;
-
     margin-bottom:6px;
-
     font-weight:bold;
 }
 
-.campo input,
-.campo select{
-
+.campo select,
+.campo input{
     width:100%;
-
-    padding:12px;
-
+    padding:11px;
     border:1px solid #ccc;
-
     border-radius:7px;
-
-    font-size:15px;
 }
 
-
-/* =========================
-   CANTIDAD
-========================= */
-
-.cantidad{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-}
-
-.cantidad button{
-
-    width:40px;
-
-    height:40px;
-
-    border:none;
-
+.btn-agregar{
+    width:100%;
+    padding:13px;
     background:#111;
-
     color:white;
-
-    border-radius:5px;
-
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
     cursor:pointer;
-
-    font-size:20px;
 }
 
+/* CARRITO */
 
-/* =========================
-   CARRITO
-========================= */
+.carrito{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    z-index:3000;
+    padding:20px;
+    overflow:auto;
+}
 
-.carrito-item{
+.carrito-contenido{
+    background:white;
+    max-width:750px;
+    margin:30px auto;
+    border-radius:15px;
+    padding:25px;
+}
 
+.carrito-header{
     display:flex;
-
-    gap:15px;
-
+    justify-content:space-between;
     align-items:center;
+    margin-bottom:25px;
+}
 
-    border-bottom:
-    1px solid #ddd;
+.cerrar-carrito{
+    font-size:28px;
+    cursor:pointer;
+}
 
+.item-carrito{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    border-bottom:1px solid #ddd;
     padding:15px 0;
 }
 
-.carrito-item img{
-
-    width:80px;
-
-    height:80px;
-
-    object-fit:cover;
-
-    border-radius:8px;
-}
-
-.carrito-info{
-
+.item-info{
     flex:1;
 }
 
-.carrito-controles{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    margin-top:8px;
+.item-info h3{
+    margin-bottom:6px;
 }
 
-.carrito-controles button{
+.item-info p{
+    color:#666;
+    font-size:14px;
+}
 
-    width:30px;
+.cantidad-control{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
 
-    height:30px;
-
+.cantidad-control button{
     border:none;
-
     background:#111;
-
     color:white;
-
+    width:28px;
+    height:28px;
     border-radius:5px;
-
     cursor:pointer;
 }
 
-.carrito-controles .eliminar{
-
-    background:#d11;
+.eliminar{
+    background:#d00 !important;
 }
 
-
-/* =========================
-   RESUMEN
-========================= */
+/* RESUMEN */
 
 .resumen{
+    margin-top:25px;
+    border-top:2px solid #111;
+    padding-top:20px;
+}
 
-    background:#f1f1f1;
+.fila{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
 
-    padding:15px;
+.fila.total{
+    font-size:22px;
+    font-weight:bold;
+    border-top:1px solid #ddd;
+    padding-top:15px;
+}
 
-    border-radius:10px;
+/* DATOS CLIENTE */
 
-    margin-top:20px;
+.datos-cliente{
+    margin-top:30px;
+}
 
+.datos-cliente h3{
     margin-bottom:20px;
 }
 
-.resumen-linea{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin:8px 0;
+.datos-cliente input,
+.datos-cliente select{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border:1px solid #ccc;
+    border-radius:7px;
 }
 
-.total{
-
-    font-size:22px;
-
+.btn-whatsapp{
+    width:100%;
+    padding:15px;
+    margin-top:20px;
+    border:none;
+    border-radius:8px;
+    background:#25D366;
+    color:white;
+    font-size:17px;
     font-weight:bold;
-
-    border-top:
-    1px solid #ccc;
-
-    padding-top:10px;
-
-    margin-top:10px;
+    cursor:pointer;
 }
 
-
-/* =========================
-   CARRITO VACÍO
-========================= */
-
-.carrito-vacio{
-
-    text-align:center;
-
-    padding:30px;
-}
-
-
-/* =========================
-   NÚMERO DE PEDIDO
-========================= */
+/* NUMERO PEDIDO */
 
 .numero-pedido{
-
-    background:#111;
-
-    color:white;
-
-    padding:15px;
-
-    border-radius:10px;
-
-    margin:15px 0;
-
-    text-align:center;
-
-    font-size:20px;
-
+    background:#f1f1f1;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:20px;
     font-weight:bold;
 }
 
+/* WHATSAPP */
 
-/* =========================
-   WHATSAPP FLOTANTE
-========================= */
-
-.whatsapp{
-
+.whatsapp-flotante{
     position:fixed;
-
     right:20px;
-
     bottom:20px;
-
     width:60px;
-
     height:60px;
-
-    background:#25D366;
-
-    color:white;
-
     border-radius:50%;
-
+    background:#25D366;
+    color:white;
     display:flex;
-
-    justify-content:center;
-
     align-items:center;
-
+    justify-content:center;
+    font-size:28px;
     text-decoration:none;
-
-    font-size:30px;
-
-    z-index:150;
+    z-index:1500;
+    box-shadow:0 4px 15px rgba(0,0,0,.3);
 }
 
+/* FOOTER */
 
-/* =========================
-   CELULARES
-========================= */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:40px;
+}
+
+/* MOVIL */
 
 @media(max-width:600px){
 
-    header{
+    .hero h2{
+        font-size:32px;
+    }
 
+    .hero{
+        padding:50px 20px;
+    }
+
+    .catalogo{
+        padding:40px 20px;
+    }
+
+    .item-carrito{
         flex-direction:column;
-
-        gap:10px;
-    }
-
-    nav{
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-    }
-
-    nav a{
-
-        margin:0 5px;
-    }
-
-    .cart-button{
-
-        margin-left:5px;
-    }
-
-    .hero h1{
-
-        font-size:36px;
-    }
-
-    .carrito-item{
-
         align-items:flex-start;
     }
 
@@ -668,690 +392,431 @@ footer{
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
 <header>
 
-<div class="logo">
+    <h1>StyloCaps</h1>
 
-StyloCaps
+    <button
+        class="carrito-btn"
+        onclick="abrirCarrito()"
+    >
 
-</div>
+        🛒 Carrito
 
+        <span id="contadorCarrito">
+            0
+        </span>
 
-<nav>
-
-<a href="#inicio">
-Inicio
-</a>
-
-<a href="#catalogo">
-Gorras
-</a>
-
-<a href="#contacto">
-Contacto
-</a>
-
-
-<button
-class="cart-button"
-onclick="abrirCarrito()"
->
-
-🛒 Carrito
-
-<span id="contadorCarrito">
-0
-</span>
-
-</button>
-
-</nav>
+    </button>
 
 </header>
 
 
+<!-- HERO -->
 
-<!-- =========================
-     HERO
-========================= -->
+<section class="hero">
 
-<section
-class="hero"
-id="inicio"
->
+    <h2>
+        STYLOCAPS
+    </h2>
 
-<div>
-
-<h1>
-StyloCaps
-</h1>
-
-<p>
-Gorras con estilo para todos los días.
-</p>
-
-<a
-href="#catalogo"
-class="btn"
->
-Ver gorras
-</a>
-
-</div>
+    <p>
+        Gorras con estilo para todos los días.
+    </p>
 
 </section>
 
 
+<!-- CATALOGO -->
 
-<!-- =========================
-     CATÁLOGO
-========================= -->
+<section class="catalogo">
 
-<section
-class="section"
-id="catalogo"
->
+    <h2>
+        Nuestras Gorras
+    </h2>
 
-<h2>
-Nuestras gorras
-</h2>
+    <div
+        class="productos"
+        id="listaProductos"
+    ></div>
 
-
-<div class="filtros">
+</section>
 
 
-<input
-type="text"
-id="busqueda"
-placeholder="Buscar gorra..."
-onkeyup="mostrarProductos()"
->
-
-
-<select
-id="filtroPrecio"
-onchange="mostrarProductos()"
->
-
-<option value="todos">
-Todos los precios
-</option>
-
-<option value="45000">
-Hasta $45.000
-</option>
-
-<option value="55000">
-Hasta $55.000
-</option>
-
-<option value="70000">
-Hasta $70.000
-</option>
-
-</select>
-
-
-</div>
-
+<!-- MODAL PRODUCTO -->
 
 <div
-class="productos"
-id="productos"
-></div>
-
-
-</section>
-
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer
-id="contacto"
+    class="modal"
+    id="modalProducto"
 >
 
-<h3>
-StyloCaps
-</h3>
+    <div class="modal-contenido">
 
-<p>
-Gorras con estilo.
-</p>
+        <span
+            class="cerrar"
+            onclick="cerrarModal()"
+        >
+            ×
+        </span>
 
-<p>
-WhatsApp: 300 132 3639
-</p>
 
-<br>
+        <h2 id="modalNombre"></h2>
 
-<p>
-© 2026 StyloCaps
-</p>
+
+        <p
+            class="modal-precio"
+            id="modalPrecio"
+        ></p>
+
+
+        <p
+            id="modalDescripcion"
+        ></p>
+
+
+        <div class="campo">
+
+            <label>
+                Color
+            </label>
+
+            <select
+                id="modalColor"
+            ></select>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Talla
+            </label>
+
+            <select
+                id="modalTalla"
+            >
+
+                <option value="Única">
+                    Única
+                </option>
+
+                <option value="S">
+                    S
+                </option>
+
+                <option value="M">
+                    M
+                </option>
+
+                <option value="L">
+                    L
+                </option>
+
+                <option value="XL">
+                    XL
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Cantidad
+            </label>
+
+            <input
+                type="number"
+                id="modalCantidad"
+                value="1"
+                min="1"
+            >
+
+        </div>
+
+
+        <button
+            class="btn-agregar"
+            onclick="agregarAlCarrito()"
+        >
+
+            🛒 Agregar al carrito
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CARRITO -->
+
+<div
+    class="carrito"
+    id="modalCarrito"
+>
+
+    <div class="carrito-contenido">
+
+        <div class="carrito-header">
+
+            <h2>
+                🛒 Tu carrito
+            </h2>
+
+            <span
+                class="cerrar-carrito"
+                onclick="cerrarCarrito()"
+            >
+                ×
+            </span>
+
+        </div>
+
+
+        <div
+            class="numero-pedido"
+            id="numeroPedido"
+        >
+            📦 Pedido #0001
+        </div>
+
+
+        <div
+            id="listaCarrito"
+        ></div>
+
+
+        <!-- RESUMEN -->
+
+        <div class="resumen">
+
+            <div class="fila">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="subtotal">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <div class="fila">
+
+                <span>
+                    Envío
+                </span>
+
+                <strong id="envio">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <div class="fila total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="total">
+                    $0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- DATOS CLIENTE -->
+
+        <div class="datos-cliente">
+
+            <h3>
+                👤 Datos del cliente
+            </h3>
+
+
+            <input
+                type="text"
+                id="clienteNombre"
+                placeholder="Nombre completo"
+            >
+
+
+            <input
+                type="text"
+                id="clienteCC"
+                placeholder="Número de CC"
+            >
+
+
+            <input
+                type="tel"
+                id="clienteTelefono"
+                placeholder="Número de teléfono"
+            >
+
+
+            <select
+                id="ciudad"
+                onchange="cargarLocalidades()"
+            >
+
+                <option value="">
+                    Selecciona tu ciudad
+                </option>
+
+                <option value="Bogotá">
+                    Bogotá
+                </option>
+
+                <option value="Soacha">
+                    Soacha
+                </option>
+
+                <option value="Mosquera">
+                    Mosquera
+                </option>
+
+            </select>
+
+
+            <select
+                id="localidad"
+                onchange="calcularEnvio()"
+            >
+
+                <option value="">
+                    Selecciona localidad
+                </option>
+
+            </select>
+
+
+            <input
+                type="text"
+                id="direccion"
+                placeholder="Dirección de entrega"
+            >
+
+
+            <button
+                class="btn-whatsapp"
+                onclick="comprarWhatsApp()"
+            >
+
+                📲 Enviar pedido por WhatsApp
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- WHATSAPP FLOTANTE -->
+
+<a
+    class="whatsapp-flotante"
+    href="https://wa.me/573001323639"
+    target="_blank"
+>
+    📱
+</a>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 StyloCaps
+    </p>
+
+    <p>
+        Gorras con estilo
+    </p>
 
 </footer>
-
-
-
-<!-- =========================
-     WHATSAPP FLOTANTE
-========================= -->
-
-<a
-class="whatsapp"
-href="https://wa.me/573001323639"
-target="_blank"
->
-☎
-</a>
-
-
-
-<!-- =========================
-     MODAL PRODUCTO
-========================= -->
-
-<div
-class="modal"
-id="modalProducto"
->
-
-<div
-class="modal-contenido"
->
-
-<span
-class="cerrar"
-onclick="cerrarProducto()"
->
-×
-</span>
-
-
-<img
-id="modalImagen"
-src=""
-alt="Gorra"
->
-
-
-<h2
-id="modalNombre"
-></h2>
-
-
-<p
-id="modalDescripcion"
-></p>
-
-
-<p
-class="precio"
-id="modalPrecio"
-></p>
-
-
-
-<div class="campo">
-
-<label>
-Color
-</label>
-
-
-<select
-id="color"
-></select>
-
-</div>
-
-
-
-<div class="campo">
-
-<label>
-Talla
-</label>
-
-
-<select
-id="talla"
->
-
-<option>
-Única
-</option>
-
-<option>
-S
-</option>
-
-<option>
-M
-</option>
-
-<option>
-L
-</option>
-
-<option>
-XL
-</option>
-
-</select>
-
-</div>
-
-
-
-<div class="campo">
-
-<label>
-Cantidad
-</label>
-
-
-<div class="cantidad">
-
-
-<button
-onclick="cambiarCantidad(-1)"
->
-−
-</button>
-
-
-<span
-id="cantidad"
->
-1
-</span>
-
-
-<button
-onclick="cambiarCantidad(1)"
->
-+
-</button>
-
-
-</div>
-
-</div>
-
-
-
-<button
-class="btn"
-style="width:100%;"
-onclick="agregarAlCarrito()"
->
-
-🛒 Agregar al carrito
-
-</button>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =========================
-     MODAL CARRITO
-========================= -->
-
-<div
-class="modal"
-id="modalCarrito"
->
-
-<div
-class="modal-contenido"
->
-
-<span
-class="cerrar"
-onclick="cerrarCarrito()"
->
-×
-</span>
-
-
-<h2>
-🛒 Tu carrito
-</h2>
-
-
-<div
-id="contenidoCarrito"
-></div>
-
-
-
-<div
-id="formularioCompra"
->
-
-
-<h3
-style="margin-top:25px;"
->
-📦 Datos del pedido
-</h3>
-
-
-
-<div
-class="numero-pedido"
->
-
-Pedido
-
-<span
-id="numeroPedido"
->
-#0001
-</span>
-
-</div>
-
-
-
-<h3>
-👤 Datos del cliente
-</h3>
-
-
-
-<div class="campo">
-
-<label>
-Nombre completo
-</label>
-
-<input
-type="text"
-id="clienteNombre"
-placeholder="Ej: Juan Pérez"
->
-
-</div>
-
-
-
-<div class="campo">
-
-<label>
-CC
-</label>
-
-<input
-type="text"
-id="clienteCC"
-placeholder="Número de cédula"
-inputmode="numeric"
->
-
-</div>
-
-
-
-<div class="campo">
-
-<label>
-Teléfono
-</label>
-
-<input
-type="tel"
-id="clienteTelefono"
-placeholder="Ej: 3001234567"
->
-
-</div>
-
-
-
-<div class="campo">
-
-<label>
-Ciudad
-</label>
-
-
-<select
-id="ciudad"
-onchange="actualizarLocalidades()"
->
-
-<option value="">
-Selecciona una ciudad
-</option>
-
-<option value="Bogotá">
-Bogotá
-</option>
-
-<option value="Soacha">
-Soacha
-</option>
-
-<option value="Mosquera">
-Mosquera
-</option>
-
-</select>
-
-</div>
-
-
-
-<div class="campo">
-
-<label>
-Localidad
-</label>
-
-
-<select
-id="localidad"
-onchange="actualizarEnvio()"
->
-
-<option value="">
-Selecciona primero una ciudad
-</option>
-
-</select>
-
-</div>
-
-
-
-<div class="campo">
-
-<label>
-Dirección
-</label>
-
-<input
-type="text"
-id="direccion"
-placeholder="Ej: Calle 10 #20-30"
->
-
-</div>
-
-
-
-<!-- =========================
-     RESUMEN
-========================= -->
-
-<div
-class="resumen"
->
-
-
-<div
-class="resumen-linea"
->
-
-<span>
-Productos:
-</span>
-
-<strong
-id="subtotal"
->
-$0
-</strong>
-
-</div>
-
-
-
-<div
-class="resumen-linea"
->
-
-<span>
-Envío:
-</span>
-
-<strong
-id="envio"
->
-Selecciona ubicación
-</strong>
-
-</div>
-
-
-
-<div
-class="resumen-linea total"
->
-
-<span>
-TOTAL:
-</span>
-
-<strong
-id="total"
->
-$0
-</strong>
-
-</div>
-
-
-</div>
-
-
-
-<button
-class="btn"
-style="width:100%;"
-onclick="comprarWhatsApp()"
->
-
-📲 Finalizar pedido por WhatsApp
-
-</button>
-
-
-</div>
-
-</div>
-
-</div>
-
 
 
 <script>
 
 
-/* =========================
-   PRODUCTOS
-========================= */
-
+/* PRODUCTOS */
 
 const productos = [
 
+    {
+        nombre:"Beisbolera",
 
-{
-    nombre:"Beisbolera",
+        precio:70000,
 
-    precio:70000,
+        colores:[
+            "Azul",
+            "Rojo",
+            "Negro",
+            "Amarillo"
+        ],
 
-    colores:[
-        "Azul",
-        "Rojo",
-        "Negro",
-        "Amarillo"
-    ],
+        imagen:"beisbolera.jpg",
 
-    imagen:"beisbolera.jpg",
-
-    descripcion:
-    "Gorras cerradas con talla y buenos bordados. Calidad 1.1."
-},
-
-
-{
-    nombre:"Gorra Premium",
-
-    precio:55000,
-
-    colores:[
-        "Negro",
-        "Azul"
-    ],
-
-    imagen:"gorra2.jpg",
-
-    descripcion:
-    "Gorra moderna con excelente acabado."
-},
+        descripcion:
+        "Gorras cerradas con talla y buenos bordados. Calidad 1.1."
+    },
 
 
-{
-    nombre:"Gorra Urban",
+    {
+        nombre:"Gorra Premium",
 
-    precio:45000,
+        precio:55000,
 
-    colores:[
-        "Negro",
-        "Rojo"
-    ],
+        colores:[
+            "Negro",
+            "Azul"
+        ],
 
-    imagen:"gorra3.jpg",
+        imagen:"gorra2.jpg",
 
-    descripcion:
-    "Diseño urbano para combinar con cualquier estilo."
-}
+        descripcion:
+        "Gorra moderna con excelente acabado."
+    },
 
+
+    {
+        nombre:"Gorra Urban",
+
+        precio:45000,
+
+        colores:[
+            "Negro",
+            "Rojo"
+        ],
+
+        imagen:"gorra3.jpg",
+
+        descripcion:
+        "Diseño urbano para combinar con cualquier estilo."
+    }
 
 ];
 
 
-
-/* =========================
-   ENVÍOS
-========================= */
-
+/* ENVÍOS */
 
 const ubicaciones = {
-
 
     "Bogotá":{
 
@@ -1365,13 +830,11 @@ const ubicaciones = {
 
     },
 
-
     "Soacha":{
 
         "Todas":12000
 
     },
-
 
     "Mosquera":{
 
@@ -1379,284 +842,159 @@ const ubicaciones = {
 
     }
 
-
 };
 
 
-
-/* =========================
-   VARIABLES
-========================= */
-
-
-let productoSeleccionado = null;
-
-let cantidadActual = 1;
+/* VARIABLES */
 
 let carrito = [];
+
+let productoSeleccionado = null;
 
 let precioEnvioActual = 0;
 
 
-
-/* =========================
-   NÚMERO DE PEDIDO
-========================= */
-
+/* NUMERO DE PEDIDO */
 
 let numeroPedidoActual =
 
 parseInt(
-
-localStorage.getItem(
-    "stylocaps_numero_pedido"
-)
-
+    localStorage.getItem(
+        "stylocaps_numero_pedido"
+    )
 ) || 1;
 
 
-
-/* =========================
-   MOSTRAR NÚMERO
-========================= */
-
-
-function mostrarNumeroPedido(){
-
-    const numero =
-
-    String(
-        numeroPedidoActual
-    ).padStart(4,"0");
-
-
-    document.getElementById(
-        "numeroPedido"
-    ).textContent =
-
-    "#" + numero;
-
-}
-
-
-
-/* =========================
-   MOSTRAR PRODUCTOS
-========================= */
-
+/* MOSTRAR PRODUCTOS */
 
 function mostrarProductos(){
 
-
-    const contenedor =
-
-    document.getElementById(
-        "productos"
-    );
+    const lista =
+        document.getElementById(
+            "listaProductos"
+        );
 
 
-    const busqueda =
-
-    document.getElementById(
-        "busqueda"
-    ).value.toLowerCase();
-
-
-    const filtro =
-
-    document.getElementById(
-        "filtroPrecio"
-    ).value;
-
-
-    contenedor.innerHTML = "";
-
+    lista.innerHTML = "";
 
 
     productos.forEach(
-
         (producto,index)=>{
 
+            lista.innerHTML += `
 
-            if(
+                <div class="producto">
 
-                !producto.nombre
-                .toLowerCase()
-                .includes(busqueda)
+                    <img
+                        src="${producto.imagen}"
+                        alt="${producto.nombre}"
+                    >
 
-            ){
+                    <div class="producto-info">
 
-                return;
+                        <h3>
+                            ${producto.nombre}
+                        </h3>
 
-            }
+                        <p class="precio">
 
+                            $${producto.precio.toLocaleString("es-CO")}
 
+                        </p>
 
-            if(
+                        <p class="descripcion">
 
-                filtro !== "todos"
+                            ${producto.descripcion}
 
-                &&
+                        </p>
 
-                producto.precio >
-                Number(filtro)
+                        <button
+                            class="btn-producto"
+                            onclick="abrirProducto(${index})"
+                        >
 
-            ){
+                            Ver producto
 
-                return;
-
-            }
-
-
-
-            contenedor.innerHTML += `
-
-            <div class="producto">
-
-                <img
-                    src="${producto.imagen}"
-                    alt="${producto.nombre}"
-                >
-
-                <div class="producto-info">
-
-                    <h3>
-                        ${producto.nombre}
-                    </h3>
-
-                    <p>
-                        ${producto.descripcion}
-                    </p>
-
-                    <div class="precio">
-
-                        $${producto.precio
-                        .toLocaleString("es-CO")}
+                        </button>
 
                     </div>
 
-                    <button
-                        onclick="abrirProducto(${index})"
-                    >
-
-                        Ver producto
-
-                    </button>
-
                 </div>
-
-            </div>
 
             `;
 
-
         }
-
     );
-
 
 }
 
 
-
-/* =========================
-   ABRIR PRODUCTO
-========================= */
-
+/* ABRIR PRODUCTO */
 
 function abrirProducto(index){
 
-
     productoSeleccionado =
-    productos[index];
-
-
-    cantidadActual = 1;
-
-
-    document.getElementById(
-        "cantidad"
-    ).textContent = "1";
-
-
-
-    document.getElementById(
-        "modalImagen"
-    ).src =
-
-    productoSeleccionado.imagen;
-
+        productos[index];
 
 
     document.getElementById(
         "modalNombre"
     ).textContent =
-
-    productoSeleccionado.nombre;
-
-
-
-    document.getElementById(
-        "modalDescripcion"
-    ).textContent =
-
-    productoSeleccionado.descripcion;
-
+        productoSeleccionado.nombre;
 
 
     document.getElementById(
         "modalPrecio"
     ).textContent =
+        "$" +
+        productoSeleccionado.precio
+        .toLocaleString("es-CO");
 
-    "$" +
 
-    productoSeleccionado.precio
-    .toLocaleString("es-CO");
-
+    document.getElementById(
+        "modalDescripcion"
+    ).textContent =
+        productoSeleccionado.descripcion;
 
 
     const color =
-
-    document.getElementById(
-        "color"
-    );
+        document.getElementById(
+            "modalColor"
+        );
 
 
     color.innerHTML = "";
 
 
-
     productoSeleccionado.colores
     .forEach(c=>{
 
-
         color.innerHTML += `
 
-        <option>
-            ${c}
-        </option>
+            <option value="${c}">
+                ${c}
+            </option>
 
         `;
-
 
     });
 
 
+    document.getElementById(
+        "modalCantidad"
+    ).value = 1;
+
 
     document.getElementById(
         "modalProducto"
-    ).style.display = "flex";
+    ).style.display = "block";
 
 }
 
 
+/* CERRAR PRODUCTO */
 
-/* =========================
-   CERRAR PRODUCTO
-========================= */
-
-
-function cerrarProducto(){
+function cerrarModal(){
 
     document.getElementById(
         "modalProducto"
@@ -1665,309 +1003,136 @@ function cerrarProducto(){
 }
 
 
-
-/* =========================
-   CAMBIAR CANTIDAD PRODUCTO
-========================= */
-
-
-function cambiarCantidad(valor){
-
-
-    cantidadActual += valor;
-
-
-    if(cantidadActual < 1){
-
-        cantidadActual = 1;
-
-    }
-
-
-    document.getElementById(
-        "cantidad"
-    ).textContent =
-
-    cantidadActual;
-
-}
-
-
-
-/* =========================
-   AGREGAR AL CARRITO
-========================= */
-
+/* AGREGAR AL CARRITO */
 
 function agregarAlCarrito(){
 
-
-    if(!productoSeleccionado){
-
-        return;
-
-    }
-
-
     const color =
-
-    document.getElementById(
-        "color"
-    ).value;
+        document.getElementById(
+            "modalColor"
+        ).value;
 
 
     const talla =
+        document.getElementById(
+            "modalTalla"
+        ).value;
 
-    document.getElementById(
-        "talla"
-    ).value;
 
+    const cantidad =
+        parseInt(
+            document.getElementById(
+                "modalCantidad"
+            ).value
+        );
 
 
-    const existente =
+    if(cantidad < 1){
 
-    carrito.find(
-
-        item =>
-
-        item.nombre ===
-        productoSeleccionado.nombre
-
-        &&
-
-        item.color ===
-        color
-
-        &&
-
-        item.talla ===
-        talla
-
-    );
-
-
-
-    if(existente){
-
-        existente.cantidad +=
-        cantidadActual;
-
-    }
-
-    else{
-
-
-        carrito.push({
-
-            nombre:
-            productoSeleccionado.nombre,
-
-            precio:
-            productoSeleccionado.precio,
-
-            imagen:
-            productoSeleccionado.imagen,
-
-            color:
-            color,
-
-            talla:
-            talla,
-
-            cantidad:
-            cantidadActual
-
-        });
-
-
-    }
-
-
-
-    actualizarContador();
-
-    cerrarProducto();
-
-
-    alert(
-        "🛒 Producto agregado al carrito"
-    );
-
-}
-
-
-
-/* =========================
-   CONTADOR
-========================= */
-
-
-function actualizarContador(){
-
-
-    let cantidad = 0;
-
-
-    carrito.forEach(
-
-        item => {
-
-            cantidad +=
-            item.cantidad;
-
-        }
-
-    );
-
-
-    document.getElementById(
-        "contadorCarrito"
-    ).textContent =
-
-    cantidad;
-
-}
-
-
-
-/* =========================
-   ABRIR CARRITO
-========================= */
-
-
-function abrirCarrito(){
-
-
-    mostrarNumeroPedido();
-
-    mostrarCarrito();
-
-    actualizarResumen();
-
-
-    document.getElementById(
-        "modalCarrito"
-    ).style.display = "flex";
-
-}
-
-
-
-/* =========================
-   CERRAR CARRITO
-========================= */
-
-
-function cerrarCarrito(){
-
-
-    document.getElementById(
-        "modalCarrito"
-    ).style.display = "none";
-
-}
-
-
-
-/* =========================
-   MOSTRAR CARRITO
-========================= */
-
-
-function mostrarCarrito(){
-
-
-    const contenedor =
-
-    document.getElementById(
-        "contenidoCarrito"
-    );
-
-
-
-    if(carrito.length === 0){
-
-
-        contenedor.innerHTML = `
-
-        <div class="carrito-vacio">
-
-            <h3>
-                🛒 Tu carrito está vacío
-            </h3>
-
-            <p>
-                Agrega una gorra para comenzar.
-            </p>
-
-        </div>
-
-        `;
-
+        alert(
+            "La cantidad debe ser mayor a 0."
+        );
 
         return;
 
     }
 
 
+    carrito.push({
 
-    contenedor.innerHTML = "";
+        nombre:
+            productoSeleccionado.nombre,
 
+        precio:
+            productoSeleccionado.precio,
+
+        color:
+            color,
+
+        talla:
+            talla,
+
+        cantidad:
+            cantidad
+
+    });
+
+
+    cerrarModal();
+
+    actualizarCarrito();
+
+    alert(
+        "🛒 Producto agregado al carrito."
+    );
+
+}
+
+
+/* ACTUALIZAR CARRITO */
+
+function actualizarCarrito(){
+
+    const lista =
+        document.getElementById(
+            "listaCarrito"
+        );
+
+
+    lista.innerHTML = "";
+
+
+    let subtotal = 0;
+
+    let cantidadTotal = 0;
 
 
     carrito.forEach(
-
         (item,index)=>{
 
-
-            const subtotal =
-
-            item.precio *
-            item.cantidad;
+            const totalProducto =
+                item.precio *
+                item.cantidad;
 
 
-
-            contenedor.innerHTML += `
-
-            <div class="carrito-item">
-
-                <img
-                    src="${item.imagen}"
-                    alt="${item.nombre}"
-                >
+            subtotal +=
+                totalProducto;
 
 
-                <div class="carrito-info">
-
-                    <strong>
-                        ${item.nombre}
-                    </strong>
-
-                    <p>
-                        Color: ${item.color}
-                    </p>
-
-                    <p>
-                        Talla: ${item.talla}
-                    </p>
-
-                    <p>
-
-                        $${item.precio
-                        .toLocaleString("es-CO")}
-
-                    </p>
+            cantidadTotal +=
+                item.cantidad;
 
 
-                    <div
-                        class="carrito-controles"
-                    >
+            lista.innerHTML += `
 
+                <div class="item-carrito">
+
+                    <div class="item-info">
+
+                        <h3>
+                            ${item.nombre}
+                        </h3>
+
+                        <p>
+                            ${item.color}
+                            |
+                            ${item.talla}
+                        </p>
+
+                        <p>
+                            $${item.precio.toLocaleString("es-CO")}
+                            cada uno
+                        </p>
+
+                    </div>
+
+
+                    <div class="cantidad-control">
 
                         <button
-                            onclick="cambiarCantidadCarrito(${index},-1)"
+                            onclick="cambiarCantidad(${index},-1)"
                         >
-                            −
+                            -
                         </button>
 
 
@@ -1977,7 +1142,7 @@ function mostrarCarrito(){
 
 
                         <button
-                            onclick="cambiarCantidadCarrito(${index},1)"
+                            onclick="cambiarCantidad(${index},1)"
                         >
                             +
                         </button>
@@ -1985,43 +1150,72 @@ function mostrarCarrito(){
 
                         <button
                             class="eliminar"
-                            onclick="eliminarDelCarrito(${index})"
+                            onclick="eliminarProducto(${index})"
                         >
-                            🗑
+                            ×
                         </button>
-
 
                     </div>
 
                 </div>
 
-            </div>
-
             `;
 
-
         }
-
     );
 
+
+    document.getElementById(
+        "contadorCarrito"
+    ).textContent =
+        cantidadTotal;
+
+
+    document.getElementById(
+        "subtotal"
+    ).textContent =
+        "$" +
+        subtotal.toLocaleString("es-CO");
+
+
+    document.getElementById(
+        "envio"
+    ).textContent =
+
+        precioEnvioActual === 0
+        ? "$0"
+        :
+        "$" +
+        precioEnvioActual
+        .toLocaleString("es-CO");
+
+
+    const total =
+        subtotal +
+        precioEnvioActual;
+
+
+    document.getElementById(
+        "total"
+    ).textContent =
+        "$" +
+        total.toLocaleString("es-CO");
+
+
+    mostrarNumeroPedido();
 
 }
 
 
+/* CAMBIAR CANTIDAD */
 
-/* =========================
-   CAMBIAR CANTIDAD CARRITO
-========================= */
-
-
-function cambiarCantidadCarrito(
+function cambiarCantidad(
     index,
-    valor
+    cambio
 ){
 
-
     carrito[index].cantidad +=
-    valor;
+        cambio;
 
 
     if(
@@ -2036,23 +1230,14 @@ function cambiarCantidadCarrito(
     }
 
 
-    actualizarContador();
-
-    mostrarCarrito();
-
-    actualizarResumen();
+    actualizarCarrito();
 
 }
 
 
+/* ELIMINAR PRODUCTO */
 
-/* =========================
-   ELIMINAR PRODUCTO
-========================= */
-
-
-function eliminarDelCarrito(index){
-
+function eliminarProducto(index){
 
     carrito.splice(
         index,
@@ -2060,119 +1245,131 @@ function eliminarDelCarrito(index){
     );
 
 
-    actualizarContador();
-
-    mostrarCarrito();
-
-    actualizarResumen();
+    actualizarCarrito();
 
 }
 
 
+/* ABRIR CARRITO */
 
-/* =========================
-   ACTUALIZAR LOCALIDADES
-========================= */
-
-
-function actualizarLocalidades(){
-
-
-    const ciudad =
+function abrirCarrito(){
 
     document.getElementById(
-        "ciudad"
-    ).value;
+        "modalCarrito"
+    ).style.display =
+        "block";
 
+
+    actualizarCarrito();
+
+}
+
+
+/* CERRAR CARRITO */
+
+function cerrarCarrito(){
+
+    document.getElementById(
+        "modalCarrito"
+    ).style.display =
+        "none";
+
+}
+
+
+/* MOSTRAR NUMERO PEDIDO */
+
+function mostrarNumeroPedido(){
+
+    const numero =
+        String(
+            numeroPedidoActual
+        ).padStart(4,"0");
+
+
+    document.getElementById(
+        "numeroPedido"
+    ).textContent =
+        "📦 Pedido #" +
+        numero;
+
+}
+
+
+/* CARGAR LOCALIDADES */
+
+function cargarLocalidades(){
+
+    const ciudad =
+        document.getElementById(
+            "ciudad"
+        ).value;
 
 
     const localidad =
-
-    document.getElementById(
-        "localidad"
-    );
-
+        document.getElementById(
+            "localidad"
+        );
 
 
-    localidad.innerHTML = "";
+    localidad.innerHTML = `
+
+        <option value="">
+            Selecciona localidad
+        </option>
+
+    `;
+
 
     precioEnvioActual = 0;
 
 
-
     if(!ciudad){
 
-
-        localidad.innerHTML = `
-
-        <option value="">
-
-            Selecciona primero una ciudad
-
-        </option>
-
-        `;
-
-
-        actualizarResumen();
+        actualizarCarrito();
 
         return;
 
     }
 
 
-
-    Object.keys(
-        ubicaciones[ciudad]
-    ).forEach(
-
-        nombre=>{
+    const opciones =
+        ubicaciones[ciudad];
 
 
-            localidad.innerHTML += `
+    Object.keys(opciones)
+    .forEach(nombre=>{
+
+        localidad.innerHTML += `
 
             <option value="${nombre}">
-
                 ${nombre}
-
             </option>
 
-            `;
+        `;
+
+    });
 
 
-        }
-
-    );
-
-
-    actualizarEnvio();
+    actualizarCarrito();
 
 }
 
 
+/* CALCULAR ENVÍO */
 
-/* =========================
-   ACTUALIZAR ENVÍO
-========================= */
-
-
-function actualizarEnvio(){
-
+function calcularEnvio(){
 
     const ciudad =
-
-    document.getElementById(
-        "ciudad"
-    ).value;
-
+        document.getElementById(
+            "ciudad"
+        ).value;
 
 
     const localidad =
-
-    document.getElementById(
-        "localidad"
-    ).value;
-
+        document.getElementById(
+            "localidad"
+        ).value;
 
 
     if(
@@ -2182,115 +1379,25 @@ function actualizarEnvio(){
 
         precioEnvioActual = 0;
 
-    }
+        actualizarCarrito();
 
-    else{
-
-        precioEnvioActual =
-
-        ubicaciones[ciudad]
-        [localidad];
+        return;
 
     }
 
 
-
-    actualizarResumen();
-
-}
+    precioEnvioActual =
+        ubicaciones[ciudad][localidad];
 
 
-
-/* =========================
-   ACTUALIZAR RESUMEN
-========================= */
-
-
-function actualizarResumen(){
-
-
-    let subtotal = 0;
-
-
-
-    carrito.forEach(
-
-        item=>{
-
-            subtotal +=
-
-            item.precio *
-            item.cantidad;
-
-        }
-
-    );
-
-
-
-    const total =
-
-    subtotal +
-    precioEnvioActual;
-
-
-
-    document.getElementById(
-        "subtotal"
-    ).textContent =
-
-    "$" +
-
-    subtotal
-    .toLocaleString("es-CO");
-
-
-
-    document.getElementById(
-        "envio"
-    ).textContent =
-
-
-    precioEnvioActual > 0
-
-    ?
-
-    "$" +
-
-    precioEnvioActual
-    .toLocaleString("es-CO")
-
-    :
-
-    "Selecciona ubicación";
-
-
-
-    document.getElementById(
-        "total"
-    ).textContent =
-
-    "$" +
-
-    total
-    .toLocaleString("es-CO");
+    actualizarCarrito();
 
 }
 
 
-
-/* =========================
-   FINALIZAR PEDIDO
-========================= */
-
+/* COMPRAR POR WHATSAPP */
 
 function comprarWhatsApp(){
-
-
-    /* -------------------------
-       VALIDAR CARRITO
-    ------------------------- */
-
 
     if(carrito.length === 0){
 
@@ -2303,64 +1410,43 @@ function comprarWhatsApp(){
     }
 
 
-
-    /* -------------------------
-       DATOS DEL CLIENTE
-    ------------------------- */
-
-
     const nombre =
-
-    document.getElementById(
-        "clienteNombre"
-    ).value.trim();
-
+        document.getElementById(
+            "clienteNombre"
+        ).value.trim();
 
 
     const cc =
-
-    document.getElementById(
-        "clienteCC"
-    ).value.trim();
-
+        document.getElementById(
+            "clienteCC"
+        ).value.trim();
 
 
     const telefono =
-
-    document.getElementById(
-        "clienteTelefono"
-    ).value.trim();
-
+        document.getElementById(
+            "clienteTelefono"
+        ).value.trim();
 
 
     const ciudad =
-
-    document.getElementById(
-        "ciudad"
-    ).value;
-
+        document.getElementById(
+            "ciudad"
+        ).value;
 
 
     const localidad =
-
-    document.getElementById(
-        "localidad"
-    ).value;
-
+        document.getElementById(
+            "localidad"
+        ).value;
 
 
     const direccion =
-
-    document.getElementById(
-        "direccion"
-    ).value.trim();
-
+        document.getElementById(
+            "direccion"
+        ).value.trim();
 
 
-    /* -------------------------
-       VALIDACIONES
-    ------------------------- */
-
+    /* VALIDACIONES */
 
     if(!nombre){
 
@@ -2371,7 +1457,6 @@ function comprarWhatsApp(){
         return;
 
     }
-
 
 
     if(!cc){
@@ -2385,7 +1470,6 @@ function comprarWhatsApp(){
     }
 
 
-
     if(!telefono){
 
         alert(
@@ -2395,7 +1479,6 @@ function comprarWhatsApp(){
         return;
 
     }
-
 
 
     if(!ciudad){
@@ -2409,7 +1492,6 @@ function comprarWhatsApp(){
     }
 
 
-
     if(!localidad){
 
         alert(
@@ -2419,7 +1501,6 @@ function comprarWhatsApp(){
         return;
 
     }
-
 
 
     if(!direccion){
@@ -2433,7 +1514,6 @@ function comprarWhatsApp(){
     }
 
 
-
     if(precioEnvioActual === 0){
 
         alert(
@@ -2445,30 +1525,17 @@ function comprarWhatsApp(){
     }
 
 
-
-    /* =========================
-       NÚMERO DEL PEDIDO
-    ========================= */
-
+    /* NUMERO PEDIDO */
 
     const numeroPedido =
-
-    String(
-        numeroPedidoActual
-    ).padStart(
-        4,
-        "0"
-    );
+        String(
+            numeroPedidoActual
+        ).padStart(4,"0");
 
 
-
-    /* =========================
-       CREAR MENSAJE
-    ========================= */
-
+    /* MENSAJE */
 
     let mensaje =
-
 `Hola StyloCaps 👋
 
 📦 Pedido #${numeroPedido}
@@ -2477,26 +1544,19 @@ function comprarWhatsApp(){
 `;
 
 
-
     let subtotal = 0;
 
 
-
     carrito.forEach(
-
         item=>{
 
-
             const totalProducto =
-
-            item.precio *
-            item.cantidad;
-
+                item.precio *
+                item.cantidad;
 
 
             subtotal +=
-            totalProducto;
-
+                totalProducto;
 
 
             mensaje += `
@@ -2507,27 +1567,15 @@ $${totalProducto.toLocaleString("es-CO")}
 `;
 
         }
-
     );
 
 
-
-    /* =========================
-       TOTAL
-    ========================= */
-
-
     const total =
-
-    subtotal +
-    precioEnvioActual;
-
+        subtotal +
+        precioEnvioActual;
 
 
-    /* =========================
-       DATOS + TOTAL
-    ========================= */
-
+    /* AQUÍ SE AÑADIÓ EL ENVÍO */
 
     mensaje += `
 
@@ -2538,68 +1586,46 @@ CC: ${cc}
 📍 ${ciudad} - ${localidad}
 🏠 ${direccion}
 
+🚚 Envío: $${precioEnvioActual.toLocaleString("es-CO")}
 💰 Total: $${total.toLocaleString("es-CO")}
 `;
 
 
-
-    /* =========================
-       GUARDAR SIGUIENTE PEDIDO
-    ========================= */
-
+    /* SIGUIENTE NUMERO DE PEDIDO */
 
     numeroPedidoActual++;
 
 
-
     localStorage.setItem(
-
         "stylocaps_numero_pedido",
-
         numeroPedidoActual
-
     );
 
 
-
-    /* =========================
-       WHATSAPP
-    ========================= */
-
+    /* WHATSAPP */
 
     const numero =
-    "573001323639";
-
+        "573001323639";
 
 
     const url =
-
-    "https://wa.me/" +
-
-    numero +
-
-    "?text=" +
-
-    encodeURIComponent(
-        mensaje
-    );
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(
+            mensaje
+        );
 
 
-
-    window.location.href = url;
+    window.location.href =
+        url;
 
 }
 
 
-
-/* =========================
-   INICIAR PÁGINA
-========================= */
-
+/* INICIAR */
 
 mostrarProductos();
-
-actualizarContador();
 
 mostrarNumeroPedido();
 

@@ -7,21 +7,27 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>StyloCaps</title>
+<title>StyloCaps | Gorras</title>
+
 
 <style>
+
+/* =========================
+   GENERAL
+========================= */
 
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial,sans-serif;
 }
 
 body{
+    font-family:Arial, sans-serif;
     background:#f5f5f5;
-    color:#111;
+    color:#222;
 }
+
 
 /* =========================
    HEADER
@@ -30,25 +36,34 @@ body{
 header{
     background:#111;
     color:white;
-    padding:18px 7%;
+    padding:20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-header h1{
-    font-size:28px;
-}
-
-.carrito-btn{
-    background:white;
-    color:#111;
-    border:none;
-    padding:10px 16px;
-    border-radius:8px;
-    cursor:pointer;
+.logo{
+    font-size:26px;
     font-weight:bold;
 }
+
+.carrito{
+    cursor:pointer;
+    font-size:18px;
+}
+
+#contadorCarrito{
+    background:#fff;
+    color:#111;
+    border-radius:50%;
+    padding:4px 8px;
+    font-size:13px;
+    margin-left:5px;
+}
+
 
 /* =========================
    HERO
@@ -58,30 +73,32 @@ header h1{
     background:#111;
     color:white;
     text-align:center;
-    padding:70px 20px;
+    padding:60px 20px;
 }
 
-.hero h2{
+.hero h1{
     font-size:42px;
     margin-bottom:15px;
 }
 
 .hero p{
-    color:#ccc;
     font-size:18px;
 }
+
 
 /* =========================
    CATALOGO
 ========================= */
 
 .catalogo{
-    padding:50px 7%;
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
 }
 
 .catalogo h2{
     text-align:center;
-    margin-bottom:35px;
+    margin-bottom:30px;
     font-size:30px;
 }
 
@@ -91,25 +108,36 @@ header h1{
     gap:25px;
 }
 
+
+/* =========================
+   PRODUCTO
+========================= */
+
 .producto{
     background:white;
     border-radius:15px;
     overflow:hidden;
-    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    box-shadow:0 4px 15px rgba(0,0,0,0.10);
+    transition:0.3s;
+}
+
+.producto:hover{
+    transform:translateY(-5px);
 }
 
 .producto img{
     width:100%;
-    height:280px;
+    height:300px;
     object-fit:cover;
 }
 
-.producto-info{
+.producto-contenido{
     padding:20px;
 }
 
-.producto-info h3{
+.producto h3{
     margin-bottom:10px;
+    font-size:22px;
 }
 
 .precio{
@@ -121,19 +149,23 @@ header h1{
 .descripcion{
     color:#666;
     margin-bottom:15px;
-    line-height:1.5;
 }
 
-.btn-producto{
+.btn{
     width:100%;
-    padding:12px;
-    background:#111;
-    color:white;
+    padding:13px;
     border:none;
     border-radius:8px;
+    background:#111;
+    color:white;
     cursor:pointer;
-    font-weight:bold;
+    font-size:16px;
 }
+
+.btn:hover{
+    background:#333;
+}
+
 
 /* =========================
    MODAL PRODUCTO
@@ -143,33 +175,31 @@ header h1{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.7);
+    background:rgba(0,0,0,0.65);
     z-index:2000;
+    justify-content:center;
+    align-items:center;
     padding:20px;
-    overflow:auto;
 }
 
 .modal-contenido{
     background:white;
+    width:100%;
     max-width:500px;
-    margin:50px auto;
+    max-height:90vh;
+    overflow-y:auto;
     border-radius:15px;
     padding:25px;
-    position:relative;
 }
 
 .cerrar{
-    position:absolute;
-    right:20px;
-    top:15px;
-    font-size:28px;
+    float:right;
+    font-size:25px;
     cursor:pointer;
 }
 
-.modal-precio{
-    font-size:22px;
-    font-weight:bold;
-    margin:15px 0;
+.modal-contenido h2{
+    margin-bottom:20px;
 }
 
 .campo{
@@ -178,196 +208,116 @@ header h1{
 
 .campo label{
     display:block;
-    margin-bottom:6px;
+    margin-bottom:7px;
     font-weight:bold;
 }
 
 .campo select,
 .campo input{
     width:100%;
-    padding:11px;
+    padding:12px;
     border:1px solid #ccc;
-    border-radius:7px;
+    border-radius:8px;
+    font-size:15px;
 }
 
-.btn-agregar{
-    width:100%;
-    padding:13px;
-    background:#111;
-    color:white;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
 
 /* =========================
    CARRITO
 ========================= */
 
-.carrito{
+.carrito-modal{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.7);
-    z-index:3000;
+    background:rgba(0,0,0,0.65);
+    z-index:2500;
+    justify-content:center;
+    align-items:center;
     padding:20px;
-    overflow:auto;
 }
 
 .carrito-contenido{
     background:white;
-    max-width:750px;
-    margin:30px auto;
+    width:100%;
+    max-width:600px;
+    max-height:90vh;
+    overflow-y:auto;
     border-radius:15px;
     padding:25px;
 }
 
-.carrito-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-
-.cerrar-carrito{
-    font-size:28px;
-    cursor:pointer;
-}
-
 .item-carrito{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
     border-bottom:1px solid #ddd;
     padding:15px 0;
 }
 
-.item-info{
-    flex:1;
+.item-carrito h4{
+    margin-bottom:8px;
 }
 
-.item-info h3{
-    margin-bottom:6px;
+.item-carrito p{
+    margin:5px 0;
 }
 
-.item-info p{
-    color:#666;
-    font-size:14px;
-}
-
-.cantidad-control{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.cantidad-control button{
-    border:none;
-    background:#111;
+.btn-eliminar{
+    background:#d00;
     color:white;
-    width:28px;
-    height:28px;
-    border-radius:5px;
+    border:none;
+    padding:7px 12px;
+    border-radius:6px;
     cursor:pointer;
+    margin-top:5px;
 }
 
-.eliminar{
-    background:#d00 !important;
-}
 
 /* =========================
    RESUMEN
 ========================= */
 
 .resumen{
-    margin-top:25px;
-    border-top:2px solid #111;
-    padding-top:20px;
+    margin-top:20px;
+    padding:20px;
+    background:#f5f5f5;
+    border-radius:10px;
 }
 
-.fila{
+.resumen-linea{
     display:flex;
     justify-content:space-between;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
-.fila.total{
-    font-size:22px;
+.resumen-total{
+    font-size:20px;
     font-weight:bold;
-    border-top:1px solid #ddd;
-    padding-top:15px;
+    border-top:1px solid #ccc;
+    padding-top:12px;
 }
+
 
 /* =========================
-   DATOS CLIENTE
-========================= */
-
-.datos-cliente{
-    margin-top:30px;
-}
-
-.datos-cliente h3{
-    margin-bottom:20px;
-}
-
-.datos-cliente input,
-.datos-cliente select{
-    width:100%;
-    padding:12px;
-    margin-bottom:12px;
-    border:1px solid #ccc;
-    border-radius:7px;
-}
-
-.btn-whatsapp{
-    width:100%;
-    padding:15px;
-    margin-top:20px;
-    border:none;
-    border-radius:8px;
-    background:#25D366;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-/* =========================
-   NUMERO PEDIDO
-========================= */
-
-.numero-pedido{
-    background:#f1f1f1;
-    padding:12px;
-    border-radius:8px;
-    margin-bottom:20px;
-    font-weight:bold;
-}
-
-/* =========================
-   WHATSAPP FLOTANTE
+   BOTON WHATSAPP
 ========================= */
 
 .whatsapp-flotante{
     position:fixed;
-    right:20px;
     bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
     width:60px;
     height:60px;
     border-radius:50%;
-    background:#25D366;
-    color:white;
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:28px;
     text-decoration:none;
-    z-index:1500;
-    box-shadow:0 4px 15px rgba(0,0,0,.3);
+    box-shadow:0 4px 15px rgba(0,0,0,0.25);
+    z-index:3000;
 }
+
 
 /* =========================
    FOOTER
@@ -377,9 +327,10 @@ footer{
     background:#111;
     color:white;
     text-align:center;
-    padding:30px 20px;
-    margin-top:40px;
+    padding:30px;
+    margin-top:50px;
 }
+
 
 /* =========================
    MOVIL
@@ -387,21 +338,12 @@ footer{
 
 @media(max-width:600px){
 
-    .hero h2{
+    .hero h1{
         font-size:32px;
     }
 
-    .hero{
-        padding:50px 20px;
-    }
-
-    .catalogo{
-        padding:40px 20px;
-    }
-
-    .item-carrito{
-        flex-direction:column;
-        align-items:flex-start;
+    .producto img{
+        height:280px;
     }
 
 }
@@ -420,12 +362,12 @@ footer{
 
 <header>
 
-    <h1>
+    <div class="logo">
         StyloCaps
-    </h1>
+    </div>
 
-    <button
-        class="carrito-btn"
+    <div
+        class="carrito"
         onclick="abrirCarrito()"
     >
 
@@ -435,9 +377,10 @@ footer{
             0
         </span>
 
-    </button>
+    </div>
 
 </header>
+
 
 
 <!-- =========================
@@ -446,15 +389,16 @@ footer{
 
 <section class="hero">
 
-    <h2>
-        STYLOCAPS
-    </h2>
+    <h1>
+        StyloCaps
+    </h1>
 
     <p>
-        Gorras con estilo para todos los días.
+        Gorras con estilo para todos los días
     </p>
 
 </section>
+
 
 
 <!-- =========================
@@ -464,15 +408,17 @@ footer{
 <section class="catalogo">
 
     <h2>
-        Nuestras Gorras
+        Nuestra colección
     </h2>
+
 
     <div
         class="productos"
-        id="listaProductos"
+        id="productos"
     ></div>
 
 </section>
+
 
 
 <!-- =========================
@@ -488,24 +434,15 @@ footer{
 
         <span
             class="cerrar"
-            onclick="cerrarModal()"
+            onclick="cerrarProducto()"
         >
             ×
         </span>
 
 
-        <h2 id="modalNombre"></h2>
-
-
-        <p
-            class="modal-precio"
-            id="modalPrecio"
-        ></p>
-
-
-        <p
-            id="modalDescripcion"
-        ></p>
+        <h2 id="modalNombre">
+            Producto
+        </h2>
 
 
         <div class="campo">
@@ -514,9 +451,8 @@ footer{
                 Color
             </label>
 
-            <select
-                id="modalColor"
-            ></select>
+            <select id="modalColor">
+            </select>
 
         </div>
 
@@ -527,12 +463,10 @@ footer{
                 Talla
             </label>
 
-            <select
-                id="modalTalla"
-            >
+            <select id="modalTalla">
 
-                <option value="Única">
-                    Única
+                <option value="">
+                    Seleccionar talla
                 </option>
 
                 <option value="S">
@@ -573,7 +507,7 @@ footer{
 
 
         <button
-            class="btn-agregar"
+            class="btn"
             onclick="agregarAlCarrito()"
         >
 
@@ -586,54 +520,41 @@ footer{
 </div>
 
 
+
 <!-- =========================
      CARRITO
 ========================= -->
 
 <div
-    class="carrito"
+    class="carrito-modal"
     id="modalCarrito"
 >
 
     <div class="carrito-contenido">
 
-        <div class="carrito-header">
-
-            <h2>
-                🛒 Tu carrito
-            </h2>
-
-            <span
-                class="cerrar-carrito"
-                onclick="cerrarCarrito()"
-            >
-                ×
-            </span>
-
-        </div>
-
-
-        <div
-            class="numero-pedido"
-            id="numeroPedido"
+        <span
+            class="cerrar"
+            onclick="cerrarCarrito()"
         >
-            📦 Pedido #0001
+            ×
+        </span>
+
+
+        <h2>
+            🛒 Tu carrito
+        </h2>
+
+
+        <div id="listaCarrito">
         </div>
 
-
-        <div
-            id="listaCarrito"
-        ></div>
-
-
-        <!-- RESUMEN -->
 
         <div class="resumen">
 
-            <div class="fila">
+            <div class="resumen-linea">
 
                 <span>
-                    Subtotal
+                    🧢 Valor gorras:
                 </span>
 
                 <strong id="subtotal">
@@ -643,10 +564,10 @@ footer{
             </div>
 
 
-            <div class="fila">
+            <div class="resumen-linea">
 
                 <span>
-                    Envío
+                    🚚 Domicilio:
                 </span>
 
                 <strong id="envio">
@@ -656,10 +577,10 @@ footer{
             </div>
 
 
-            <div class="fila total">
+            <div class="resumen-linea resumen-total">
 
                 <span>
-                    Total
+                    💰 Total a pagar:
                 </span>
 
                 <strong id="total">
@@ -671,35 +592,66 @@ footer{
         </div>
 
 
-        <!-- DATOS DEL CLIENTE -->
 
-        <div class="datos-cliente">
+        <!-- =========================
+             DATOS CLIENTE
+        ========================= -->
 
-            <h3>
-                👤 Datos del cliente
-            </h3>
+        <h3 style="margin-top:25px;">
+            👤 Datos del cliente
+        </h3>
 
+
+        <div class="campo">
+
+            <label>
+                Nombre
+            </label>
 
             <input
                 type="text"
                 id="clienteNombre"
-                placeholder="Nombre completo"
+                placeholder="Tu nombre"
             >
 
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                CC
+            </label>
 
             <input
                 type="text"
                 id="clienteCC"
-                placeholder="Número de CC"
+                placeholder="Número de cédula"
             >
 
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Teléfono
+            </label>
 
             <input
-                type="tel"
+                type="text"
                 id="clienteTelefono"
                 placeholder="Número de teléfono"
             >
 
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Ciudad
+            </label>
 
             <select
                 id="ciudad"
@@ -707,7 +659,7 @@ footer{
             >
 
                 <option value="">
-                    Selecciona tu ciudad
+                    Seleccionar ciudad
                 </option>
 
                 <option value="Bogotá">
@@ -724,6 +676,14 @@ footer{
 
             </select>
 
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Localidad
+            </label>
 
             <select
                 id="localidad"
@@ -731,46 +691,58 @@ footer{
             >
 
                 <option value="">
-                    Selecciona localidad
+                    Seleccionar localidad
                 </option>
 
             </select>
 
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                Dirección
+            </label>
 
             <input
                 type="text"
                 id="direccion"
-                placeholder="Dirección de entrega"
+                placeholder="Ej: CLLE 41 86G 05"
             >
-
-
-            <button
-                class="btn-whatsapp"
-                onclick="comprarWhatsApp()"
-            >
-
-                📲 Enviar pedido por WhatsApp
-
-            </button>
 
         </div>
+
+
+        <div class="campo">
+
+            <label>
+                Número de pedido
+            </label>
+
+            <input
+                type="text"
+                id="numeroPedido"
+                value="0001"
+                readonly
+            >
+
+        </div>
+
+
+        <button
+            class="btn"
+            onclick="comprarWhatsApp()"
+        >
+
+            📲 Comprar por WhatsApp
+
+        </button>
 
     </div>
 
 </div>
 
-
-<!-- =========================
-     WHATSAPP FLOTANTE
-========================= -->
-
-<a
-    class="whatsapp-flotante"
-    href="https://wa.me/573001323639"
-    target="_blank"
->
-    📱
-</a>
 
 
 <!-- =========================
@@ -783,36 +755,50 @@ footer{
         © 2026 StyloCaps
     </p>
 
-    <p>
+    <p style="margin-top:8px;">
         Gorras con estilo
     </p>
 
 </footer>
 
 
+
+<!-- =========================
+     WHATSAPP FLOTANTE
+========================= -->
+
+<a
+    class="whatsapp-flotante"
+    href="https://wa.me/573001323639"
+    target="_blank"
+>
+
+    💬
+
+</a>
+
+
+
 <script>
 
 
-/* =========================
+/* ==================================================
    PRODUCTOS
-========================= */
+================================================== */
+
 
 const productos = [
 
     {
         nombre:"Beisbolera",
-
         precio:70000,
-
         colores:[
             "Azul",
             "Rojo",
             "Negro",
             "Amarillo"
         ],
-
         imagen:"beisbolera.jpg",
-
         descripcion:
         "Gorras cerradas con talla y buenos bordados. Calidad 1.1."
     },
@@ -820,16 +806,12 @@ const productos = [
 
     {
         nombre:"Gorra Premium",
-
         precio:55000,
-
         colores:[
             "Negro",
             "Azul"
         ],
-
         imagen:"gorra2.jpg",
-
         descripcion:
         "Gorra moderna con excelente acabado."
     },
@@ -837,16 +819,12 @@ const productos = [
 
     {
         nombre:"Gorra Urban",
-
         precio:45000,
-
         colores:[
             "Negro",
             "Rojo"
         ],
-
         imagen:"gorra3.jpg",
-
         descripcion:
         "Diseño urbano para combinar con cualquier estilo."
     }
@@ -854,9 +832,11 @@ const productos = [
 ];
 
 
-/* =========================
-   ENVÍOS
-========================= */
+
+/* ==================================================
+   UBICACIONES Y ENVÍOS
+================================================== */
+
 
 const ubicaciones = {
 
@@ -887,9 +867,11 @@ const ubicaciones = {
 };
 
 
-/* =========================
+
+/* ==================================================
    VARIABLES
-========================= */
+================================================== */
+
 
 let carrito = [];
 
@@ -898,38 +880,38 @@ let productoSeleccionado = null;
 let precioEnvioActual = 0;
 
 
-/* =========================
+/* ==================================================
    NUMERO DE PEDIDO
-========================= */
+================================================== */
+
 
 let numeroPedidoActual =
+    parseInt(
+        localStorage.getItem(
+            "stylocaps_numero_pedido"
+        )
+    ) || 1;
 
-parseInt(
-    localStorage.getItem(
-        "stylocaps_numero_pedido"
-    )
-) || 1;
 
 
-/* =========================
+/* ==================================================
    MOSTRAR PRODUCTOS
-========================= */
+================================================== */
+
 
 function mostrarProductos(){
 
-    const lista =
-        document.getElementById(
-            "listaProductos"
-        );
+    const contenedor =
+        document.getElementById("productos");
 
 
-    lista.innerHTML = "";
+    contenedor.innerHTML = "";
 
 
     productos.forEach(
-        (producto,index)=>{
+        (producto,index) => {
 
-            lista.innerHTML += `
+            contenedor.innerHTML += `
 
                 <div class="producto">
 
@@ -938,31 +920,25 @@ function mostrarProductos(){
                         alt="${producto.nombre}"
                     >
 
-                    <div class="producto-info">
+                    <div class="producto-contenido">
 
                         <h3>
                             ${producto.nombre}
                         </h3>
 
-                        <p class="precio">
-
+                        <div class="precio">
                             $${producto.precio.toLocaleString("es-CO")}
+                        </div>
 
-                        </p>
-
-                        <p class="descripcion">
-
+                        <div class="descripcion">
                             ${producto.descripcion}
-
-                        </p>
+                        </div>
 
                         <button
-                            class="btn-producto"
+                            class="btn"
                             onclick="abrirProducto(${index})"
                         >
-
-                            Ver producto
-
+                            Comprar
                         </button>
 
                     </div>
@@ -977,9 +953,11 @@ function mostrarProductos(){
 }
 
 
-/* =========================
+
+/* ==================================================
    ABRIR PRODUCTO
-========================= */
+================================================== */
+
 
 function abrirProducto(index){
 
@@ -989,45 +967,32 @@ function abrirProducto(index){
 
     document.getElementById(
         "modalNombre"
-    ).textContent =
+    ).innerText =
         productoSeleccionado.nombre;
 
 
-    document.getElementById(
-        "modalPrecio"
-    ).textContent =
-        "$" +
-        productoSeleccionado.precio
-        .toLocaleString("es-CO");
-
-
-    document.getElementById(
-        "modalDescripcion"
-    ).textContent =
-        productoSeleccionado.descripcion;
-
-
-    const color =
+    const selectColor =
         document.getElementById(
             "modalColor"
         );
 
 
-    color.innerHTML = "";
+    selectColor.innerHTML = "";
 
 
-    productoSeleccionado.colores
-    .forEach(c=>{
+    productoSeleccionado.colores.forEach(
+        color => {
 
-        color.innerHTML += `
+            selectColor.innerHTML += `
 
-            <option value="${c}">
-                ${c}
-            </option>
+                <option value="${color}">
+                    ${color}
+                </option>
 
-        `;
+            `;
 
-    });
+        }
+    );
 
 
     document.getElementById(
@@ -1036,32 +1001,44 @@ function abrirProducto(index){
 
 
     document.getElementById(
-        "modalProducto"
-    ).style.display =
-        "block";
+        "modalTalla"
+    ).value = "";
 
-}
-
-
-/* =========================
-   CERRAR MODAL
-========================= */
-
-function cerrarModal(){
 
     document.getElementById(
         "modalProducto"
-    ).style.display =
-        "none";
+    ).style.display = "flex";
 
 }
 
 
-/* =========================
+
+/* ==================================================
+   CERRAR PRODUCTO
+================================================== */
+
+
+function cerrarProducto(){
+
+    document.getElementById(
+        "modalProducto"
+    ).style.display = "none";
+
+}
+
+
+
+/* ==================================================
    AGREGAR AL CARRITO
-========================= */
+================================================== */
+
 
 function agregarAlCarrito(){
+
+    if(!productoSeleccionado){
+        return;
+    }
+
 
     const color =
         document.getElementById(
@@ -1083,10 +1060,21 @@ function agregarAlCarrito(){
         );
 
 
+    if(!talla){
+
+        alert(
+            "Selecciona una talla."
+        );
+
+        return;
+
+    }
+
+
     if(cantidad < 1){
 
         alert(
-            "La cantidad debe ser mayor a 0."
+            "La cantidad debe ser mínimo 1."
         );
 
         return;
@@ -1114,9 +1102,10 @@ function agregarAlCarrito(){
     });
 
 
-    cerrarModal();
-
     actualizarCarrito();
+
+    cerrarProducto();
+
 
     alert(
         "🛒 Producto agregado al carrito."
@@ -1125,9 +1114,11 @@ function agregarAlCarrito(){
 }
 
 
-/* =========================
+
+/* ==================================================
    ACTUALIZAR CARRITO
-========================= */
+================================================== */
+
 
 function actualizarCarrito(){
 
@@ -1142,11 +1133,9 @@ function actualizarCarrito(){
 
     let subtotal = 0;
 
-    let cantidadTotal = 0;
-
 
     carrito.forEach(
-        (item,index)=>{
+        (item,index) => {
 
             const totalProducto =
                 item.precio *
@@ -1157,63 +1146,37 @@ function actualizarCarrito(){
                 totalProducto;
 
 
-            cantidadTotal +=
-                item.cantidad;
-
-
             lista.innerHTML += `
 
                 <div class="item-carrito">
 
-                    <div class="item-info">
+                    <h4>
+                        🧢 ${item.nombre}
+                    </h4>
 
-                        <h3>
-                            ${item.nombre}
-                        </h3>
+                    <p>
+                        Color: ${item.color}
+                    </p>
 
-                        <p>
-                            ${item.color}
-                            |
-                            ${item.talla}
-                        </p>
+                    <p>
+                        Talla: ${item.talla}
+                    </p>
 
-                        <p>
-                            $${item.precio.toLocaleString("es-CO")}
-                            cada uno
-                        </p>
+                    <p>
+                        Cantidad: ${item.cantidad}
+                    </p>
 
-                    </div>
+                    <p>
+                        Valor:
+                        $${totalProducto.toLocaleString("es-CO")}
+                    </p>
 
-
-                    <div class="cantidad-control">
-
-                        <button
-                            onclick="cambiarCantidad(${index},-1)"
-                        >
-                            -
-                        </button>
-
-
-                        <strong>
-                            ${item.cantidad}
-                        </strong>
-
-
-                        <button
-                            onclick="cambiarCantidad(${index},1)"
-                        >
-                            +
-                        </button>
-
-
-                        <button
-                            class="eliminar"
-                            onclick="eliminarProducto(${index})"
-                        >
-                            ×
-                        </button>
-
-                    </div>
+                    <button
+                        class="btn-eliminar"
+                        onclick="eliminarProducto(${index})"
+                    >
+                        Eliminar
+                    </button>
 
                 </div>
 
@@ -1225,30 +1188,26 @@ function actualizarCarrito(){
 
     document.getElementById(
         "contadorCarrito"
-    ).textContent =
-        cantidadTotal;
+    ).innerText =
+        carrito.reduce(
+            (total,item) =>
+                total + item.cantidad,
+            0
+        );
 
 
     document.getElementById(
         "subtotal"
-    ).textContent =
+    ).innerText =
         "$" +
         subtotal.toLocaleString("es-CO");
 
 
     document.getElementById(
         "envio"
-    ).textContent =
-
-        precioEnvioActual === 0
-
-        ? "$0"
-
-        :
-
+    ).innerText =
         "$" +
-        precioEnvioActual
-        .toLocaleString("es-CO");
+        precioEnvioActual.toLocaleString("es-CO");
 
 
     const total =
@@ -1258,49 +1217,18 @@ function actualizarCarrito(){
 
     document.getElementById(
         "total"
-    ).textContent =
+    ).innerText =
         "$" +
         total.toLocaleString("es-CO");
 
-
-    mostrarNumeroPedido();
-
 }
 
 
-/* =========================
-   CAMBIAR CANTIDAD
-========================= */
 
-function cambiarCantidad(
-    index,
-    cambio
-){
-
-    carrito[index].cantidad +=
-        cambio;
-
-
-    if(
-        carrito[index].cantidad <= 0
-    ){
-
-        carrito.splice(
-            index,
-            1
-        );
-
-    }
-
-
-    actualizarCarrito();
-
-}
-
-
-/* =========================
+/* ==================================================
    ELIMINAR PRODUCTO
-========================= */
+================================================== */
+
 
 function eliminarProducto(index){
 
@@ -1315,26 +1243,41 @@ function eliminarProducto(index){
 }
 
 
-/* =========================
+
+/* ==================================================
    ABRIR CARRITO
-========================= */
+================================================== */
+
 
 function abrirCarrito(){
+
+    actualizarCarrito();
+
+
+    document.getElementById(
+        "numeroPedido"
+    ).value =
+        String(
+            numeroPedidoActual
+        ).padStart(
+            4,
+            "0"
+        );
+
 
     document.getElementById(
         "modalCarrito"
     ).style.display =
-        "block";
-
-
-    actualizarCarrito();
+        "flex";
 
 }
 
 
-/* =========================
+
+/* ==================================================
    CERRAR CARRITO
-========================= */
+================================================== */
+
 
 function cerrarCarrito(){
 
@@ -1346,30 +1289,11 @@ function cerrarCarrito(){
 }
 
 
-/* =========================
-   MOSTRAR NUMERO PEDIDO
-========================= */
 
-function mostrarNumeroPedido(){
-
-    const numero =
-        String(
-            numeroPedidoActual
-        ).padStart(4,"0");
-
-
-    document.getElementById(
-        "numeroPedido"
-    ).textContent =
-        "📦 Pedido #" +
-        numero;
-
-}
-
-
-/* =========================
+/* ==================================================
    CARGAR LOCALIDADES
-========================= */
+================================================== */
+
 
 function cargarLocalidades(){
 
@@ -1388,7 +1312,7 @@ function cargarLocalidades(){
     localidad.innerHTML = `
 
         <option value="">
-            Selecciona localidad
+            Seleccionar localidad
         </option>
 
     `;
@@ -1397,31 +1321,28 @@ function cargarLocalidades(){
     precioEnvioActual = 0;
 
 
-    if(!ciudad){
+    if(
+        ciudad &&
+        ubicaciones[ciudad]
+    ){
 
-        actualizarCarrito();
+        Object.keys(
+            ubicaciones[ciudad]
+        ).forEach(
+            nombre => {
 
-        return;
+                localidad.innerHTML += `
+
+                    <option value="${nombre}">
+                        ${nombre}
+                    </option>
+
+                `;
+
+            }
+        );
 
     }
-
-
-    const opciones =
-        ubicaciones[ciudad];
-
-
-    Object.keys(opciones)
-    .forEach(nombre=>{
-
-        localidad.innerHTML += `
-
-            <option value="${nombre}">
-                ${nombre}
-            </option>
-
-        `;
-
-    });
 
 
     actualizarCarrito();
@@ -1429,9 +1350,11 @@ function cargarLocalidades(){
 }
 
 
-/* =========================
+
+/* ==================================================
    CALCULAR ENVÍO
-========================= */
+================================================== */
+
 
 function calcularEnvio(){
 
@@ -1448,21 +1371,20 @@ function calcularEnvio(){
 
 
     if(
-        !ciudad ||
-        !localidad
+        ciudad &&
+        localidad &&
+        ubicaciones[ciudad] &&
+        ubicaciones[ciudad][localidad]
     ){
+
+        precioEnvioActual =
+            ubicaciones[ciudad][localidad];
+
+    }else{
 
         precioEnvioActual = 0;
 
-        actualizarCarrito();
-
-        return;
-
     }
-
-
-    precioEnvioActual =
-        ubicaciones[ciudad][localidad];
 
 
     actualizarCarrito();
@@ -1470,11 +1392,19 @@ function calcularEnvio(){
 }
 
 
-/* =========================
+
+/* ==================================================
    COMPRAR POR WHATSAPP
-========================= */
+================================================== */
+
 
 function comprarWhatsApp(){
+
+
+    /* ----------------------------------
+       VALIDAR CARRITO
+    ---------------------------------- */
+
 
     if(carrito.length === 0){
 
@@ -1485,6 +1415,12 @@ function comprarWhatsApp(){
         return;
 
     }
+
+
+
+    /* ----------------------------------
+       OBTENER DATOS
+    ---------------------------------- */
 
 
     const nombre =
@@ -1523,9 +1459,11 @@ function comprarWhatsApp(){
         ).value.trim();
 
 
-    /* =========================
+
+    /* ----------------------------------
        VALIDACIONES
-    ========================= */
+    ---------------------------------- */
+
 
     if(!nombre){
 
@@ -1596,7 +1534,7 @@ function comprarWhatsApp(){
     if(precioEnvioActual === 0){
 
         alert(
-            "No se pudo calcular el envío."
+            "Selecciona correctamente la ciudad y localidad para calcular el domicilio."
         );
 
         return;
@@ -1604,21 +1542,29 @@ function comprarWhatsApp(){
     }
 
 
-    /* =========================
-       NUMERO PEDIDO
-    ========================= */
+
+    /* ----------------------------------
+       NUMERO DE PEDIDO
+    ---------------------------------- */
+
 
     const numeroPedido =
         String(
             numeroPedidoActual
-        ).padStart(4,"0");
+        ).padStart(
+            4,
+            "0"
+        );
 
 
-    /* =========================
+
+    /* ----------------------------------
        MENSAJE WHATSAPP
-    ========================= */
+    ---------------------------------- */
+
 
     let mensaje =
+
 `Hola StyloCaps 👋
 
 📦 Pedido #${numeroPedido}
@@ -1627,11 +1573,17 @@ function comprarWhatsApp(){
 `;
 
 
+
+    /* ----------------------------------
+       PRODUCTOS
+    ---------------------------------- */
+
+
     let subtotal = 0;
 
 
     carrito.forEach(
-        item=>{
+        item => {
 
             const totalProducto =
                 item.precio *
@@ -1653,18 +1605,22 @@ $${totalProducto.toLocaleString("es-CO")}
     );
 
 
-    /* =========================
+
+    /* ----------------------------------
        TOTAL
-    ========================= */
+    ---------------------------------- */
+
 
     const total =
         subtotal +
         precioEnvioActual;
 
 
-    /* =========================
-       DATOS Y VALORES SEPARADOS
-    ========================= */
+
+    /* ----------------------------------
+       DATOS + VALORES
+    ---------------------------------- */
+
 
     mensaje += `
 
@@ -1681,9 +1637,11 @@ CC: ${cc}
 `;
 
 
-    /* =========================
+
+    /* ----------------------------------
        GUARDAR SIGUIENTE PEDIDO
-    ========================= */
+    ---------------------------------- */
+
 
     numeroPedidoActual++;
 
@@ -1694,9 +1652,11 @@ CC: ${cc}
     );
 
 
-    /* =========================
+
+    /* ----------------------------------
        WHATSAPP
-    ========================= */
+    ---------------------------------- */
+
 
     const numero =
         "573001323639";
@@ -1717,13 +1677,16 @@ CC: ${cc}
 }
 
 
-/* =========================
-   INICIAR PAGINA
-========================= */
+
+/* ==================================================
+   INICIAR PÁGINA
+================================================== */
+
 
 mostrarProductos();
 
-mostrarNumeroPedido();
+
+actualizarCarrito();
 
 
 </script>

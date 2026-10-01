@@ -9,7 +9,6 @@
 
 <title>StyloCaps | Gorras</title>
 
-
 <style>
 
 /* =========================
@@ -272,11 +271,11 @@ header{
 
 
 /* =========================
-   RESUMEN
+   RESUMEN FINAL
 ========================= */
 
 .resumen{
-    margin-top:20px;
+    margin-top:25px;
     padding:20px;
     background:#f5f5f5;
     border-radius:10px;
@@ -285,19 +284,22 @@ header{
 .resumen-linea{
     display:flex;
     justify-content:space-between;
-    margin-bottom:10px;
+    align-items:center;
+    margin-bottom:12px;
 }
 
 .resumen-total{
     font-size:20px;
     font-weight:bold;
     border-top:1px solid #ccc;
-    padding-top:12px;
+    padding-top:15px;
+    margin-top:10px;
+    margin-bottom:0;
 }
 
 
 /* =========================
-   BOTON WHATSAPP
+   WHATSAPP
 ========================= */
 
 .whatsapp-flotante{
@@ -410,7 +412,6 @@ footer{
     <h2>
         Nuestra colección
     </h2>
-
 
     <div
         class="productos"
@@ -545,59 +546,18 @@ footer{
         </h2>
 
 
+        <!-- PRODUCTOS DEL CARRITO -->
+
         <div id="listaCarrito">
-        </div>
-
-
-        <div class="resumen">
-
-            <div class="resumen-linea">
-
-                <span>
-                    🧢 Valor gorras:
-                </span>
-
-                <strong id="subtotal">
-                    $0
-                </strong>
-
-            </div>
-
-
-            <div class="resumen-linea">
-
-                <span>
-                    🚚 Domicilio:
-                </span>
-
-                <strong id="envio">
-                    $0
-                </strong>
-
-            </div>
-
-
-            <div class="resumen-linea resumen-total">
-
-                <span>
-                    💰 Total a pagar:
-                </span>
-
-                <strong id="total">
-                    $0
-                </strong>
-
-            </div>
-
         </div>
 
 
 
         <!-- =========================
-             DATOS CLIENTE
+             DATOS DEL CLIENTE
         ========================= -->
 
-        <h3 style="margin-top:25px;">
+        <h3 style="margin-top:25px; margin-bottom:20px;">
             👤 Datos del cliente
         </h3>
 
@@ -730,9 +690,65 @@ footer{
         </div>
 
 
+
+        <!-- =========================
+             RESUMEN FINAL ABAJO
+        ========================= -->
+
+        <div class="resumen">
+
+
+            <div class="resumen-linea">
+
+                <span>
+                    🧢 Valor gorras
+                </span>
+
+                <strong id="subtotal">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <div class="resumen-linea">
+
+                <span>
+                    🚚 Domicilio
+                </span>
+
+                <strong id="envio">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <div class="resumen-linea resumen-total">
+
+                <span>
+                    💰 Total a pagar
+                </span>
+
+                <strong id="total">
+                    $0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             BOTON WHATSAPP
+        ========================= -->
+
         <button
             class="btn"
             onclick="comprarWhatsApp()"
+            style="margin-top:20px;"
         >
 
             📲 Comprar por WhatsApp
@@ -834,7 +850,7 @@ const productos = [
 
 
 /* ==================================================
-   UBICACIONES Y ENVÍOS
+   ENVÍOS
 ================================================== */
 
 
@@ -880,6 +896,7 @@ let productoSeleccionado = null;
 let precioEnvioActual = 0;
 
 
+
 /* ==================================================
    NUMERO DE PEDIDO
 ================================================== */
@@ -902,7 +919,9 @@ let numeroPedidoActual =
 function mostrarProductos(){
 
     const contenedor =
-        document.getElementById("productos");
+        document.getElementById(
+            "productos"
+        );
 
 
     contenedor.innerHTML = "";
@@ -927,18 +946,24 @@ function mostrarProductos(){
                         </h3>
 
                         <div class="precio">
+
                             $${producto.precio.toLocaleString("es-CO")}
+
                         </div>
 
                         <div class="descripcion">
+
                             ${producto.descripcion}
+
                         </div>
 
                         <button
                             class="btn"
                             onclick="abrirProducto(${index})"
                         >
+
                             Comprar
+
                         </button>
 
                     </div>
@@ -1175,7 +1200,9 @@ function actualizarCarrito(){
                         class="btn-eliminar"
                         onclick="eliminarProducto(${index})"
                     >
+
                         Eliminar
+
                     </button>
 
                 </div>
@@ -1380,7 +1407,9 @@ function calcularEnvio(){
         precioEnvioActual =
             ubicaciones[ciudad][localidad];
 
-    }else{
+    }
+
+    else{
 
         precioEnvioActual = 0;
 
@@ -1401,10 +1430,7 @@ function calcularEnvio(){
 function comprarWhatsApp(){
 
 
-    /* ----------------------------------
-       VALIDAR CARRITO
-    ---------------------------------- */
-
+    /* VALIDAR CARRITO */
 
     if(carrito.length === 0){
 
@@ -1418,10 +1444,7 @@ function comprarWhatsApp(){
 
 
 
-    /* ----------------------------------
-       OBTENER DATOS
-    ---------------------------------- */
-
+    /* DATOS DEL CLIENTE */
 
     const nombre =
         document.getElementById(
@@ -1460,10 +1483,7 @@ function comprarWhatsApp(){
 
 
 
-    /* ----------------------------------
-       VALIDACIONES
-    ---------------------------------- */
-
+    /* VALIDACIONES */
 
     if(!nombre){
 
@@ -1543,10 +1563,7 @@ function comprarWhatsApp(){
 
 
 
-    /* ----------------------------------
-       NUMERO DE PEDIDO
-    ---------------------------------- */
-
+    /* NUMERO DE PEDIDO */
 
     const numeroPedido =
         String(
@@ -1558,10 +1575,7 @@ function comprarWhatsApp(){
 
 
 
-    /* ----------------------------------
-       MENSAJE WHATSAPP
-    ---------------------------------- */
-
+    /* MENSAJE */
 
     let mensaje =
 
@@ -1574,10 +1588,7 @@ function comprarWhatsApp(){
 
 
 
-    /* ----------------------------------
-       PRODUCTOS
-    ---------------------------------- */
-
+    /* PRODUCTOS */
 
     let subtotal = 0;
 
@@ -1606,10 +1617,7 @@ $${totalProducto.toLocaleString("es-CO")}
 
 
 
-    /* ----------------------------------
-       TOTAL
-    ---------------------------------- */
-
+    /* TOTAL */
 
     const total =
         subtotal +
@@ -1617,10 +1625,7 @@ $${totalProducto.toLocaleString("es-CO")}
 
 
 
-    /* ----------------------------------
-       DATOS + VALORES
-    ---------------------------------- */
-
+    /* DATOS + VALORES */
 
     mensaje += `
 
@@ -1638,10 +1643,7 @@ CC: ${cc}
 
 
 
-    /* ----------------------------------
-       GUARDAR SIGUIENTE PEDIDO
-    ---------------------------------- */
-
+    /* SIGUIENTE PEDIDO */
 
     numeroPedidoActual++;
 
@@ -1653,10 +1655,7 @@ CC: ${cc}
 
 
 
-    /* ----------------------------------
-       WHATSAPP
-    ---------------------------------- */
-
+    /* WHATSAPP */
 
     const numero =
         "573001323639";
@@ -1679,12 +1678,11 @@ CC: ${cc}
 
 
 /* ==================================================
-   INICIAR PÁGINA
+   INICIAR
 ================================================== */
 
 
 mostrarProductos();
-
 
 actualizarCarrito();
 

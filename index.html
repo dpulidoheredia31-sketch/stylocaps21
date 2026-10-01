@@ -23,7 +23,9 @@ body{
     color:#111;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
     background:#111;
@@ -48,7 +50,9 @@ header h1{
     font-weight:bold;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
     background:#111;
@@ -67,7 +71,9 @@ header h1{
     font-size:18px;
 }
 
-/* CATALOGO */
+/* =========================
+   CATALOGO
+========================= */
 
 .catalogo{
     padding:50px 7%;
@@ -129,7 +135,9 @@ header h1{
     font-weight:bold;
 }
 
-/* MODAL */
+/* =========================
+   MODAL PRODUCTO
+========================= */
 
 .modal{
     display:none;
@@ -194,7 +202,9 @@ header h1{
     cursor:pointer;
 }
 
-/* CARRITO */
+/* =========================
+   CARRITO
+========================= */
 
 .carrito{
     display:none;
@@ -268,7 +278,9 @@ header h1{
     background:#d00 !important;
 }
 
-/* RESUMEN */
+/* =========================
+   RESUMEN
+========================= */
 
 .resumen{
     margin-top:25px;
@@ -289,7 +301,9 @@ header h1{
     padding-top:15px;
 }
 
-/* DATOS CLIENTE */
+/* =========================
+   DATOS CLIENTE
+========================= */
 
 .datos-cliente{
     margin-top:30px;
@@ -321,7 +335,9 @@ header h1{
     cursor:pointer;
 }
 
-/* NUMERO PEDIDO */
+/* =========================
+   NUMERO PEDIDO
+========================= */
 
 .numero-pedido{
     background:#f1f1f1;
@@ -331,7 +347,9 @@ header h1{
     font-weight:bold;
 }
 
-/* WHATSAPP */
+/* =========================
+   WHATSAPP FLOTANTE
+========================= */
 
 .whatsapp-flotante{
     position:fixed;
@@ -351,7 +369,9 @@ header h1{
     box-shadow:0 4px 15px rgba(0,0,0,.3);
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     background:#111;
@@ -361,7 +381,9 @@ footer{
     margin-top:40px;
 }
 
-/* MOVIL */
+/* =========================
+   MOVIL
+========================= */
 
 @media(max-width:600px){
 
@@ -392,11 +414,15 @@ footer{
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
-    <h1>StyloCaps</h1>
+    <h1>
+        StyloCaps
+    </h1>
 
     <button
         class="carrito-btn"
@@ -414,7 +440,9 @@ footer{
 </header>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -429,7 +457,9 @@ footer{
 </section>
 
 
-<!-- CATALOGO -->
+<!-- =========================
+     CATALOGO
+========================= -->
 
 <section class="catalogo">
 
@@ -445,7 +475,9 @@ footer{
 </section>
 
 
-<!-- MODAL PRODUCTO -->
+<!-- =========================
+     MODAL PRODUCTO
+========================= -->
 
 <div
     class="modal"
@@ -554,7 +586,9 @@ footer{
 </div>
 
 
-<!-- CARRITO -->
+<!-- =========================
+     CARRITO
+========================= -->
 
 <div
     class="carrito"
@@ -637,7 +671,7 @@ footer{
         </div>
 
 
-        <!-- DATOS CLIENTE -->
+        <!-- DATOS DEL CLIENTE -->
 
         <div class="datos-cliente">
 
@@ -726,7 +760,9 @@ footer{
 </div>
 
 
-<!-- WHATSAPP FLOTANTE -->
+<!-- =========================
+     WHATSAPP FLOTANTE
+========================= -->
 
 <a
     class="whatsapp-flotante"
@@ -737,7 +773,9 @@ footer{
 </a>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -755,7 +793,9 @@ footer{
 <script>
 
 
-/* PRODUCTOS */
+/* =========================
+   PRODUCTOS
+========================= */
 
 const productos = [
 
@@ -814,7 +854,9 @@ const productos = [
 ];
 
 
-/* ENVÍOS */
+/* =========================
+   ENVÍOS
+========================= */
 
 const ubicaciones = {
 
@@ -845,7 +887,9 @@ const ubicaciones = {
 };
 
 
-/* VARIABLES */
+/* =========================
+   VARIABLES
+========================= */
 
 let carrito = [];
 
@@ -854,7 +898,9 @@ let productoSeleccionado = null;
 let precioEnvioActual = 0;
 
 
-/* NUMERO DE PEDIDO */
+/* =========================
+   NUMERO DE PEDIDO
+========================= */
 
 let numeroPedidoActual =
 
@@ -865,7 +911,9 @@ parseInt(
 ) || 1;
 
 
-/* MOSTRAR PRODUCTOS */
+/* =========================
+   MOSTRAR PRODUCTOS
+========================= */
 
 function mostrarProductos(){
 
@@ -929,7 +977,9 @@ function mostrarProductos(){
 }
 
 
-/* ABRIR PRODUCTO */
+/* =========================
+   ABRIR PRODUCTO
+========================= */
 
 function abrirProducto(index){
 
@@ -987,23 +1037,29 @@ function abrirProducto(index){
 
     document.getElementById(
         "modalProducto"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 }
 
 
-/* CERRAR PRODUCTO */
+/* =========================
+   CERRAR MODAL
+========================= */
 
 function cerrarModal(){
 
     document.getElementById(
         "modalProducto"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 }
 
 
-/* AGREGAR AL CARRITO */
+/* =========================
+   AGREGAR AL CARRITO
+========================= */
 
 function agregarAlCarrito(){
 
@@ -1069,7 +1125,9 @@ function agregarAlCarrito(){
 }
 
 
-/* ACTUALIZAR CARRITO */
+/* =========================
+   ACTUALIZAR CARRITO
+========================= */
 
 function actualizarCarrito(){
 
@@ -1183,8 +1241,11 @@ function actualizarCarrito(){
     ).textContent =
 
         precioEnvioActual === 0
+
         ? "$0"
+
         :
+
         "$" +
         precioEnvioActual
         .toLocaleString("es-CO");
@@ -1207,7 +1268,9 @@ function actualizarCarrito(){
 }
 
 
-/* CAMBIAR CANTIDAD */
+/* =========================
+   CAMBIAR CANTIDAD
+========================= */
 
 function cambiarCantidad(
     index,
@@ -1235,7 +1298,9 @@ function cambiarCantidad(
 }
 
 
-/* ELIMINAR PRODUCTO */
+/* =========================
+   ELIMINAR PRODUCTO
+========================= */
 
 function eliminarProducto(index){
 
@@ -1250,7 +1315,9 @@ function eliminarProducto(index){
 }
 
 
-/* ABRIR CARRITO */
+/* =========================
+   ABRIR CARRITO
+========================= */
 
 function abrirCarrito(){
 
@@ -1265,7 +1332,9 @@ function abrirCarrito(){
 }
 
 
-/* CERRAR CARRITO */
+/* =========================
+   CERRAR CARRITO
+========================= */
 
 function cerrarCarrito(){
 
@@ -1277,7 +1346,9 @@ function cerrarCarrito(){
 }
 
 
-/* MOSTRAR NUMERO PEDIDO */
+/* =========================
+   MOSTRAR NUMERO PEDIDO
+========================= */
 
 function mostrarNumeroPedido(){
 
@@ -1296,7 +1367,9 @@ function mostrarNumeroPedido(){
 }
 
 
-/* CARGAR LOCALIDADES */
+/* =========================
+   CARGAR LOCALIDADES
+========================= */
 
 function cargarLocalidades(){
 
@@ -1356,7 +1429,9 @@ function cargarLocalidades(){
 }
 
 
-/* CALCULAR ENVÍO */
+/* =========================
+   CALCULAR ENVÍO
+========================= */
 
 function calcularEnvio(){
 
@@ -1395,7 +1470,9 @@ function calcularEnvio(){
 }
 
 
-/* COMPRAR POR WHATSAPP */
+/* =========================
+   COMPRAR POR WHATSAPP
+========================= */
 
 function comprarWhatsApp(){
 
@@ -1446,7 +1523,9 @@ function comprarWhatsApp(){
         ).value.trim();
 
 
-    /* VALIDACIONES */
+    /* =========================
+       VALIDACIONES
+    ========================= */
 
     if(!nombre){
 
@@ -1525,7 +1604,9 @@ function comprarWhatsApp(){
     }
 
 
-    /* NUMERO PEDIDO */
+    /* =========================
+       NUMERO PEDIDO
+    ========================= */
 
     const numeroPedido =
         String(
@@ -1533,7 +1614,9 @@ function comprarWhatsApp(){
         ).padStart(4,"0");
 
 
-    /* MENSAJE */
+    /* =========================
+       MENSAJE WHATSAPP
+    ========================= */
 
     let mensaje =
 `Hola StyloCaps 👋
@@ -1570,12 +1653,18 @@ $${totalProducto.toLocaleString("es-CO")}
     );
 
 
+    /* =========================
+       TOTAL
+    ========================= */
+
     const total =
         subtotal +
         precioEnvioActual;
 
 
-    /* AQUÍ SE AÑADIÓ EL ENVÍO */
+    /* =========================
+       DATOS Y VALORES SEPARADOS
+    ========================= */
 
     mensaje += `
 
@@ -1586,12 +1675,15 @@ CC: ${cc}
 📍 ${ciudad} - ${localidad}
 🏠 ${direccion}
 
-🚚 Envío: $${precioEnvioActual.toLocaleString("es-CO")}
-💰 Total: $${total.toLocaleString("es-CO")}
+🧢 Valor gorras: $${subtotal.toLocaleString("es-CO")}
+🚚 Domicilio: $${precioEnvioActual.toLocaleString("es-CO")}
+💰 Total a pagar: $${total.toLocaleString("es-CO")}
 `;
 
 
-    /* SIGUIENTE NUMERO DE PEDIDO */
+    /* =========================
+       GUARDAR SIGUIENTE PEDIDO
+    ========================= */
 
     numeroPedidoActual++;
 
@@ -1602,7 +1694,9 @@ CC: ${cc}
     );
 
 
-    /* WHATSAPP */
+    /* =========================
+       WHATSAPP
+    ========================= */
 
     const numero =
         "573001323639";
@@ -1623,7 +1717,9 @@ CC: ${cc}
 }
 
 
-/* INICIAR */
+/* =========================
+   INICIAR PAGINA
+========================= */
 
 mostrarProductos();
 

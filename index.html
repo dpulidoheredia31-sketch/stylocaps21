@@ -1,1429 +1,530 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="StyloCaps - Gorras con estilo, calidad y diseño."
-    >
+    <title>StyloCaps | Gorras con estilo</title>
 
-    <title>STYLOCAPS | Gorras con estilo</title>
-
+    <meta name="description" content="StyloCaps - Gorras con estilo, calidad y buenos diseños.">
 
     <style>
-
-        /* =====================================================
-           CONFIGURACIÓN GENERAL
-        ===================================================== */
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
 
         body {
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
             background: #f5f5f5;
-
             color: #111;
-
-            overflow-x: hidden;
         }
 
-
-        button,
-        input,
-        select {
-            font-family: inherit;
-        }
-
-
-        button {
-            cursor: pointer;
-        }
-
-
-        /* =====================================================
+        /* =========================
            HEADER
-        ===================================================== */
+        ========================= */
 
         header {
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
-            width: 100%;
-
-            background: rgba(10, 10, 10, 0.96);
-
-            backdrop-filter: blur(10px);
-
+            background: #000;
             color: white;
-
-            padding: 18px 6%;
-
+            padding: 15px 6%;
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
-            box-shadow:
-                0 5px 25px rgba(0,0,0,.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-
 
         .logo {
             font-size: 25px;
-
-            font-weight: 900;
-
-            letter-spacing: 4px;
-
-            white-space: nowrap;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
-
-
-        nav {
-            display: flex;
-
-            align-items: center;
-
-            gap: 25px;
-        }
-
 
         nav a {
             color: white;
-
             text-decoration: none;
-
-            font-weight: bold;
-
-            transition: .2s;
+            margin-left: 20px;
+            font-size: 15px;
         }
-
 
         nav a:hover {
-            opacity: .6;
+            text-decoration: underline;
         }
-
 
         .cart-button {
-            border: none;
-
             background: white;
-
-            color: #111;
-
-            padding: 11px 17px;
-
-            border-radius: 30px;
-
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
             font-weight: bold;
-
-            transition: .2s;
+            margin-left: 15px;
         }
 
-
-        .cart-button:hover {
-            transform: translateY(-2px);
-
-            background: #ddd;
-        }
-
-
-        #cartCount {
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            min-width: 22px;
-
-            height: 22px;
-
-            margin-left: 5px;
-
-            background: #e63946;
-
-            color: white;
-
-            border-radius: 50%;
-
-            font-size: 12px;
-        }
-
-
-        /* =====================================================
+        /* =========================
            HERO
-        ===================================================== */
+        ========================= */
 
         .hero {
-
-            min-height: 650px;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            text-align: center;
-
-            position: relative;
-
-            background:
-                linear-gradient(
-                    rgba(0,0,0,.68),
-                    rgba(0,0,0,.68)
-                ),
-                url("Imagenes/beisbolera.jpg");
+            min-height: 500px;
+            background: linear-gradient(
+                rgba(0,0,0,0.65),
+                rgba(0,0,0,0.65)
+            ),
+            url("Imágenes/beisbolera.jpg");
 
             background-size: cover;
-
             background-position: center;
-        }
 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            color: white;
+            padding: 40px 20px;
+        }
 
         .hero-content {
-            color: white;
-
-            max-width: 850px;
-
-            padding: 30px;
-
-            animation:
-                aparecer .8s ease;
+            max-width: 700px;
         }
-
-
-        @keyframes aparecer {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-            }
-
-        }
-
-
-        .hero-small {
-
-            font-size: 14px;
-
-            letter-spacing: 5px;
-
-            margin-bottom: 20px;
-
-            font-weight: bold;
-        }
-
 
         .hero h1 {
-
-            font-size: clamp(
-                45px,
-                8vw,
-                90px
-            );
-
-            line-height: 1;
-
-            margin-bottom: 25px;
+            font-size: 55px;
+            margin-bottom: 15px;
         }
-
 
         .hero p {
-
             font-size: 20px;
-
-            color: #ddd;
-
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
-
-
-        .hero-button {
-
-            display: inline-block;
-
-            background: white;
-
-            color: #111;
-
-            text-decoration: none;
-
-            padding: 16px 35px;
-
-            border-radius: 40px;
-
-            font-weight: 900;
-
-            transition: .25s;
-        }
-
-
-        .hero-button:hover {
-
-            transform:
-                translateY(-4px);
-
-            background: #ddd;
-
-        }
-
-
-        /* =====================================================
-           SECCIÓN
-        ===================================================== */
-
-        .section {
-
-            padding:
-                90px 6%;
-        }
-
-
-        .section-title {
-
-            text-align: center;
-
-            margin-bottom: 45px;
-        }
-
-
-        .section-title span {
-
-            font-size: 12px;
-
-            color: #777;
-
-            letter-spacing: 4px;
-
-            font-weight: bold;
-        }
-
-
-        .section-title h2 {
-
-            font-size: 45px;
-
-            margin-top: 10px;
-        }
-
-
-        /* =====================================================
-           BARRA DE BÚSQUEDA
-        ===================================================== */
-
-        .filters {
-
-            max-width: 900px;
-
-            margin:
-                0 auto 45px;
-
-            display: grid;
-
-            grid-template-columns:
-                2fr 1fr;
-
-            gap: 15px;
-        }
-
-
-        .filters input,
-        .filters select {
-
-            width: 100%;
-
-            padding: 15px 18px;
-
-            border: 1px solid #ddd;
-
-            background: white;
-
-            border-radius: 12px;
-
-            font-size: 15px;
-
-            outline: none;
-        }
-
-
-        .filters input:focus,
-        .filters select:focus {
-
-            border-color: #111;
-
-        }
-
-
-        /* =====================================================
-           PRODUCTOS
-        ===================================================== */
-
-        .products {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 30px;
-        }
-
-
-        .product {
-
-            background: white;
-
-            border-radius: 18px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 10px 35px
-                rgba(0,0,0,.07);
-
-            transition:
-                .3s;
-
-            animation:
-                aparecer .6s ease;
-        }
-
-
-        .product:hover {
-
-            transform:
-                translateY(-8px);
-
-            box-shadow:
-                0 18px 40px
-                rgba(0,0,0,.14);
-        }
-
-
-        .product-image {
-
-            height: 350px;
-
-            background: #eee;
-
-            overflow: hidden;
-
-            position: relative;
-        }
-
-
-        .product-image img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            transition: .4s;
-        }
-
-
-        .product:hover
-        .product-image img {
-
-            transform:
-                scale(1.06);
-        }
-
-
-        .badge {
-
-            position: absolute;
-
-            top: 15px;
-
-            left: 15px;
-
-            background: #111;
-
-            color: white;
-
-            padding: 7px 12px;
-
-            border-radius: 20px;
-
-            font-size: 11px;
-
-            font-weight: bold;
-
-            z-index: 2;
-        }
-
-
-        .product-info {
-
-            padding: 25px;
-        }
-
-
-        .product-info h3 {
-
-            font-size: 25px;
-
-            margin-bottom: 8px;
-        }
-
-
-        .price {
-
-            font-size: 27px;
-
-            font-weight: 900;
-
-            margin-bottom: 12px;
-        }
-
-
-        .description {
-
-            color: #666;
-
-            line-height: 1.5;
-
-            min-height: 48px;
-        }
-
-
-        .stock {
-
-            margin-top: 15px;
-
-            font-size: 14px;
-
-            font-weight: bold;
-        }
-
-
-        .product-buttons {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 10px;
-
-            margin-top: 20px;
-        }
-
 
         .btn {
-
-            border: none;
-
-            padding: 13px;
-
-            border-radius: 9px;
-
-            font-weight: bold;
-
-            transition: .2s;
-        }
-
-
-        .btn-details {
-
-            background: #eee;
-
-            color: #111;
-        }
-
-
-        .btn-details:hover {
-
-            background: #ddd;
-        }
-
-
-        .btn-buy {
-
-            background: #111;
-
-            color: white;
-        }
-
-
-        .btn-buy:hover {
-
-            opacity: .8;
-        }
-
-
-        /* =====================================================
-           MODAL
-        ===================================================== */
-
-        .modal {
-
-            display: none;
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 3000;
-
-            background:
-                rgba(0,0,0,.78);
-
-            padding: 25px;
-
-            overflow-y: auto;
-        }
-
-
-        .modal.active {
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-        }
-
-
-        .modal-box {
-
-            width: 100%;
-
-            max-width: 950px;
-
-            background: white;
-
-            border-radius: 20px;
-
-            padding: 30px;
-
-            position: relative;
-
-            max-height: 94vh;
-
-            overflow-y: auto;
-
-            animation:
-                aparecer .3s ease;
-        }
-
-
-        .close {
-
-            position: absolute;
-
-            right: 18px;
-
-            top: 10px;
-
-            border: none;
-
-            background: transparent;
-
-            font-size: 38px;
-
-            line-height: 1;
-
-            color: #111;
-
-            z-index: 10;
-        }
-
-
-        /* =====================================================
-           DETALLES
-        ===================================================== */
-
-        .details-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 35px;
-        }
-
-
-        .details-image {
-
-            height: 550px;
-
-            border-radius: 15px;
-
-            overflow: hidden;
-
-            background: #eee;
-        }
-
-
-        .details-image img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-        }
-
-
-        .details-info {
-
-            padding: 20px 10px;
-        }
-
-
-        .details-info h2 {
-
-            font-size: 40px;
-
-            margin: 15px 0;
-        }
-
-
-        .details-description {
-
-            color: #666;
-
-            line-height: 1.6;
-
-            margin-bottom: 20px;
-        }
-
-
-        .product-data {
-
-            background: #f5f5f5;
-
-            border-radius: 12px;
-
-            padding: 18px;
-
-            line-height: 1.6;
-
-            margin-bottom: 25px;
-        }
-
-
-        .field {
-
-            margin-bottom: 18px;
-        }
-
-
-        .field label {
-
-            display: block;
-
-            font-weight: bold;
-
-            margin-bottom: 7px;
-        }
-
-
-        .field input,
-        .field select {
-
-            width: 100%;
-
-            padding: 14px;
-
-            border: 1px solid #ccc;
-
-            border-radius: 9px;
-
-            background: white;
-
-            font-size: 15px;
-
-            outline: none;
-        }
-
-
-        .field input:focus,
-        .field select:focus {
-
-            border-color: #111;
-        }
-
-
-        .big-button {
-
-            width: 100%;
-
-            background: #111;
-
-            color: white;
-
-            border: none;
-
-            padding: 16px;
-
-            border-radius: 10px;
-
-            font-weight: bold;
-
-            font-size: 16px;
-        }
-
-
-        .big-button:hover {
-
-            opacity: .8;
-        }
-
-
-        /* =====================================================
-           CARRITO
-        ===================================================== */
-
-        .cart-box {
-
-            max-width: 780px;
-        }
-
-
-        .cart-box h2 {
-
-            margin-bottom: 25px;
-
-            font-size: 30px;
-        }
-
-
-        .cart-item {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 15px;
-
-            padding: 18px 0;
-
-            border-bottom:
-                1px solid #ddd;
-        }
-
-
-        .cart-item img {
-
-            width: 85px;
-
-            height: 85px;
-
-            object-fit: cover;
-
-            border-radius: 10px;
-        }
-
-
-        .cart-info {
-
-            flex: 1;
-        }
-
-
-        .cart-info h3 {
-
-            margin-bottom: 5px;
-        }
-
-
-        .cart-info p {
-
-            font-size: 13px;
-
-            color: #666;
-
-            margin: 3px 0;
-        }
-
-
-        .quantity {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 8px;
-        }
-
-
-        .quantity button {
-
-            width: 32px;
-
-            height: 32px;
-
-            border: none;
-
-            border-radius: 6px;
-
-            background: #111;
-
-            color: white;
-
-            font-size: 18px;
-        }
-
-
-        .delete {
-
-            border: none;
-
-            background: #e63946;
-
-            color: white;
-
-            padding: 9px;
-
-            border-radius: 7px;
-        }
-
-
-        .empty {
-
-            text-align: center;
-
-            padding: 40px;
-
-            color: #777;
-        }
-
-
-        .total {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            font-size: 24px;
-
-            font-weight: bold;
-
-            padding: 25px 0;
-
-            border-bottom:
-                1px solid #ddd;
-        }
-
-
-        /* =====================================================
-           DATOS CLIENTE
-        ===================================================== */
-
-        .customer {
-
-            margin-top: 25px;
-
-            background: #f5f5f5;
-
-            padding: 25px;
-
-            border-radius: 15px;
-        }
-
-
-        .customer h3 {
-
-            margin-bottom: 20px;
-        }
-
-
-        /* =====================================================
-           ENTREGA
-        ===================================================== */
-
-        .delivery-info {
-
-            background: #fff;
-
-            border: 1px solid #ddd;
-
-            padding: 15px;
-
-            border-radius: 10px;
-
-            margin-top: 10px;
-
-            font-size: 13px;
-
-            color: #666;
-        }
-
-
-        /* =====================================================
-           BOTONES CARRITO
-        ===================================================== */
-
-        .cart-actions {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 2fr;
-
-            gap: 10px;
-
-            margin-top: 20px;
-        }
-
-
-        .empty-cart {
-
-            border: none;
-
-            background: #ddd;
-
-            padding: 15px;
-
-            border-radius: 10px;
-
-            font-weight: bold;
-        }
-
-
-        .whatsapp {
-
-            border: none;
-
-            background: #25D366;
-
-            color: white;
-
-            padding: 15px;
-
-            border-radius: 10px;
-
-            font-weight: bold;
-
-            font-size: 15px;
-        }
-
-
-        .whatsapp:hover {
-
-            opacity: .85;
-        }
-
-
-        /* =====================================================
-           CONTACTO
-        ===================================================== */
-
-        .contact {
-
-            background: white;
-
-            text-align: center;
-
-            padding: 100px 20px;
-        }
-
-
-        .contact p {
-
-            color: #666;
-
-            margin-bottom: 25px;
-        }
-
-
-        .contact-button {
-
             display: inline-block;
-
+            background: white;
+            color: black;
+            padding: 13px 25px;
+            border-radius: 8px;
             text-decoration: none;
-
-            background: #25D366;
-
-            color: white;
-
-            padding: 15px 30px;
-
-            border-radius: 30px;
-
             font-weight: bold;
+            cursor: pointer;
+            border: none;
         }
 
-
-        .phone {
-
-            margin-top: 20px;
-
-            color: #111 !important;
-
-            font-weight: bold;
+        .btn:hover {
+            transform: scale(1.03);
         }
 
+        /* =========================
+           SECCIONES
+        ========================= */
 
-        /* =====================================================
-           FOOTER
-        ===================================================== */
+        section {
+            padding: 60px 6%;
+        }
 
-        footer {
-
-            background: #111;
-
-            color: white;
-
+        .section-title {
             text-align: center;
-
-            padding: 45px 20px;
+            margin-bottom: 30px;
         }
 
-
-        footer .logo {
-
+        .section-title h2 {
+            font-size: 32px;
             margin-bottom: 10px;
         }
 
-
-        footer p {
-
-            color: #aaa;
-
-            margin: 6px;
+        .section-title p {
+            color: #666;
         }
 
+        /* =========================
+           FILTROS
+        ========================= */
 
-        /* =====================================================
-           WHATSAPP FLOTANTE
-        ===================================================== */
-
-        .floating-whatsapp {
-
-            position: fixed;
-
-            right: 25px;
-
-            bottom: 25px;
-
-            width: 62px;
-
-            height: 62px;
-
-            background: #25D366;
-
-            color: white;
-
+        .filters {
             display: flex;
-
             justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
 
-            align-items: center;
+        .filters input,
+        .filters select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: white;
+        }
 
-            border-radius: 50%;
+        /* =========================
+           PRODUCTOS
+        ========================= */
 
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            background: #eee;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #111;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .product-buttons button {
+            flex: 1;
+        }
+
+        .btn-black {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-black:hover {
+            background: #222;
+        }
+
+        .btn-light {
+            background: #eee;
+            color: #111;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* =========================
+           MODALES
+        ========================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            overflow-y: auto;
+            padding: 30px 15px;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .option-group {
+            margin: 15px 0;
+        }
+
+        .option-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .option-group select,
+        .option-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        /* =========================
+           CARRITO
+        ========================= */
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item h4 {
+            margin-bottom: 5px;
+        }
+
+        .cart-item p {
+            margin: 3px 0;
+        }
+
+        .cart-total {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+        /* =========================
+           FORMULARIO
+        ========================= */
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        /* =========================
+           CONTACTO
+        ========================= */
+
+        .contact {
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px 0;
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            margin-top: 15px;
+            background: white;
+            color: black;
+            padding: 13px 25px;
+            border-radius: 8px;
             text-decoration: none;
-
-            font-size: 29px;
-
-            box-shadow:
-                0 8px 25px
-                rgba(0,0,0,.25);
-
-            z-index: 2500;
-
-            transition: .25s;
+            font-weight: bold;
         }
 
+        /* =========================
+           WHATSAPP FLOTANTE
+        ========================= */
 
-        .floating-whatsapp:hover {
-
-            transform:
-                scale(1.1);
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            z-index: 1500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
+        /* =========================
+           FOOTER
+        ========================= */
 
-        /* =====================================================
-           RESPONSIVE TABLET
-        ===================================================== */
-
-        @media (max-width: 950px) {
-
-            .products {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-            }
-
-
-            .details-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .details-image {
-
-                height: 400px;
-
-            }
-
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
 
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
-        /* =====================================================
-           RESPONSIVE CELULAR
-        ===================================================== */
-
-        @media (max-width: 650px) {
+        @media (max-width: 700px) {
 
             header {
-
                 flex-direction: column;
-
-                gap: 18px;
-
-                padding: 18px 20px;
-
+                gap: 12px;
             }
-
 
             nav {
-
+                display: flex;
                 flex-wrap: wrap;
-
                 justify-content: center;
-
-                gap: 12px;
-
+                gap: 10px;
             }
 
-
-            .hero {
-
-                min-height: 550px;
-
+            nav a {
+                margin: 0;
             }
-
 
             .hero h1 {
-
-                font-size: 48px;
-
+                font-size: 38px;
             }
 
-
-            .section {
-
-                padding:
-                    65px 20px;
-
+            .hero p {
+                font-size: 17px;
             }
 
-
-            .section-title h2 {
-
-                font-size: 35px;
-
+            section {
+                padding: 45px 5%;
             }
-
-
-            .filters {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .products {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .product-buttons {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
 
             .product-image {
-
-                height: 330px;
-
+                height: 280px;
             }
-
-
-            .modal {
-
-                padding: 12px;
-
-            }
-
-
-            .modal-box {
-
-                padding: 20px;
-
-            }
-
-
-            .details-info h2 {
-
-                font-size: 32px;
-
-            }
-
-
-            .cart-item {
-
-                flex-wrap: wrap;
-
-            }
-
-
-            .cart-actions {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .floating-whatsapp {
-
-                width: 55px;
-
-                height: 55px;
-
-                right: 18px;
-
-                bottom: 18px;
-
-            }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
-    <!-- =====================================================
+    <!-- =========================
          HEADER
-    ===================================================== -->
+    ========================= -->
 
     <header>
 
         <div class="logo">
-            STYLOCAPS
+            StyloCaps
         </div>
 
-
         <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#contacto">Contacto</a>
 
-            <a href="#inicio">
-                Inicio
-            </a>
-
-            <a href="#catalogo">
-                Catálogo
-            </a>
-
-            <a href="#contacto">
-                Contacto
-            </a>
-
-
-            <button
-                class="cart-button"
-                onclick="openCart()"
-            >
-
-                🛒 Carrito
-
-                <span id="cartCount">
-                    0
-                </span>
-
+            <button class="cart-button" onclick="abrirCarrito()">
+                🛒 Carrito (<span id="cartCount">0</span>)
             </button>
-
         </nav>
 
     </header>
 
 
-
-    <!-- =====================================================
+    <!-- =========================
          HERO
-    ===================================================== -->
+    ========================= -->
 
-    <section
-        id="inicio"
-        class="hero"
-    >
+    <section class="hero" id="inicio">
 
         <div class="hero-content">
 
-            <div class="hero-small">
-                STYLOCAPS
-            </div>
-
-            <h1>
-                Gorras con estilo.
-            </h1>
+            <h1>StyloCaps</h1>
 
             <p>
-                Diseños que hablan por ti.
+                Gorras con estilo, calidad y buenos diseños.
             </p>
 
-            <a
-                href="#catalogo"
-                class="hero-button"
-            >
-                VER CATÁLOGO
+            <a href="#catalogo" class="btn">
+                Ver catálogo
             </a>
 
         </div>
@@ -1431,25 +532,19 @@
     </section>
 
 
+    <!-- =========================
+         CATÁLOGO
+    ========================= -->
 
-    <!-- =====================================================
-         CATALOGO
-    ===================================================== -->
-
-    <section
-        id="catalogo"
-        class="section"
-    >
+    <section id="catalogo">
 
         <div class="section-title">
 
-            <span>
-                NUESTRA COLECCIÓN
-            </span>
+            <h2>Nuestro catálogo</h2>
 
-            <h2>
-                Elige tu estilo
-            </h2>
+            <p>
+                Encuentra la gorra que más combine contigo.
+            </p>
 
         </div>
 
@@ -1461,26 +556,25 @@
             <input
                 type="text"
                 id="search"
-                placeholder="🔎 Buscar una gorra..."
-                oninput="filterProducts()"
+                placeholder="Buscar gorra..."
+                oninput="filtrarProductos()"
             >
-
 
             <select
                 id="priceFilter"
-                onchange="filterProducts()"
+                onchange="filtrarProductos()"
             >
 
-                <option value="all">
+                <option value="todos">
                     Todos los precios
                 </option>
 
-                <option value="50000">
-                    Hasta $50.000
+                <option value="45000">
+                    Hasta $45.000
                 </option>
 
-                <option value="60000">
-                    Hasta $60.000
+                <option value="55000">
+                    Hasta $55.000
                 </option>
 
                 <option value="70000">
@@ -1492,37 +586,30 @@
         </div>
 
 
-
         <!-- PRODUCTOS -->
 
-        <div
-            class="products"
-            id="productsContainer"
-        >
+        <div class="products" id="productsContainer">
 
 
             <!-- PRODUCTO 1 -->
 
-            <article
+            <div
                 class="product"
-                data-id="beisbolera"
+                data-name="Beisbolera"
+                data-price="70000"
             >
 
-                <div class="product-image">
+                <img
+                    src="Imágenes/beisbolera.jpg"
+                    alt="Gorra Beisbolera"
+                    class="product-image"
+                >
+
+                <div class="product-info">
 
                     <span class="badge">
                         CALIDAD 1.1
                     </span>
-
-                    <img
-                        src="Imagenes/beisbolera.jpg"
-                        alt="Gorra Beisbolera"
-                    >
-
-                </div>
-
-
-                <div class="product-info">
 
                     <h3>
                         Beisbolera
@@ -1532,30 +619,23 @@
                         $70.000
                     </div>
 
-                    <p class="description">
-                        Gorras cerradas con talla
-                        y buenos bordados.
+                    <p class="product-description">
+                        Gorras cerradas con talla y buenos bordados.
                         Calidad 1.1.
                     </p>
-
-                    <p class="stock">
-                        📦 10 disponibles
-                    </p>
-
 
                     <div class="product-buttons">
 
                         <button
-                            class="btn btn-details"
-                            onclick="showProduct('beisbolera')"
+                            class="btn-black"
+                            onclick="verProducto(0)"
                         >
                             Ver detalles
                         </button>
 
-
                         <button
-                            class="btn btn-buy"
-                            onclick="showProduct('beisbolera')"
+                            class="btn-light"
+                            onclick="agregarAlCarrito(0)"
                         >
                             🛒 Comprar
                         </button>
@@ -1564,32 +644,28 @@
 
                 </div>
 
-            </article>
-
+            </div>
 
 
             <!-- PRODUCTO 2 -->
 
-            <article
+            <div
                 class="product"
-                data-id="premium"
+                data-name="Gorra Premium"
+                data-price="55000"
             >
 
-                <div class="product-image">
+                <img
+                    src="Imágenes/gorra2.jpg"
+                    alt="Gorra Premium"
+                    class="product-image"
+                >
+
+                <div class="product-info">
 
                     <span class="badge">
                         PREMIUM
                     </span>
-
-                    <img
-                        src="Imagenes/gorra2.jpg"
-                        alt="Gorra Premium"
-                    >
-
-                </div>
-
-
-                <div class="product-info">
 
                     <h3>
                         Gorra Premium
@@ -1599,29 +675,23 @@
                         $55.000
                     </div>
 
-                    <p class="description">
-                        Gorra moderna con excelente
-                        acabado y diseño.
+                    <p class="product-description">
+                        Diseño moderno, cómoda y perfecta para
+                        complementar tu estilo.
                     </p>
-
-                    <p class="stock">
-                        📦 Disponible
-                    </p>
-
 
                     <div class="product-buttons">
 
                         <button
-                            class="btn btn-details"
-                            onclick="showProduct('premium')"
+                            class="btn-black"
+                            onclick="verProducto(1)"
                         >
                             Ver detalles
                         </button>
 
-
                         <button
-                            class="btn btn-buy"
-                            onclick="showProduct('premium')"
+                            class="btn-light"
+                            onclick="agregarAlCarrito(1)"
                         >
                             🛒 Comprar
                         </button>
@@ -1630,32 +700,28 @@
 
                 </div>
 
-            </article>
-
+            </div>
 
 
             <!-- PRODUCTO 3 -->
 
-            <article
+            <div
                 class="product"
-                data-id="urban"
+                data-name="Gorra Urban"
+                data-price="45000"
             >
 
-                <div class="product-image">
+                <img
+                    src="Imágenes/gorra3.jpg"
+                    alt="Gorra Urban"
+                    class="product-image"
+                >
+
+                <div class="product-info">
 
                     <span class="badge">
                         URBAN
                     </span>
-
-                    <img
-                        src="Imagenes/gorra3.jpg"
-                        alt="Gorra Urban"
-                    >
-
-                </div>
-
-
-                <div class="product-info">
 
                     <h3>
                         Gorra Urban
@@ -1665,29 +731,22 @@
                         $45.000
                     </div>
 
-                    <p class="description">
-                        Diseño urbano para
-                        complementar tu estilo.
+                    <p class="product-description">
+                        Un diseño urbano para usar todos los días.
                     </p>
-
-                    <p class="stock">
-                        📦 Disponible
-                    </p>
-
 
                     <div class="product-buttons">
 
                         <button
-                            class="btn btn-details"
-                            onclick="showProduct('urban')"
+                            class="btn-black"
+                            onclick="verProducto(2)"
                         >
                             Ver detalles
                         </button>
 
-
                         <button
-                            class="btn btn-buy"
-                            onclick="showProduct('urban')"
+                            class="btn-light"
+                            onclick="agregarAlCarrito(2)"
                         >
                             🛒 Comprar
                         </button>
@@ -1696,1787 +755,1052 @@
 
                 </div>
 
-            </article>
-
+            </div>
 
         </div>
 
     </section>
 
 
-
-    <!-- =====================================================
+    <!-- =========================
          MODAL PRODUCTO
-    ===================================================== -->
+    ========================= -->
 
-    <div
-        id="productModal"
-        class="modal"
-    >
+    <div class="modal" id="productModal">
 
-        <div class="modal-box">
+        <div class="modal-content">
 
-            <button
+            <span
                 class="close"
-                onclick="closeProduct()"
+                onclick="cerrarModal('productModal')"
             >
-                ×
-            </button>
+                &times;
+            </span>
+
+            <img
+                id="modalImage"
+                class="modal-image"
+                src=""
+                alt="Producto"
+            >
+
+            <h2 id="modalName"></h2>
+
+            <p id="modalDescription"></p>
+
+            <h3 id="modalPrice"></h3>
 
 
-            <div class="details-grid">
+            <div class="option-group">
 
+                <label>
+                    Color
+                </label>
 
-                <div class="details-image">
-
-                    <img
-                        id="modalImage"
-                        src=""
-                        alt="Producto"
-                    >
-
-                </div>
-
-
-                <div class="details-info">
-
-                    <span class="badge">
-                        STYLOCAPS
-                    </span>
-
-
-                    <h2 id="modalName">
-                        Producto
-                    </h2>
-
-
-                    <div
-                        class="price"
-                        id="modalPrice"
-                    >
-                        $0
-                    </div>
-
-
-                    <p
-                        class="details-description"
-                        id="modalDescription"
-                    >
-                    </p>
-
-
-                    <div
-                        class="product-data"
-                        id="modalData"
-                    >
-                    </div>
-
-
-                    <!-- COLOR -->
-
-                    <div class="field">
-
-                        <label>
-                            🎨 Color
-                        </label>
-
-                        <select id="modalColor">
-
-                            <option value="">
-                                Selecciona un color
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- TALLA -->
-
-                    <div class="field">
-
-                        <label>
-                            📏 Talla
-                        </label>
-
-                        <select id="modalSize">
-
-                            <option value="">
-                                Selecciona una talla
-                            </option>
-
-                            <option value="S">
-                                S
-                            </option>
-
-                            <option value="M">
-                                M
-                            </option>
-
-                            <option value="L">
-                                L
-                            </option>
-
-                            <option value="XL">
-                                XL
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- CANTIDAD -->
-
-                    <div class="field">
-
-                        <label>
-                            🔢 Cantidad
-                        </label>
-
-                        <input
-                            type="number"
-                            id="modalQuantity"
-                            value="1"
-                            min="1"
-                            max="10"
-                        >
-
-                    </div>
-
-
-                    <button
-                        class="big-button"
-                        onclick="addToCart()"
-                    >
-                        🛒 AGREGAR AL CARRITO
-                    </button>
-
-                </div>
+                <select id="modalColor">
+                </select>
 
             </div>
+
+
+            <div class="option-group">
+
+                <label>
+                    Talla
+                </label>
+
+                <select id="modalSize">
+
+                    <option value="S">
+                        S
+                    </option>
+
+                    <option value="M">
+                        M
+                    </option>
+
+                    <option value="L">
+                        L
+                    </option>
+
+                    <option value="XL">
+                        XL
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="option-group">
+
+                <label>
+                    Cantidad
+                </label>
+
+                <input
+                    type="number"
+                    id="modalQuantity"
+                    value="1"
+                    min="1"
+                >
+
+            </div>
+
+
+            <button
+                class="btn-black"
+                style="width:100%;"
+                onclick="agregarProductoDesdeModal()"
+            >
+                🛒 Agregar al carrito
+            </button>
 
         </div>
 
     </div>
 
 
-
-    <!-- =====================================================
+    <!-- =========================
          MODAL CARRITO
-    ===================================================== -->
+    ========================= -->
 
-    <div
-        id="cartModal"
-        class="modal"
-    >
+    <div class="modal" id="cartModal">
 
-        <div class="modal-box cart-box">
+        <div class="modal-content">
 
-            <button
+            <span
                 class="close"
-                onclick="closeCart()"
+                onclick="cerrarModal('cartModal')"
             >
-                ×
-            </button>
-
+                &times;
+            </span>
 
             <h2>
-                🛒 Mi carrito
+                🛒 Tu carrito
             </h2>
-
 
             <div id="cartItems">
             </div>
 
-
-            <div class="total">
-
-                <span>
-                    Total productos
-                </span>
-
-                <strong id="cartTotal">
-                    $0
-                </strong>
-
+            <div
+                class="cart-total"
+                id="cartTotal"
+            >
+                Total: $0
             </div>
 
-
-            <!-- DATOS CLIENTE -->
-
-            <div class="customer">
-
-                <h3>
-                    📋 Datos del pedido
-                </h3>
-
-
-                <div class="field">
-
-                    <label>
-                        Nombre completo
-                    </label>
-
-                    <input
-                        type="text"
-                        id="customerName"
-                        placeholder="Ej: Juan Pérez"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label>
-                        Teléfono
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="customerPhone"
-                        placeholder="3001234567"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label>
-                        Ciudad
-                    </label>
-
-                    <input
-                        type="text"
-                        id="customerCity"
-                        placeholder="Bogotá"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label>
-                        Dirección
-                    </label>
-
-                    <input
-                        type="text"
-                        id="customerAddress"
-                        placeholder="Calle 123 # 45-67"
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label>
-                        Tipo de entrega
-                    </label>
-
-                    <select id="deliveryType">
-
-                        <option value="">
-                            Selecciona una opción
-                        </option>
-
-                        <option value="Domicilio">
-                            🚚 Domicilio
-                        </option>
-
-                        <option value="Recoger en oficina">
-                            📦 Recoger en oficina
-                        </option>
-
-                        <option value="Entrega acordada">
-                            🤝 Entrega acordada
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="field">
-
-                    <label>
-                        Costo del domicilio
-                    </label>
-
-                    <input
-                        type="number"
-                        id="deliveryCost"
-                        value="0"
-                        min="0"
-                        placeholder="Ej: 10000"
-                    >
-
-                    <div class="delivery-info">
-
-                        Si escoges domicilio,
-                        escribe aquí el costo del envío.
-
-                        <br><br>
-
-                        Ejemplo:
-                        <strong>$10.000</strong>
-
-                        <br><br>
-
-                        Si recoges en oficina o acuerdas
-                        la entrega, puedes dejarlo en $0.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- TOTAL FINAL -->
-
-            <div class="total">
-
-                <span>
-                    Total final
-                </span>
-
-                <strong id="finalTotal">
-                    $0
-                </strong>
-
-            </div>
-
-
-            <!-- BOTONES -->
-
-            <div class="cart-actions">
-
-                <button
-                    class="empty-cart"
-                    onclick="emptyCart()"
-                >
-                    🗑️ Vaciar carrito
-                </button>
-
-
-                <button
-                    class="whatsapp"
-                    onclick="sendOrder()"
-                >
-                    📱 PEDIR POR WHATSAPP
-                </button>
-
-            </div>
+            <button
+                class="btn-black"
+                style="width:100%;"
+                onclick="abrirCheckout()"
+            >
+                Continuar pedido
+            </button>
 
         </div>
 
     </div>
 
 
+    <!-- =========================
+         MODAL CHECKOUT
+    ========================= -->
 
-    <!-- =====================================================
+    <div class="modal" id="checkoutModal">
+
+        <div class="modal-content">
+
+            <span
+                class="close"
+                onclick="cerrarModal('checkoutModal')"
+            >
+                &times;
+            </span>
+
+            <h2>
+                Datos del pedido
+            </h2>
+
+            <br>
+
+
+            <div class="form-group">
+
+                <label>
+                    Nombre completo
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Tu nombre"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Teléfono
+                </label>
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="Tu número"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Tipo de entrega
+                </label>
+
+                <select
+                    id="deliveryType"
+                    onchange="calcularEntrega()"
+                >
+
+                    <option value="recoger">
+                        Recoger en punto acordado - $0
+                    </option>
+
+                    <option value="domicilio">
+                        Domicilio - $10.000
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div
+                class="form-group"
+                id="addressGroup"
+                style="display:none;"
+            >
+
+                <label>
+                    Dirección
+                </label>
+
+                <textarea
+                    id="customerAddress"
+                    placeholder="Escribe tu dirección"
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Comentario adicional
+                </label>
+
+                <textarea
+                    id="customerComment"
+                    placeholder="Ej: entregar después de las 5 PM"
+                ></textarea>
+
+            </div>
+
+
+            <div
+                class="cart-total"
+                id="checkoutTotal"
+            >
+                Total: $0
+            </div>
+
+
+            <button
+                class="btn-black"
+                style="width:100%;"
+                onclick="enviarPedidoWhatsApp()"
+            >
+                📲 Enviar pedido por WhatsApp
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
          CONTACTO
-    ===================================================== -->
+    ========================= -->
 
     <section
-        id="contacto"
         class="contact"
+        id="contacto"
     >
 
         <div class="section-title">
 
-            <span>
-                ¿NECESITAS AYUDA?
-            </span>
-
             <h2>
-                Hablemos
+                Contáctanos
             </h2>
+
+            <p>
+                ¿Tienes alguna pregunta? Escríbenos.
+            </p>
 
         </div>
 
-
         <p>
-            Escríbenos por WhatsApp para consultar
-            disponibilidad, colores, tallas y entregas.
+            📱 WhatsApp: 300 132 3639
         </p>
 
+        <p>
+            📦 Envíos y entregas disponibles
+        </p>
 
         <a
-            class="contact-button"
+            class="whatsapp-button"
             href="https://wa.me/573001323639"
             target="_blank"
         >
-            📱 ESCRIBIR POR WHATSAPP
+            Hablar por WhatsApp
         </a>
-
-
-        <p class="phone">
-            300 132 3639
-        </p>
 
     </section>
 
 
-
-    <!-- =====================================================
+    <!-- =========================
          FOOTER
-    ===================================================== -->
+    ========================= -->
 
     <footer>
 
-        <div class="logo">
-            STYLOCAPS
-        </div>
-
         <p>
-            Gorras con estilo 🧢
-        </p>
-
-        <p>
-            Calidad • Diseño • Estilo
-        </p>
-
-        <p>
-            © 2026 StyloCaps
+            © 2026 StyloCaps - Todos los derechos reservados.
         </p>
 
     </footer>
 
 
-
-    <!-- =====================================================
+    <!-- =========================
          WHATSAPP FLOTANTE
-    ===================================================== -->
+    ========================= -->
 
     <a
-        class="floating-whatsapp"
+        class="whatsapp-float"
         href="https://wa.me/573001323639"
         target="_blank"
-        title="Escríbenos por WhatsApp"
+        title="WhatsApp"
     >
-        💬
+        ☎
     </a>
 
 
-
-    <!-- =====================================================
+    <!-- =========================
          JAVASCRIPT
-    ===================================================== -->
+    ========================= -->
 
     <script>
 
+        const productos = [
 
-        /* =====================================================
-           PRODUCTOS
-        ===================================================== */
-
-        const products = {
-
-            beisbolera: {
-
-                name: "Beisbolera",
-
-                price: 70000,
-
-                image:
-                    "Imagenes/beisbolera.jpg",
-
-                description:
-                    "Gorras cerradas con talla y buenos bordados. Calidad 1.1.",
-
-                colors: [
-                    "Azul",
-                    "Rojo",
-                    "Negro",
-                    "Amarillo"
-                ],
-
-                stock: 10
+            {
+                nombre: "Beisbolera",
+                precio: 70000,
+                imagen: "Imágenes/beisbolera.jpg",
+                descripcion: "Gorras cerradas con talla y buenos bordados. Calidad 1.1.",
+                colores: ["Azul", "Rojo", "Negro", "Amarillo"]
             },
 
-
-            premium: {
-
-                name: "Gorra Premium",
-
-                price: 55000,
-
-                image:
-                    "Imagenes/gorra2.jpg",
-
-                description:
-                    "Gorra moderna con excelente acabado y diseño.",
-
-                colors: [
-                    "Negro",
-                    "Azul"
-                ],
-
-                stock: 10
+            {
+                nombre: "Gorra Premium",
+                precio: 55000,
+                imagen: "Imágenes/gorra2.jpg",
+                descripcion: "Diseño moderno, cómoda y perfecta para complementar tu estilo.",
+                colores: ["Negro", "Azul"]
             },
 
+            {
+                nombre: "Gorra Urban",
+                precio: 45000,
+                imagen: "Imágenes/gorra3.jpg",
+                descripcion: "Un diseño urbano para usar todos los días.",
+                colores: ["Negro", "Rojo"]
+            }
 
-            urban: {
+        ];
 
-                name: "Gorra Urban",
 
-                price: 45000,
+        let carrito = [];
 
-                image:
-                    "Imagenes/gorra3.jpg",
+        let productoSeleccionado = 0;
 
-                description:
-                    "Diseño urbano para complementar tu estilo.",
 
-                colors: [
-                    "Negro",
-                    "Rojo"
-                ],
+        /* =========================
+           FORMATO DE DINERO
+        ========================= */
 
-                stock: 10
+        function formatoPrecio(numero) {
+
+            return numero.toLocaleString("es-CO");
+
+        }
+
+
+        /* =========================
+           MODAL PRODUCTO
+        ========================= */
+
+        function verProducto(index) {
+
+            productoSeleccionado = index;
+
+            const producto = productos[index];
+
+            document.getElementById("modalImage").src = producto.imagen;
+
+            document.getElementById("modalName").textContent = producto.nombre;
+
+            document.getElementById("modalDescription").textContent =
+                producto.descripcion;
+
+            document.getElementById("modalPrice").textContent =
+                "$" + formatoPrecio(producto.precio);
+
+
+            const colorSelect =
+                document.getElementById("modalColor");
+
+            colorSelect.innerHTML = "";
+
+
+            producto.colores.forEach(color => {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = color;
+
+                option.textContent = color;
+
+                colorSelect.appendChild(option);
+
+            });
+
+
+            document.getElementById("modalQuantity").value = 1;
+
+            document.getElementById("productModal").style.display = "block";
+
+        }
+
+
+        /* =========================
+           CERRAR MODAL
+        ========================= */
+
+        function cerrarModal(id) {
+
+            document.getElementById(id).style.display = "none";
+
+        }
+
+
+        /* =========================
+           AGREGAR PRODUCTO
+        ========================= */
+
+        function agregarAlCarrito(index) {
+
+            productoSeleccionado = index;
+
+            const producto = productos[index];
+
+            const item = {
+
+                nombre: producto.nombre,
+
+                precio: producto.precio,
+
+                imagen: producto.imagen,
+
+                color: producto.colores[0],
+
+                talla: "M",
+
+                cantidad: 1
+
+            };
+
+
+            carrito.push(item);
+
+            guardarCarrito();
+
+            actualizarCarrito();
+
+            alert("Producto agregado al carrito.");
+
+        }
+
+
+        function agregarProductoDesdeModal() {
+
+            const producto = productos[productoSeleccionado];
+
+            const color =
+                document.getElementById("modalColor").value;
+
+            const talla =
+                document.getElementById("modalSize").value;
+
+            const cantidad =
+                parseInt(
+                    document.getElementById("modalQuantity").value
+                );
+
+
+            if (cantidad < 1) {
+
+                alert("La cantidad debe ser mínimo 1.");
+
+                return;
+
+            }
+
+
+            const item = {
+
+                nombre: producto.nombre,
+
+                precio: producto.precio,
+
+                imagen: producto.imagen,
+
+                color: color,
+
+                talla: talla,
+
+                cantidad: cantidad
+
+            };
+
+
+            carrito.push(item);
+
+            guardarCarrito();
+
+            actualizarCarrito();
+
+            cerrarModal("productModal");
+
+            alert("Producto agregado al carrito.");
+
+        }
+
+
+        /* =========================
+           CARRITO
+        ========================= */
+
+        function actualizarCarrito() {
+
+            const cartItems =
+                document.getElementById("cartItems");
+
+            const cartCount =
+                document.getElementById("cartCount");
+
+            const cartTotal =
+                document.getElementById("cartTotal");
+
+
+            cartItems.innerHTML = "";
+
+
+            if (carrito.length === 0) {
+
+                cartItems.innerHTML =
+                    '<div class="empty-cart">Tu carrito está vacío.</div>';
+
+                cartTotal.textContent =
+                    "Total: $0";
+
+                cartCount.textContent = "0";
+
+                return;
+
+            }
+
+
+            let total = 0;
+
+            let cantidadTotal = 0;
+
+
+            carrito.forEach((item, index) => {
+
+                const subtotal =
+                    item.precio * item.cantidad;
+
+                total += subtotal;
+
+                cantidadTotal += item.cantidad;
+
+
+                const div =
+                    document.createElement("div");
+
+                div.className = "cart-item";
+
+
+                div.innerHTML = `
+
+                    <h4>${item.nombre}</h4>
+
+                    <p>Color: ${item.color}</p>
+
+                    <p>Talla: ${item.talla}</p>
+
+                    <p>Cantidad: ${item.cantidad}</p>
+
+                    <p>Subtotal: $${formatoPrecio(subtotal)}</p>
+
+                    <button
+                        class="btn-light"
+                        onclick="eliminarDelCarrito(${index})"
+                    >
+                        Eliminar
+                    </button>
+
+                `;
+
+
+                cartItems.appendChild(div);
+
+            });
+
+
+            cartTotal.textContent =
+                "Total: $" + formatoPrecio(total);
+
+            cartCount.textContent =
+                cantidadTotal;
+
+        }
+
+
+        function eliminarDelCarrito(index) {
+
+            carrito.splice(index, 1);
+
+            guardarCarrito();
+
+            actualizarCarrito();
+
+        }
+
+
+        function abrirCarrito() {
+
+            actualizarCarrito();
+
+            document.getElementById("cartModal").style.display =
+                "block";
+
+        }
+
+
+        /* =========================
+           CHECKOUT
+        ========================= */
+
+        function abrirCheckout() {
+
+            if (carrito.length === 0) {
+
+                alert("Tu carrito está vacío.");
+
+                return;
+
+            }
+
+
+            cerrarModal("cartModal");
+
+            document.getElementById("checkoutModal").style.display =
+                "block";
+
+
+            calcularEntrega();
+
+        }
+
+
+        function calcularEntrega() {
+
+            const tipo =
+                document.getElementById("deliveryType").value;
+
+            const addressGroup =
+                document.getElementById("addressGroup");
+
+
+            if (tipo === "domicilio") {
+
+                addressGroup.style.display = "block";
+
+            } else {
+
+                addressGroup.style.display = "none";
+
+            }
+
+
+            let total = 0;
+
+
+            carrito.forEach(item => {
+
+                total += item.precio * item.cantidad;
+
+            });
+
+
+            if (tipo === "domicilio") {
+
+                total += 10000;
+
+            }
+
+
+            document.getElementById("checkoutTotal").textContent =
+                "Total: $" + formatoPrecio(total);
+
+        }
+
+
+        /* =========================
+           WHATSAPP
+        ========================= */
+
+        function enviarPedidoWhatsApp() {
+
+            if (carrito.length === 0) {
+
+                alert("Tu carrito está vacío.");
+
+                return;
+
+            }
+
+
+            const nombre =
+                document.getElementById("customerName").value.trim();
+
+            const telefono =
+                document.getElementById("customerPhone").value.trim();
+
+            const tipoEntrega =
+                document.getElementById("deliveryType").value;
+
+            const direccion =
+                document.getElementById("customerAddress").value.trim();
+
+            const comentario =
+                document.getElementById("customerComment").value.trim();
+
+
+            if (!nombre) {
+
+                alert("Por favor escribe tu nombre.");
+
+                return;
+
+            }
+
+
+            if (!telefono) {
+
+                alert("Por favor escribe tu teléfono.");
+
+                return;
+
+            }
+
+
+            if (
+                tipoEntrega === "domicilio"
+                &&
+                !direccion
+            ) {
+
+                alert("Por favor escribe tu dirección.");
+
+                return;
+
+            }
+
+
+            let totalProductos = 0;
+
+            let mensaje =
+                "Hola StyloCaps 👋%0A%0A";
+
+            mensaje +=
+                "Quiero realizar el siguiente pedido:%0A%0A";
+
+
+            carrito.forEach((item, index) => {
+
+                const subtotal =
+                    item.precio * item.cantidad;
+
+                totalProductos += subtotal;
+
+
+                mensaje +=
+                    `${index + 1}. ${item.nombre}%0A`;
+
+                mensaje +=
+                    `Color: ${item.color}%0A`;
+
+                mensaje +=
+                    `Talla: ${item.talla}%0A`;
+
+                mensaje +=
+                    `Cantidad: ${item.cantidad}%0A`;
+
+                mensaje +=
+                    `Subtotal: $${formatoPrecio(subtotal)}%0A%0A`;
+
+            });
+
+
+            let costoEntrega = 0;
+
+
+            if (tipoEntrega === "domicilio") {
+
+                costoEntrega = 10000;
+
+            }
+
+
+            const totalFinal =
+                totalProductos + costoEntrega;
+
+
+            mensaje +=
+                "DATOS DEL CLIENTE:%0A";
+
+            mensaje +=
+                `Nombre: ${nombre}%0A`;
+
+            mensaje +=
+                `Teléfono: ${telefono}%0A`;
+
+
+            if (tipoEntrega === "domicilio") {
+
+                mensaje +=
+                    `Entrega: Domicilio%0A`;
+
+                mensaje +=
+                    `Dirección: ${direccion}%0A`;
+
+            } else {
+
+                mensaje +=
+                    "Entrega: Recoger en punto acordado%0A";
+
+            }
+
+
+            if (comentario) {
+
+                mensaje +=
+                    `Comentario: ${comentario}%0A`;
+
+            }
+
+
+            mensaje +=
+                `%0ACosto productos: $${formatoPrecio(totalProductos)}%0A`;
+
+            mensaje +=
+                `Costo entrega: $${formatoPrecio(costoEntrega)}%0A`;
+
+            mensaje +=
+                `TOTAL: $${formatoPrecio(totalFinal)}%0A%0A`;
+
+            mensaje +=
+                "Gracias. Quedo atento/a. 🙌";
+
+
+            const numero =
+                "573001323639";
+
+
+            const whatsappURL =
+                "https://wa.me/"
+                +
+                numero
+                +
+                "?text="
+                +
+                mensaje;
+
+
+            window.location.href = whatsappURL;
+
+        }
+
+
+        /* =========================
+           FILTROS
+        ========================= */
+
+        function filtrarProductos() {
+
+            const texto =
+                document.getElementById("search").value.toLowerCase();
+
+            const precioMax =
+                document.getElementById("priceFilter").value;
+
+
+            const productosHTML =
+                document.querySelectorAll(".product");
+
+
+            productosHTML.forEach(producto => {
+
+                const nombre =
+                    producto.dataset.name.toLowerCase();
+
+                const precio =
+                    parseInt(producto.dataset.price);
+
+
+                const coincideNombre =
+                    nombre.includes(texto);
+
+
+                const coincidePrecio =
+                    precioMax === "todos"
+                    ||
+                    precio <= parseInt(precioMax);
+
+
+                if (
+                    coincideNombre
+                    &&
+                    coincidePrecio
+                ) {
+
+                    producto.style.display = "block";
+
+                } else {
+
+                    producto.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+        /* =========================
+           LOCAL STORAGE
+        ========================= */
+
+        function guardarCarrito() {
+
+            localStorage.setItem(
+                "styloCapsCarrito",
+                JSON.stringify(carrito)
+            );
+
+        }
+
+
+        function cargarCarrito() {
+
+            const guardado =
+                localStorage.getItem("styloCapsCarrito");
+
+
+            if (guardado) {
+
+                try {
+
+                    carrito = JSON.parse(guardado);
+
+                } catch (error) {
+
+                    carrito = [];
+
+                }
+
+            }
+
+
+            actualizarCarrito();
+
+        }
+
+
+        /* =========================
+           CERRAR MODALES AL HACER CLICK
+        ========================= */
+
+        window.onclick = function(event) {
+
+            const productModal =
+                document.getElementById("productModal");
+
+            const cartModal =
+                document.getElementById("cartModal");
+
+            const checkoutModal =
+                document.getElementById("checkoutModal");
+
+
+            if (event.target === productModal) {
+
+                productModal.style.display = "none";
+
+            }
+
+
+            if (event.target === cartModal) {
+
+                cartModal.style.display = "none";
+
+            }
+
+
+            if (event.target === checkoutModal) {
+
+                checkoutModal.style.display = "none";
+
             }
 
         };
 
 
-        /* =====================================================
-           VARIABLES
-        ===================================================== */
-
-        let cart = [];
-
-        let selectedProduct = null;
-
-
-        /* =====================================================
-           FORMATO PRECIO
-        ===================================================== */
-
-        function money(number) {
-
-            return "$" +
-                Number(number)
-                    .toLocaleString("es-CO");
-
-        }
-
-
-        /* =====================================================
-           CARGAR CARRITO
-        ===================================================== */
-
-        function loadCart() {
-
-            const saved =
-                localStorage.getItem(
-                    "styloCapsCart"
-                );
-
-
-            if (saved) {
-
-                try {
-
-                    cart =
-                        JSON.parse(saved);
-
-                }
-
-                catch {
-
-                    cart = [];
-
-                }
-
-            }
-
-
-            updateCart();
-
-        }
-
-
-        /* =====================================================
-           GUARDAR CARRITO
-        ===================================================== */
-
-        function saveCart() {
-
-            localStorage.setItem(
-                "styloCapsCart",
-                JSON.stringify(cart)
-            );
-
-        }
-
-
-        /* =====================================================
-           MOSTRAR PRODUCTO
-        ===================================================== */
-
-        function showProduct(id) {
-
-            const product =
-                products[id];
-
-
-            if (!product) {
-
-                return;
-
-            }
-
-
-            selectedProduct =
-                id;
-
-
-            document.getElementById(
-                "modalImage"
-            ).src =
-                product.image;
-
-
-            document.getElementById(
-                "modalName"
-            ).textContent =
-                product.name;
-
-
-            document.getElementById(
-                "modalPrice"
-            ).textContent =
-                money(product.price);
-
-
-            document.getElementById(
-                "modalDescription"
-            ).textContent =
-                product.description;
-
-
-            document.getElementById(
-                "modalData"
-            ).innerHTML =
-
-                "📦 Stock: " +
-                product.stock +
-
-                "<br><br>" +
-
-                "🎨 Colores disponibles: " +
-                product.colors.join(", ");
-
-
-            const colorSelect =
-                document.getElementById(
-                    "modalColor"
-                );
-
-
-            colorSelect.innerHTML =
-
-                '<option value="">' +
-                'Selecciona un color' +
-                '</option>';
-
-
-            product.colors.forEach(
-                function(color) {
-
-                    const option =
-                        document.createElement(
-                            "option"
-                        );
-
-
-                    option.value =
-                        color;
-
-
-                    option.textContent =
-                        color;
-
-
-                    colorSelect.appendChild(
-                        option
-                    );
-
-                }
-            );
-
-
-            document.getElementById(
-                "modalSize"
-            ).value = "";
-
-
-            document.getElementById(
-                "modalQuantity"
-            ).value = 1;
-
-
-            document.getElementById(
-                "productModal"
-            ).classList.add(
-                "active"
-            );
-
-        }
-
-
-        /* =====================================================
-           CERRAR PRODUCTO
-        ===================================================== */
-
-        function closeProduct() {
-
-            document.getElementById(
-                "productModal"
-            ).classList.remove(
-                "active"
-            );
-
-        }
-
-
-        /* =====================================================
-           AGREGAR AL CARRITO
-        ===================================================== */
-
-        function addToCart() {
-
-            if (!selectedProduct) {
-
-                return;
-
-            }
-
-
-            const product =
-                products[
-                    selectedProduct
-                ];
-
-
-            const color =
-                document.getElementById(
-                    "modalColor"
-                ).value;
-
-
-            const size =
-                document.getElementById(
-                    "modalSize"
-                ).value;
-
-
-            const quantity =
-                parseInt(
-                    document.getElementById(
-                        "modalQuantity"
-                    ).value
-                );
-
-
-            if (!color) {
-
-                alert(
-                    "🎨 Selecciona un color."
-                );
-
-                return;
-
-            }
-
-
-            if (!size) {
-
-                alert(
-                    "📏 Selecciona una talla."
-                );
-
-                return;
-
-            }
-
-
-            if (
-                !quantity ||
-                quantity < 1
-            ) {
-
-                alert(
-                    "🔢 Selecciona una cantidad válida."
-                );
-
-                return;
-
-            }
-
-
-            if (
-                quantity >
-                product.stock
-            ) {
-
-                alert(
-                    "📦 No hay suficiente stock."
-                );
-
-                return;
-
-            }
-
-
-            const existing =
-                cart.find(
-                    function(item) {
-
-                        return (
-
-                            item.id ===
-                            selectedProduct &&
-
-                            item.color ===
-                            color &&
-
-                            item.size ===
-                            size
-
-                        );
-
-                    }
-                );
-
-
-            if (existing) {
-
-                if (
-                    existing.quantity +
-                    quantity >
-                    product.stock
-                ) {
-
-                    alert(
-                        "📦 Superas el stock disponible."
-                    );
-
-                    return;
-
-                }
-
-
-                existing.quantity +=
-                    quantity;
-
-            }
-
-            else {
-
-                cart.push({
-
-                    id:
-                        selectedProduct,
-
-                    color:
-                        color,
-
-                    size:
-                        size,
-
-                    quantity:
-                        quantity
-
-                });
-
-            }
-
-
-            saveCart();
-
-            updateCart();
-
-            closeProduct();
-
-
-            alert(
-                "🧢 Producto agregado al carrito."
-            );
-
-        }
-
-
-        /* =====================================================
-           ACTUALIZAR CARRITO
-        ===================================================== */
-
-        function updateCart() {
-
-            const container =
-                document.getElementById(
-                    "cartItems"
-                );
-
-
-            const count =
-                document.getElementById(
-                    "cartCount"
-                );
-
-
-            const totalElement =
-                document.getElementById(
-                    "cartTotal"
-                );
-
-
-            const finalElement =
-                document.getElementById(
-                    "finalTotal"
-                );
-
-
-            container.innerHTML = "";
-
-
-            let total = 0;
-
-            let quantityTotal = 0;
-
-
-            if (
-                cart.length === 0
-            ) {
-
-                container.innerHTML = `
-
-                    <div class="empty">
-
-                        🛒
-
-                        <br><br>
-
-                        Tu carrito está vacío.
-
-                        <br>
-
-                        Agrega una gorra
-                        para comenzar.
-
-                    </div>
-
-                `;
-
-            }
-
-
-            cart.forEach(
-                function(item, index) {
-
-                    const product =
-                        products[item.id];
-
-
-                    const subtotal =
-                        product.price *
-                        item.quantity;
-
-
-                    total +=
-                        subtotal;
-
-
-                    quantityTotal +=
-                        item.quantity;
-
-
-                    const div =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    div.className =
-                        "cart-item";
-
-
-                    div.innerHTML = `
-
-                        <img
-                            src="${product.image}"
-                            alt="${product.name}"
-                        >
-
-
-                        <div class="cart-info">
-
-                            <h3>
-                                ${product.name}
-                            </h3>
-
-                            <p>
-                                🎨 Color:
-                                ${item.color}
-                            </p>
-
-                            <p>
-                                📏 Talla:
-                                ${item.size}
-                            </p>
-
-                            <p>
-                                ${money(product.price)}
-                            </p>
-
-                        </div>
-
-
-                        <div class="quantity">
-
-                            <button
-                                onclick="
-                                changeQuantity(
-                                    ${index},
-                                    -1
-                                )
-                                "
-                            >
-                                −
-                            </button>
-
-
-                            <strong>
-                                ${item.quantity}
-                            </strong>
-
-
-                            <button
-                                onclick="
-                                changeQuantity(
-                                    ${index},
-                                    1
-                                )
-                                "
-                            >
-                                +
-                            </button>
-
-                        </div>
-
-
-                        <button
-                            class="delete"
-                            onclick="
-                            removeItem(
-                                ${index}
-                            )
-                            "
-                        >
-                            🗑️
-                        </button>
-
-                    `;
-
-
-                    container.appendChild(
-                        div
-                    );
-
-                }
-            );
-
-
-            count.textContent =
-                quantityTotal;
-
-
-            totalElement.textContent =
-                money(total);
-
-
-            updateFinalTotal();
-
-        }
-
-
-        /* =====================================================
-           CAMBIAR CANTIDAD
-        ===================================================== */
-
-        function changeQuantity(
-            index,
-            change
-        ) {
-
-            const item =
-                cart[index];
-
-
-            if (!item) {
-
-                return;
-
-            }
-
-
-            const product =
-                products[item.id];
-
-
-            const newQuantity =
-                item.quantity +
-                change;
-
-
-            if (
-                newQuantity < 1
-            ) {
-
-                return;
-
-            }
-
-
-            if (
-                newQuantity >
-                product.stock
-            ) {
-
-                alert(
-                    "📦 No hay más unidades disponibles."
-                );
-
-                return;
-
-            }
-
-
-            item.quantity =
-                newQuantity;
-
-
-            saveCart();
-
-            updateCart();
-
-        }
-
-
-        /* =====================================================
-           ELIMINAR
-        ===================================================== */
-
-        function removeItem(index) {
-
-            cart.splice(
-                index,
-                1
-            );
-
-
-            saveCart();
-
-            updateCart();
-
-        }
-
-
-        /* =====================================================
-           VACIAR
-        ===================================================== */
-
-        function emptyCart() {
-
-            if (
-                cart.length === 0
-            ) {
-
-                return;
-
-            }
-
-
-            const confirmDelete =
-                confirm(
-                    "¿Seguro que quieres vaciar el carrito?"
-                );
-
-
-            if (
-                !confirmDelete
-            ) {
-
-                return;
-
-            }
-
-
-            cart = [];
-
-
-            saveCart();
-
-            updateCart();
-
-        }
-
-
-        /* =====================================================
-           ABRIR CARRITO
-        ===================================================== */
-
-        function openCart() {
-
-            updateCart();
-
-
-            document.getElementById(
-                "cartModal"
-            ).classList.add(
-                "active"
-            );
-
-        }
-
-
-        /* =====================================================
-           CERRAR CARRITO
-        ===================================================== */
-
-        function closeCart() {
-
-            document.getElementById(
-                "cartModal"
-            ).classList.remove(
-                "active"
-            );
-
-        }
-
-
-        /* =====================================================
-           ACTUALIZAR TOTAL FINAL
-        ===================================================== */
-
-        function updateFinalTotal() {
-
-            let total = 0;
-
-
-            cart.forEach(
-                function(item) {
-
-                    const product =
-                        products[item.id];
-
-
-                    total +=
-                        product.price *
-                        item.quantity;
-
-                }
-            );
-
-
-            const delivery =
-                parseInt(
-                    document.getElementById(
-                        "deliveryCost"
-                    ).value
-                ) || 0;
-
-
-            const final =
-                total +
-                delivery;
-
-
-            document.getElementById(
-                "finalTotal"
-            ).textContent =
-                money(final);
-
-        }
-
-
-        /* =====================================================
-           ACTUALIZAR DOMICILIO
-        ===================================================== */
-
-        document.getElementById(
-            "deliveryCost"
-        ).addEventListener(
-            "input",
-            updateFinalTotal
-        );
-
-
-        /* =====================================================
-           ENVIAR PEDIDO
-        ===================================================== */
-
-        function sendOrder() {
-
-            if (
-                cart.length === 0
-            ) {
-
-                alert(
-                    "🛒 Tu carrito está vacío."
-                );
-
-                return;
-
-            }
-
-
-            const name =
-                document.getElementById(
-                    "customerName"
-                ).value.trim();
-
-
-            const phone =
-                document.getElementById(
-                    "customerPhone"
-                ).value.trim();
-
-
-            const city =
-                document.getElementById(
-                    "customerCity"
-                ).value.trim();
-
-
-            const address =
-                document.getElementById(
-                    "customerAddress"
-                ).value.trim();
-
-
-            const deliveryType =
-                document.getElementById(
-                    "deliveryType"
-                ).value;
-
-
-            const deliveryCost =
-                parseInt(
-                    document.getElementById(
-                        "deliveryCost"
-                    ).value
-                ) || 0;
-
-
-            /* VALIDACIONES */
-
-            if (!name) {
-
-                alert(
-                    "👤 Escribe tu nombre."
-                );
-
-                return;
-
-            }
-
-
-            if (!phone) {
-
-                alert(
-                    "📱 Escribe tu teléfono."
-                );
-
-                return;
-
-            }
-
-
-            if (!city) {
-
-                alert(
-                    "📍 Escribe tu ciudad."
-                );
-
-                return;
-
-            }
-
-
-            if (!address) {
-
-                alert(
-                    "🏠 Escribe tu dirección."
-                );
-
-                return;
-
-            }
-
-
-            if (!deliveryType) {
-
-                alert(
-                    "🚚 Selecciona el tipo de entrega."
-                );
-
-                return;
-
-            }
-
-
-            /* NUMERO PEDIDO */
-
-            let orderNumber =
-                localStorage.getItem(
-                    "styloCapsOrderNumber"
-                );
-
-
-            if (!orderNumber) {
-
-                orderNumber = 1;
-
-            }
-
-            else {
-
-                orderNumber =
-                    parseInt(
-                        orderNumber
-                    ) + 1;
-
-            }
-
-
-            localStorage.setItem(
-                "styloCapsOrderNumber",
-                orderNumber
-            );
-
-
-            const formattedOrder =
-                String(
-                    orderNumber
-                ).padStart(
-                    5,
-                    "0"
-                );
-
-
-            /* CALCULAR */
-
-            let subtotal = 0;
-
-
-            let messageProducts =
-                "";
-
-
-            cart.forEach(
-                function(item) {
-
-                    const product =
-                        products[item.id];
-
-
-                    const productSubtotal =
-                        product.price *
-                        item.quantity;
-
-
-                    subtotal +=
-                        productSubtotal;
-
-
-                    messageProducts +=
-
-                        "🧢 *" +
-                        product.name +
-                        "*\n" +
-
-                        "🎨 Color: " +
-                        item.color +
-                        "\n" +
-
-                        "📏 Talla: " +
-                        item.size +
-                        "\n" +
-
-                        "🔢 Cantidad: " +
-                        item.quantity +
-                        "\n" +
-
-                        "💰 Subtotal: " +
-                        money(
-                            productSubtotal
-                        ) +
-
-                        "\n\n";
-
-                }
-            );
-
-
-            const finalTotal =
-                subtotal +
-                deliveryCost;
-
-
-            /* =================================================
-               MENSAJE WHATSAPP
-            ================================================= */
-
-            let message =
-
-                "Hola StyloCaps 👋\n\n" +
-
-                "🧢 *NUEVO PEDIDO*\n" +
-
-                "━━━━━━━━━━━━━━━━━━\n\n" +
-
-                "🔢 *Pedido:* #" +
-                formattedOrder +
-                "\n\n" +
-
-                "👤 *Cliente:* " +
-                name +
-                "\n" +
-
-                "📱 *Teléfono:* " +
-                phone +
-                "\n" +
-
-                "📍 *Ciudad:* " +
-                city +
-                "\n" +
-
-                "🏠 *Dirección:* " +
-                address +
-                "\n" +
-
-                "🚚 *Entrega:* " +
-                deliveryType +
-                "\n\n" +
-
-                "🛍️ *PRODUCTOS*\n" +
-
-                "━━━━━━━━━━━━━━━━━━\n\n" +
-
-                messageProducts +
-
-                "💰 *Subtotal:* " +
-                money(subtotal) +
-                "\n" +
-
-                "🚚 *Domicilio:* " +
-                money(deliveryCost) +
-                "\n\n" +
-
-                "💵 *TOTAL: " +
-                money(finalTotal) +
-                "*\n\n" +
-
-                "Quiero confirmar mi pedido. 🙌";
-
-
-            /* NUMERO STYLOCAPS */
-
-            const number =
-                "573001323639";
-
-
-            const whatsappURL =
-
-                "https://wa.me/" +
-
-                number +
-
-                "?text=" +
-
-                encodeURIComponent(
-                    message
-                );
-
-
-            /*
-                Usamos location.href
-                para evitar problemas
-                de bloqueo de ventanas.
-            */
-
-            window.location.href =
-                whatsappURL;
-
-        }
-
-
-        /* =====================================================
-           BUSCADOR
-        ===================================================== */
-
-        function filterProducts() {
-
-            const text =
-                document.getElementById(
-                    "search"
-                ).value
-                .toLowerCase()
-                .trim();
-
-
-            const maxPrice =
-                document.getElementById(
-                    "priceFilter"
-                ).value;
-
-
-            const cards =
-                document.querySelectorAll(
-                    ".product"
-                );
-
-
-            cards.forEach(
-                function(card) {
-
-                    const id =
-                        card.dataset.id;
-
-
-                    const product =
-                        products[id];
-
-
-                    const nameMatch =
-                        product.name
-                            .toLowerCase()
-                            .includes(text);
-
-
-                    let priceMatch =
-                        true;
-
-
-                    if (
-                        maxPrice !==
-                        "all"
-                    ) {
-
-                        priceMatch =
-                            product.price <=
-                            parseInt(
-                                maxPrice
-                            );
-
-                    }
-
-
-                    if (
-                        nameMatch &&
-                        priceMatch
-                    ) {
-
-                        card.style.display =
-                            "";
-
-                    }
-
-                    else {
-
-                        card.style.display =
-                            "none";
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        /* =====================================================
-           CERRAR MODALES HACIENDO CLICK AFUERA
-        ===================================================== */
-
-        window.addEventListener(
-            "click",
-            function(event) {
-
-                const productModal =
-                    document.getElementById(
-                        "productModal"
-                    );
-
-
-                const cartModal =
-                    document.getElementById(
-                        "cartModal"
-                    );
-
-
-                if (
-                    event.target ===
-                    productModal
-                ) {
-
-                    closeProduct();
-
-                }
-
-
-                if (
-                    event.target ===
-                    cartModal
-                ) {
-
-                    closeCart();
-
-                }
-
-            }
-        );
-
-
-        /* =====================================================
-           ESCAPE
-        ===================================================== */
-
-        document.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (
-                    event.key ===
-                    "Escape"
-                ) {
-
-                    closeProduct();
-
-                    closeCart();
-
-                }
-
-            }
-        );
-
-
-        /* =====================================================
+        /* =========================
            INICIAR
-        ===================================================== */
+        ========================= */
 
-        loadCart();
-
+        cargarCarrito();
 
     </script>
 
 </body>
-
 </html>
